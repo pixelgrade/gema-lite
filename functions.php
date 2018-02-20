@@ -98,12 +98,6 @@ function gema_setup() {
 	add_image_size( 'gema-site-logo', 710, 220, false );
 
 	/*
-	 * Enable support for Post Formats.
-	 * See https://developer.wordpress.org/themes/functionality/post-formats/
-	 */
-	add_theme_support( 'post-formats', array( 'quote' ) );
-
-	/*
 	 * Add editor styles and fonts
 	 */
 	add_editor_style( array( gema_montserrat_font_url() ) );
