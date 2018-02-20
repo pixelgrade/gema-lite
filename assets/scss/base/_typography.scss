@@ -1,0 +1,111 @@
+// ---------------------------------------
+// Typography
+// ---------------------------------------
+
+$default-font-size: 		16px 	!default;
+$default-spacing-unit: 		28px 	!default;
+$default-line-height: 		1.5 	!default;
+
+$color-dark:				#000	!default;
+$color-light:				#FFF	!default;
+
+$editor-style: 				false   !default;
+
+html {
+	font-size: percentage($default-font-size / 16px);
+	line-height: $default-line-height;
+	/*overflow-x: hidden;*/
+}
+
+body {
+	@extend .word-wrap;
+
+	font-family: $font-family--default;
+	font-size: percentage($default-font-size / 16px);
+	line-height: $default-line-height;
+	font-weight: 200;
+
+	background: $color-light;
+	color: $color-dark;
+}
+
+@mixin responsive-body-text($font-size) {
+	body {
+		font-size: $font-size;
+	}
+}
+
+@include responsive-body-text( map-get($responsive-body-text, $mobile) );
+
+// Using $responsive-body-text map to set body font-size depending on screen size;
+// font-size for $mobile is default, used above; it will be skipped in the loop;
+// "0000" is a dummy value, it means it must not taken into consideration;
+// output example: < @include query-above($lap) { @include responsive-body-text( 16px ) }; >.
+@each $breakpoint, $font-size in $responsive-body-text {
+
+	@if $breakpoint != $mobile {
+
+		@if $font-size != 0000 {
+
+			@include query-above( $breakpoint ) {
+				@include responsive-body-text( $font-size );
+			}
+
+		}
+	}
+}
+
+%default-spacing {
+	margin-bottom: $default-spacing-unit;
+}
+
+p {
+	@extend %default-spacing;
+}
+
+b, strong, .bold {
+	font-weight: bold;
+}
+
+em, i, small, .italic {
+	font-style: italic;
+}
+
+@if $editor-style == false {
+	.entry-content,
+	.comment__content {
+		blockquote 	{ @extend %blockquote !optional; }
+		pre 		{ @extend %pre !optional; }
+		table 		{ @extend %table !optional; }
+
+		a {
+			color: #afafaf;
+
+			&:hover,
+			&:focus {
+				color: #000000;
+			}
+		}
+	}
+} @else {
+	blockquote 	{ @extend %blockquote !optional; }
+	pre 		{ @extend %pre !optional; }
+	table 		{ @extend %table !optional; }
+
+	a {
+		color: $link-hover;
+
+		&:hover,
+		&:focus {
+			color: #000000;
+		}
+	}
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.mejs-container {
+	@extend %default-spacing;
+}

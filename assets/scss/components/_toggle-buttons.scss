@@ -1,0 +1,162 @@
+%menu-icon {
+	font-size: 1.2em;
+	display: flex;
+	align-content: center;
+	align-items: center;
+
+	width: $header-height-mobile;
+	height: $header-height-mobile;
+
+	.icon {
+		margin: 0 auto;
+	}
+}
+
+
+@mixin icon-pseudo-element($icon-name) {
+	content: "";
+	display: block;
+	background: url('assets/images/#{$icon-name}.svg') no-repeat center center;
+	background-size: auto 30px;
+
+	width: $header-height-mobile;
+	height: $header-height-mobile;
+}
+
+.menu-toggle {
+	@extend %menu-icon;
+
+	&.menu-open:before {
+		@include icon-pseudo-element("menu-bars");
+
+		background-size: auto 30px;
+	}
+
+	&.menu-close:before {
+		@include icon-pseudo-element("close-icon");
+
+		background-size: auto 30px;
+	}
+
+	@include query-above($lap) {
+		display: none;
+	}
+}
+
+.sidebar-toggle {
+	@extend %menu-icon;
+
+	margin-right: -5px;
+
+	@include query-above($lap) {
+		visibility: hidden;
+		pointer-events: none;
+	}
+
+	@include query-below($small) {
+		margin-right: 0;
+	}
+
+	&.sidebar-open:before {
+		@include icon-pseudo-element("sidebar-icon");
+
+		background-size: auto 30px;
+
+	}
+
+	body:not(.has-active-sidebar) & {
+		visibility: hidden;
+		pointer-events: none;
+	}
+
+	.rtl & {
+		transform: scale(-1);
+	}
+}
+
+
+
+
+
+// Close icons
+%close-icon {
+	position: absolute;
+	top: 0;
+
+	z-index: 1200;
+
+	opacity: 0;
+	pointer-events: none;
+	transition: all .3s ease-in-out;
+}
+
+.menu-close, .right-close-button {
+	@extend %close-icon;
+}
+
+.menu-close {
+	right: 0;
+
+	.nav-is-open & {
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
+
+.right-close-button {
+	left: 0;
+	margin-top: 0;
+
+	@include query-above($lap) {
+		display: none;
+	}
+
+	&:before {
+		@include icon-pseudo-element("close-icon");
+
+		background-size: auto 30px;
+	}
+
+	.sidebar-is-open & {
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
+
+
+
+
+.overlay-shadow {
+	content: "";
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 990;
+	width: 100%;
+	height: 100%;
+	background: #CCCCCC;
+	opacity: 0;
+	transition: all .3s ease-in-out;
+	pointer-events: none;
+
+	@include query-above($lap) {
+		display: none;
+	}
+
+	.is--iele-10 & {
+		display: none;
+		pointer-events: auto;
+	}
+
+	.overlay-is-open & {
+		opacity: 0.5;
+		pointer-events: auto;
+	}
+
+	.is--iele-10.overlay-is-open & {
+		display: block;
+	}
+}

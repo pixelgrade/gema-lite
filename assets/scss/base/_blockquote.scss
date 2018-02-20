@@ -1,0 +1,14 @@
+%blockquote {
+	@extend %default-spacing !optional;
+	max-width: 440px;
+	padding: 33px 14px 0;
+	margin-left: auto;
+	margin-right: auto;
+	font-weight: 700;
+	text-transform: uppercase;
+	background: url('assets/images/quote.svg') top left no-repeat;
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+}

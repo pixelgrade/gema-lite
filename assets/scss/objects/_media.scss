@@ -1,0 +1,12 @@
+.media {
+	// @extend .clearfix;
+}
+
+.media__img {
+	float: left;
+	margin-right: 10px;
+}
+
+.media__body {
+	overflow: hidden;
+}

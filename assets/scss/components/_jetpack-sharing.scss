@@ -1,0 +1,80 @@
+body {
+	div.sharedaddy,
+	#content div.sharedaddy,
+	#main div.sharedaddy {
+		clear: none;
+	}
+
+	div.sharedaddy h3.sd-title {
+		margin-bottom: 26px;
+	}
+
+	div.sharedaddy div.sd-content ul li {
+		position: static;
+
+		a.sd-button {
+			padding: 7px 18px;
+
+			border-radius: 0;
+			border-color: $color-dark;
+
+			font-size: 14px;
+			font-family: $font-family--default;
+			letter-spacing: 0.117em;
+			text-transform: uppercase;
+
+			color: $color-dark !important;
+			background-color: transparent;
+			box-shadow: none;
+
+			span {
+				margin-left: 4px;
+			}
+
+			&:hover {
+				color: #ffffff !important;
+				background-color: $color-dark;
+				border-color: $color-dark;
+			}
+		}
+	}
+
+	div.sharedaddy div.sd-social-icon div.sd-content ul li[class*='share-'] a.sd-button {
+		padding: 7px !important;
+
+
+		background-color: transparent !important;
+		color: $color-dark !important;
+
+		border-radius: 0;
+		border: 1px solid $color-dark;
+
+		span:empty { display: none; }
+
+		&:hover {
+			padding: 7px !important;
+			color: #ffffff !important;
+			background-color: $color-dark !important;
+			border-color: $color-dark;
+
+			opacity: 1;
+		}
+	}
+
+	div.sharedaddy div.sd-social-icon div.sd-content ul li a.sd-button.share-more {
+		position: static;
+
+		margin-left: 0;
+		padding: 7px;
+
+		line-height: 18px;
+
+		span {
+			display: none;
+		}
+	}
+}
+
+.entry-content .sd-content li:before {
+	content: none;
+}

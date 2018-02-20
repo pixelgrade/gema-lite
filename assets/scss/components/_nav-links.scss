@@ -1,0 +1,155 @@
+.post-navigation {
+	clear: both;
+}
+
+.posts-navigation .nav-links {
+	justify-content: center;
+}
+
+.nav-links {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+
+	font-size: 16px;
+	line-height: 1.3;
+	font-weight: 400;
+	text-transform: uppercase;
+
+
+	@include query-above($small) {
+		flex-direction: row;
+		margin-bottom: $default-spacing-unit;
+	}
+
+	a:hover {
+		color: $color-dark;
+	}
+}
+
+.nav-previous,
+.nav-next {
+	position: relative;
+	padding: 10px 20px;
+
+	@include query-below($small) {
+		width: 100%;
+		text-align: center;
+	}
+
+	@include query-above($small) {
+		flex-basis: 50%;
+	}
+}
+
+@include query-below($small) {
+	.nav-previous {
+		margin-bottom: $default-spacing-unit/2;
+	}
+}
+
+.nav-previous:before,
+.nav-next:after {
+	content: "";
+	border: 0 solid transparent;
+	border-width: 5px 10px;
+	display: block;
+	position: absolute;
+	top: 50%;
+	margin-top: -5px;
+}
+
+@include query-above($small) {
+	.nav-next {
+		margin-left: auto;
+		text-align: right;
+	}
+}
+
+.nav-previous:before {
+	border-left: 0;
+	border-right-color: currentColor;
+	left: 0;
+}
+
+.nav-next:after {
+	border-right: 0;
+	border-left-color: currentColor;
+	right: 0;
+}
+
+
+
+
+
+.archive-navigation {
+	margin: 40px 0;
+
+	.nav-links {
+		justify-content: center;
+		align-items: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+
+		@include query-below($lap) { font-size: 14px; }
+	}
+
+	a, span {
+		margin: 10px 14px;
+		padding: 6px 12px;
+
+		border: 1px solid transparent;
+
+		@include query-below($lap) { margin: 5px 2px; }
+	}
+
+	.current {
+		border: 1px solid $color-dark;
+
+		font-size: 20px;
+
+		@include query-below($lap) {
+			margin-left: 15px;
+			margin-right: 15px;
+			font-size: 17px;
+		}
+	}
+
+	span.page-numbers.current, a:hover {
+		color: $color-dark;
+	}
+
+	.page-numbers.next, .page-numbers.prev {
+		&:before, &:after {
+			content: "";
+
+			position: relative;
+			top: -1px;
+
+			display: inline-block;
+			width: 0;
+			height: 0;
+			margin: 0 5px;
+			border: 5px solid transparent;
+
+			pointer-events: none;
+		}
+
+		&:hover {
+			font-size: 16px;
+		}
+	}
+
+	.page-numbers.prev {
+		&:before {
+			border-right: 10px solid $color-dark;
+		}
+	}
+
+	.page-numbers.next {
+		&:after {
+			border-left: 10px solid $color-dark;
+		}
+	}
+}

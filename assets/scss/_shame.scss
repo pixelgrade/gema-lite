@@ -1,0 +1,66 @@
+.screen-reader-text {
+	display: none;
+}
+
+.edit-link {
+	@extend %small-link;
+}
+
+.content-area {
+	margin: auto;
+	position: relative;
+}
+
+.tiled-gallery.tiled-gallery {
+	clear: none;
+}
+
+.sticky {
+	background-color: white;
+}
+
+// Used for page transition (?)
+body {
+	opacity: 0;
+	transition: opacity $transitionDuration $easeInOutQuad;
+}
+
+// Fix Jetpack Recipe shortcode printing 
+@media print {
+	body {
+		opacity: 1;
+	}
+}
+
+#main > .grid__item {
+	display: none;
+}
+
+#wpstats {
+	display: none;
+}
+
+// Pool Daddy container
+.PDS_Poll {
+	margin-bottom: $default-spacing-unit;
+}
+
+// Hide an element in the customizer
+// that is creating space below footer
+#webkit-iframe-shim {
+	position: fixed;
+	bottom: -9999px;
+	left: -9999px;
+}
+
+// Fixes a bug found in Windows 7 running IE11
+// which prevents fonts from displaying
+.is--ie * {
+	font-feature-settings: normal;
+}
+
+@include query-below($desk-big) {
+	.tiled-gallery .gallery-row {
+		width: auto !important;
+	}
+}

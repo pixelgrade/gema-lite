@@ -1,0 +1,169 @@
+// WP.com instagram widget
+$widget-instagram-gutter: 5px;
+
+.wpcom-instagram-images {
+	overflow: hidden;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	margin-top: 18px;
+	margin-left: -$widget-instagram-gutter;
+	margin-bottom: -$widget-instagram-gutter;
+
+	.is--ie-le10 & a {
+		display: block;
+	}
+
+	& > * { min-width: 0; }  //Firefox Bug?! 
+}
+
+.wpcom-instagram-images img {
+	display: block;
+	float: left;
+	height: auto;
+}
+
+.wpcom-instagram-images a img {
+	max-width: 100%;
+}
+
+.wpcom-instagram-images a {
+	margin-bottom: $widget-instagram-gutter;
+	margin-left: $widget-instagram-gutter;
+
+	.is--ie9 & {
+		display: inline-block;
+    }
+}
+
+.wpcom-instagram-columns-1 a {
+	flex-basis: 100%;
+
+	.is--ie9 & {
+		width: 100%;
+	}
+}
+
+.wpcom-instagram-columns-2 a {
+	flex-basis: calc(50% - #{$widget-instagram-gutter});
+
+	.is--ie9 & {
+		width: 48%;
+	}
+}
+
+.wpcom-instagram-columns-3 a {
+	flex-basis: calc(33.333333% - #{$widget-instagram-gutter});
+
+	.is--ie9 & {
+		width: 31%;
+	}
+}
+
+.wpcom-instagram-columns-4 a {
+	flex-basis: calc(25% - #{$widget-instagram-gutter});
+
+	.is--ie9 & {
+		width: 24%;
+	}
+}
+
+
+
+
+
+// WP.com Flickr widget
+.widget_flickr {
+	table#flickr_badge_wrapper {
+		margin-top: 18px;
+		border: none;
+
+		a:last-of-type {
+			color: $color-dark;
+
+			&:hover {
+				color: $link-hover;
+			}
+		}
+	}
+
+	td {
+		overflow: hidden;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		margin-left: -2px;
+		margin-bottom: -$widget-instagram-gutter;
+
+		.is--ie-le10 & a {
+			display: block;
+		}
+
+		& > * { min-width: 0; }  //Firefox Bug?!
+	}
+
+	br {
+		display: none;
+	}
+
+	a {
+		display: block;
+		margin-bottom: $widget-instagram-gutter;
+		margin-left: $widget-instagram-gutter;
+
+		&:last-of-type {
+			flex-basis: 100%;
+			margin: 15px 0 0 0;
+		}
+	}
+
+	.flickr-size-thumbnail a {
+		flex-basis: calc(33.333333% - #{$widget-instagram-gutter});
+
+		&:last-of-type {
+			flex-basis: 100%;
+		}
+	}
+}
+
+.widget_goodreads {
+	div[class^="gr_custom_container"] {
+		border: none;
+	}
+
+	a {
+		font-weight: 400;
+	}
+}
+
+.widget_jetpack_display_posts_widget {
+	.jetpack-display-remote-posts {
+		margin-top: 18px;
+
+		h4 {
+			font-size: 14px;
+		}
+	}
+
+	h4 {
+		font-weight: 400;
+		text-transform: uppercase;
+	}
+
+	h4 ~ p {
+		&:after {
+			content: "";
+
+			height: 0;
+			width: 100%;
+			display: block;
+			margin: 15px 0;
+
+			border-bottom: 1px solid $borders;
+		}
+
+		&:last-of-type:after {
+			content: none;
+		}
+	}
+}

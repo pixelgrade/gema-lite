@@ -1,0 +1,12 @@
+// Declaring and including fonts
+@mixin font-face($name, $filename, $weight: regular) {
+	@font-face {
+		font-family: $name;
+		font-weight: $weight;
+		src: url(assets/fonts/montserrat/(unquote($filename)) + '.eot');
+		src: url(assets/fonts/montserrat/(unquote($filename)) + '.woff2') format('woff2'),
+			url(assets/fonts/montserrat/(unquote($filename)) + '.woff') format('woff'),
+			url(assets/fonts/montserrat/(unquote($filename)) + '.ttf')  format('truetype'),
+			url(assets/fonts/montserrat/(unquote($filename)) + '.svg#svgFontName') format('svg');
+	}
+}

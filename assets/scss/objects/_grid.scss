@@ -1,0 +1,162 @@
+.site-content {
+	margin: 0 auto;
+
+	@include query-below($lap) {
+		margin-top: $header-height-mobile;
+	}
+}
+
+
+// Grid Wrapper
+.grid {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: center;
+
+    overflow: hidden; // card__mask was causing horizontal scroll because of margin: -10pxmargin-left: auto;
+    margin-right: auto;
+
+	opacity: 0;
+	transition: opacity .2s $easeInOutCirc;
+
+    .bricklayer-column {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+
+	.bricklayer-column-sizer {
+        width: 100%;
+        display: none;
+    }
+
+	@include query-above(800px) {
+		max-width: 1008px;
+		margin: 0 auto;
+
+        .bricklayer-column {
+            max-width: 50%;
+        flex-basis: 50%;}
+
+		.bricklayer-column-sizer {
+			width: 50%;
+		}
+	}
+
+	@include query-above($desk) {
+		max-width: 1494px;
+
+        .bricklayer-column {
+            max-width: percentage(1/3);
+			flex-basis: percentage(1/3);
+        }
+
+		.bricklayer-column-sizer {
+			width: percentage(1/3);
+		}
+	}
+
+	@include query-above($large) {
+		max-width: 1980px;
+
+        .bricklayer-column {
+            max-width: 25%;
+        flex-basis: 25%;}
+
+		.bricklayer-column-sizer {
+			width: 25%;
+		}
+	}
+
+	@include query-below(800px) {
+
+        .bricklayer-column {
+			padding: 0 42px;
+		}
+	}
+
+	@include query-below(480px) {
+
+		.bricklayer-column {
+			padding: 0;
+		}
+	}
+}
+
+// Grid Items
+.grid__item {
+	position: relative;
+}
+
+@include query-below($lap) {
+	.grid__item {
+		margin-top: 0 !important;
+	}
+}
+
+// Responsive layout mixing for gutter spacing
+@mixin layout-spacing($gutter-small, $gutter-big) {
+
+	// Small Gutter
+	.grid {
+		padding-right: $gutter-small;
+
+		> * {
+			padding-left: $gutter-small;
+		}
+	}
+
+	.grid__item {
+		margin-bottom: $gutter-small;
+	}
+
+	// Big Gutter
+	.grid__item--mb {
+		margin-bottom: $gutter-big;
+	}
+
+	.card--portrait,
+	.card--text {
+		padding-left: $gutter-big;
+	}
+
+	.bricklayer-column:nth-child(n+3) {
+		margin-top: $gutter-big;
+	}
+
+	.bricklayer-column:first-child > .card--portrait,
+	.card--portrait:nth-child(odd) {
+		padding-right: 0;
+		padding-left: $gutter-big - $gutter-small;
+	}
+
+	.bricklayer-column:last-child > .card--portrait,
+	.card--portrait:nth-child(even) {
+		padding-left: 0;
+		padding-right: $gutter-big - $gutter-small;
+	}
+
+	.card--landscape + .card--landscape,
+	.card--portrait + .card--portrait {
+		margin-top: $gutter-big;
+	}
+}
+
+// Default
+@media only screen and (min-width: 800px) {
+	.grid {
+		padding-right: map-get($gutter-small, $lap);
+
+		& > * {
+			padding-left: map-get($gutter-small, $lap);
+		}
+	}
+}
+
+@include query-above($lap) {
+	@include layout-spacing( map-get($gutter-small, $lap), map-get($gutter-big, $lap) );
+}
+
+@include query-above($large) {
+	@include layout-spacing( map-get($gutter-small, $large), map-get($gutter-big, $large) );
+}

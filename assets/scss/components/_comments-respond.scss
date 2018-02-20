@@ -1,0 +1,101 @@
+.comment-respond {
+	padding-top: 10px;
+
+	.comment-list & {
+	    margin-left: 76px;
+	    padding-top: 0;
+	    padding-bottom: 28px;
+	}
+}
+
+.comment-reply-title {
+	@extend .h2;
+}
+
+.comment-respond:not(.js) .comment-form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-left: -6px;
+	margin-right: -6px;
+
+	& > * {
+		margin-left: 6px;
+		margin-right: 6px;
+	}
+
+	label {
+		display: none;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="url"],
+	textarea {
+		font-family: inherit;
+		border: 1px solid #E0E0E0;
+		font-size: 14px;
+		line-height: 1.5;
+		color: #7E7E7E;
+		font-weight: 200;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="url"] {
+		width: 100%;
+		padding: 6px 20px;
+	}
+
+	textarea {
+		display: block;
+		padding: 10px 20px;
+	}
+
+
+	.comment-subscription-form{
+		input[type="checkbox"] {
+			margin-right: 0;
+			margin-top: 0;
+			vertical-align: middle;
+		}
+
+		p {
+			margin-bottom: 15px;
+			font-size: 15px;
+		}
+	}
+}
+
+.comment-form-author,
+.comment-form-email,
+.comment-form-url {
+	order: 2;
+	flex-basis: 150px;
+	flex-shrink: 0;
+	flex-grow: 1;
+}
+
+.comment-form-comment,
+.form-allowed-tags {
+	order: 3;
+	flex-basis: 100%;
+}
+
+.comment-form-comment textarea {
+	display: block;
+	width: 100%;
+}
+
+.form-submit {
+	order: 4;
+	margin-left: auto;
+	margin-bottom: 0;
+
+	input[type="submit"] {
+		font-size: 16px;
+		line-height: 1.25;
+		font-weight: 200;
+		letter-spacing: 0.05em;
+	}
+}

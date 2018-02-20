@@ -1,0 +1,59 @@
+//	Default WordPress Gallery
+
+.gallery.gallery,
+.tiled-gallery.tiled-gallery {
+	@extend %default-spacing;
+
+	.widget-area & {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+
+	// hackish // not sure
+	& + * {
+		margin-top: -5px;
+	}
+}
+
+.gallery.gallery {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+
+	& > * { min-width: 0; }  //Firefox Bug?!
+}
+
+.gallery-item.gallery-item {
+	margin-bottom: 5px;
+	text-align: center;
+
+	@include query-above($lap) {
+		margin-bottom: 10px;
+	}
+
+	a {
+		display: block;
+	}
+
+	.widget-area & {
+		margin-bottom: 5px;
+	}
+}
+
+.gallery-icon img {
+	margin: 0 auto;
+	display: block;
+}
+
+.gallery-caption {
+	margin-left: 0 !important;
+}
+
+
+@for $i from 1 through 9 {
+	.gallery-columns-#{$i} {
+		.gallery-item {
+			flex-basis: calc(#{percentage(1/$i)} - 5px);
+		}
+	}
+}

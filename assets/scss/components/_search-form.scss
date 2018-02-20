@@ -1,0 +1,36 @@
+.search-form {
+	display: flex;
+
+	> label {
+		flex-grow: 1;
+	}
+}
+
+.search-submit {
+	@extend .btn;
+	font-size: 12px;
+	margin: 0;
+}
+
+input[type=submit].search-submit {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.search-field {
+	height: 40px;
+	width: 100%;
+}
+
+.widget {
+	.search-form {
+		> label {
+			flex: 0 1 auto;
+			display: block;
+		}
+
+		.search-submit {
+			flex: 1 0 auto;
+		}
+	}
+}

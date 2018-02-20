@@ -1,0 +1,39 @@
+.infinite-scroll .posts-navigation,
+.infinite-scroll .archive-navigation {
+	display: none;
+}
+
+.infinite-scroll .grid {
+	margin-bottom: 85px;
+
+	@include query-above($lap) {
+		margin-bottom: 170px;
+	}
+}
+
+div#infinite-handle span {
+	background: transparent;
+	border-radius: 0;
+	color: inherit;
+	font-size: inherit;
+	padding: 0;
+
+	button,
+	button:hover {
+		@extend .btn;
+	}
+}
+
+.infinite-loader,
+div#infinite-handle {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;
+	margin-top: 56px;
+}
+
+.infinite-loader {
+	width: 28px;
+}

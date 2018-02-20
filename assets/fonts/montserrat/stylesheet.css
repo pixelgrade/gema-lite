@@ -1,0 +1,50 @@
+@font-face {
+    font-family: "Montserrat";
+    font-weight: 100;
+    src: url('montserrat-hairline.eot');
+    src: url('montserrat-hairline.eot?#iefix') format('embedded-opentype'),
+        url('montserrat-hairline.woff2') format("woff2"),
+        url('montserrat-hairline.woff') format("woff"),
+        url('montserrat-hairline.ttf') format("truetype"),
+        url('montserrat-hairline.svg#svgFontName') format("svg");
+}
+@font-face {
+    font-family: "Montserrat";
+    font-weight: 200;
+    src: url('montserrat-ultralight.eot');
+    src: url('montserrat-ultralight.eot?#iefix') format('embedded-opentype'),
+        url('montserrat-ultralight.woff2') format("woff2"),
+        url('montserrat-ultralight.woff') format("woff"),
+        url('montserrat-ultralight.ttf') format("truetype"),
+        url('montserrat-ultralight.svg#svgFontName') format("svg");
+}
+@font-face {
+    font-family: "Montserrat";
+    font-weight: 300;
+    src: url('montserrat-light.eot');
+    src: url('montserrat-light.eot?#iefix') format('embedded-opentype'),
+        url('montserrat-light.woff2') format("woff2"),
+        url('montserrat-light.woff') format("woff"),
+        url('montserrat-light.ttf') format("truetype"),
+        url('montserrat-light.svg#svgFontName') format("svg");
+}
+@font-face {
+    font-family: "Montserrat";
+    font-weight: 400;
+    src: url('montserrat-regular.eot');
+    src: url('montserrat-regular.eot?#iefix') format('embedded-opentype'),
+        url('montserrat-regular.woff2') format("woff2"),
+        url('montserrat-regular.woff') format("woff"),
+        url('montserrat-regular.ttf') format("truetype"),
+        url('montserrat-regular.svg#svgFontName') format("svg");
+}
+@font-face {
+    font-family: "Montserrat";
+    font-weight: 700;
+    src: url('montserrat-semibold.eot');
+    src: url('montserrat-semibold.eot?#iefix') format('embedded-opentype'),
+        url('montserrat-semibold.woff2') format("woff2"),
+        url('montserrat-semibold.woff') format("woff"),
+        url('montserrat-semibold.ttf') format("truetype"),
+        url('montserrat-semibold.svg#svgFontName') format("svg");
+}

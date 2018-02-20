@@ -1,0 +1,125 @@
+ul, ol, dl { @extend %default-spacing; }
+
+/* Definition Lists */
+%dl {
+	display: flex;
+	flex-wrap: wrap;
+
+	dt, dd {
+		padding: 0.5em 0;
+		border-bottom: 1px dashed rgba(0,0,0,0.1);
+
+		&:last-of-type {
+			border-bottom: 0;
+		}
+	}
+
+	dt {
+		font-weight: bold;
+		flex-basis: 33%;
+	}
+
+	dd {
+		flex-basis: 66%;
+	}
+}
+
+/* Unordered Lists */
+%ul, %ol {
+	// overflow: hidden;
+
+	ul, ol {
+		// border-top: 1px dashed $light;
+		list-style: initial;
+		margin: 0.5em 0 -0.5em;
+		padding-left: 2em;
+		// margin-left: -20em;
+	}
+
+	li {
+		position: relative;
+		// border-bottom: 1px dashed $light;
+		padding: 0.5em 0;
+		// padding-left: 20rem;
+		// margin-left:  $default-spacing-unit - 20rem;
+
+		@include query-below($small) {
+			padding-left: 0;
+			margin-left: 0;
+
+			li {
+				// padding-left: 20rem;
+				// margin-left: $default-spacing-unit - 20rem;
+			}
+		}
+
+		&:last-child {
+			border-bottom: 0;
+		}
+
+		&:before {
+			color: $color-dark;
+		}
+	}
+}
+
+%ul {
+	padding-left: 15px;
+
+	& > li {
+		&:before {
+			position: absolute;
+			left: -15px;
+
+			content: '-';
+			font-size: 0.85em;
+		}
+	}
+
+	%ol {
+		counter-reset: inside-ul-item;
+
+		& > li {
+			counter-increment: inside-ul-item;
+
+			&:before {
+				display: inline-block;
+				padding-right: 1em;
+
+				font-weight: bold;
+				content: counters(inside-ul-item, ".") ".";
+
+			}
+		}
+	}
+}
+
+%ol {
+	counter-reset: list-item;
+
+	& > li {
+		counter-increment: list-item;
+
+		&:before {
+			display: inline-block;
+			padding-right: 1em;
+
+			font-weight: bold;
+			content: counters(list-item, ".") ".";
+
+		}
+	}
+}
+
+@if $editor-style == false {
+	.entry-content,
+	.comment__content {
+		dl { @extend %dl; }
+		ul { @extend %ul; }
+		ol { @extend %ol; }
+	}
+} @else {
+	dl { @extend %dl; }
+	ul { @extend %ul; }
+	ol { @extend %ol; }
+}

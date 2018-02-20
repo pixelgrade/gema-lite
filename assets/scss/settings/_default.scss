@@ -1,0 +1,64 @@
+// ------ #STYLE GUIDE
+
+// ------ #BREAKPOINTS
+
+$default: 				0;
+
+$mobile: 				320px;
+$xsmall: 				480px;
+$small: 				740px;
+
+$palm:					600px;
+$lap:					900px;
+$desk:					1200px;
+$desk-big:              1400px;
+$large:					1650px;
+
+// ------ #COLORS
+$color-light: 			#FFFFFF;
+$color-dark: 			#000000;
+$borders:               #DDDDDD;
+$borders-light:         #F2F2F2;
+$link-hover:            #AFAFAF;
+
+// ------ #FONTS
+$font-family--default: 'Montserrat', sans-serif;
+
+//Fonts Properties
+$default-font-size: 	16px;
+$default-line-height: 	(26px/16px);
+
+$fa-font-path: "assets/fonts/font-awesome";
+
+// Various
+$header-height-mobile: 60px;
+
+// Responsive text values
+$responsive-title: 			(	$mobile: 20px,		$small: 32px,	$lap: 0000	);
+$responsive-body-text:		(	$mobile: 18px,		$small: 16px,	$lap: 0000	);
+
+
+
+
+
+
+// Grid settings
+// $gutter-small: 	30px;
+// $gutter-big: 	90px;
+
+
+// ------ #GRID
+
+// <<palm>> associated values will be used as default;
+// Rules for <<default> size will not be enclosed in any media query;
+// Rules for <<palm>> and <<lap>> will overwrite <<default>> rules,
+
+// ----- palm -----> / 600px / ----- lap -----> / 1100px / ----- desk -----> / 1440px /
+
+
+$gutter-small:			(	$default: 16px,		$palm: 0000,	$lap: 36px,		$desk: 45px,	$large: 36px	);
+$gutter-big:			(	$default: 32px,		$palm: 0000,	$lap: 72px, 	$desk: 90px,	$large: 72px	);
+
+//$palm: 600px;	$lap: 900px;	$desk: 1200px;	$large: 1450px;
+
+$transitionDuration: .25s;

@@ -1,0 +1,156 @@
+.comments-area {
+	margin-top: 50px;
+
+	@include query-above($lap) {
+		padding-right: 400px;
+	}
+}
+
+.comment,
+.pingback {
+	position: relative;
+	padding: 0;
+	font-size: 14px;
+}
+
+.pingback {
+	padding: 20px 0 0 76px;
+
+	p {
+		margin-bottom: 0;
+	}
+
+	.comment__content {
+		@extend %default-spacing;
+	}
+}
+
+.comment .children {
+	margin-bottom: 0;
+}
+
+.comment:first-child .children {
+	padding-bottom: 0;
+}
+
+.comment__article {
+    padding-bottom: 28px;
+
+    &:after {
+    	content: " ";
+    	display: table;
+    	clear: left;
+    }
+}
+
+.comment__author {
+	font-size: 16px;
+	font-weight: 300;
+
+	.comment-list:not(.comments-have-avatars) .bypostauthor & {
+		padding: 3px 8px;
+		margin-right: 6px;
+
+		background-color: $color-dark;
+		color: #ffffff;
+	}
+}
+
+.comment__links,
+.comment-reply-title small {
+	@extend %small-link;
+}
+
+.comment-reply-title small {
+	display: block;
+}
+
+.comment__links {
+	float: right;
+	margin: 0 -5px;
+
+	> a {
+		padding: 0 5px;
+	}
+}
+
+.comment .children {
+	position: relative;
+}
+
+@include query-above($lap) {
+	@for $i from 1 through 4 {
+		.comment.depth-#{$i} > .children {
+			padding-left: 62px;
+		}
+	}
+}
+
+@include query-above($small) {
+	@for $i from 1 through 4 {
+		.comment-list:not(.comments-have-avatars) .comment.depth-#{$i} > .children {
+			padding-left: 25px;
+		}
+	}
+}
+
+@include query-below($small) {
+	.comment-list:not(.comments-have-avatars) .comment.depth-1 > .children {
+		padding-left: 25px;
+	}
+}
+
+.comment__avatar {
+	position: relative;
+	z-index: 1;
+
+	background-color: white;
+
+	img {
+		width: 66px;
+		height: 66px;
+		display: block;
+		padding: 6px;
+		border: 1px solid $color-dark;
+	}
+
+	.comments-have-avatars .bypostauthor > .comment__article & {
+		position: relative;
+		left: -4px;
+
+		padding: 3px;
+
+		background-color: white;
+		border: 1px solid $color-dark;
+
+		img {
+			padding: 3px;
+		}
+	}
+}
+
+.comment__time {
+	color: #7E7E7E;
+
+	@include query-below($palm) {
+		display: none;
+	}
+}
+
+.comment__content {
+	line-height: (24/14);
+
+	>:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.comment-navigation {
+	margin: $default-spacing-unit 0;
+}
+
+.comment__alert {
+	text-align: right;
+	font-weight: 900;
+	border-top: 1px solid $borders;
+}

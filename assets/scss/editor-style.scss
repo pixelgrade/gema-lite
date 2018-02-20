@@ -1,0 +1,32 @@
+$editor-style: true;
+
+@import "settings/default";
+
+@import "tools/helpers";
+@import "tools/queries";
+
+@import "generic/reset";
+@import "generic/box-sizing";
+
+@import "base/typography";
+@import "base/blockquote";
+@import "base/pre";
+@import "base/tables";
+@import "base/titles";
+@import "base/form-elements";
+@import "base/wp-align";
+
+@import "components/dropcap";
+@import "components/intro";
+@import "components/lists";
+
+body {
+	max-width: 35em;
+	margin: 60px auto;
+
+	&:after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+}

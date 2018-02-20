@@ -1,0 +1,37 @@
+.site-footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	padding: 30px;
+	font-size: 14px;
+
+	@include query-above($lap) {
+		flex-direction: row;
+		padding: 40px;
+		margin-top: 80px;
+
+		> * {
+			flex-basis: 50%;
+		}
+	}
+
+	.infinite-scroll.neverending & {
+		display: none;
+	}
+
+	.infinite-scroll.neverending.infinity-end & {
+		display: flex;
+	}
+}
+
+.site-info {
+	@include query-below($lap) {
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	a {
+		font-weight: 400;
+	}
+}

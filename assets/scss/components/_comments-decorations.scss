@@ -1,0 +1,120 @@
+
+/**
+ * COMMENTS AREA #DECORATIONS
+ */
+
+// .comments-area:before,
+.comment:before,
+.comment__article:before,
+.comment .children:before,
+.comment .children:after,
+.comment-list .comment-respond:before,
+%separator {
+	content: "";
+	display: block;
+	background: $color-dark;
+	pointer-events: none;
+}
+
+.comment__article {
+	position: relative;
+}
+
+%separator {
+	width: 350px;
+	max-width: 100%;
+	height: 1px;
+}
+
+// separator before comments area
+.comments-area:before {
+	@extend %separator;
+	margin: 0 auto 50px;
+	background: #979797;
+}
+
+// vertical line descending below avatar towars bottom of comment
+.comments-have-avatars .comment:before,
+.comment-list .comment-respond:before {
+	position: absolute;
+	width: 1px;
+	top: 66px;
+	left: 32px;
+	bottom: 0;
+}
+
+.comment-list:not(.comments-have-avatars) {
+	.comment > .children .media__body {
+		position: relative;
+		overflow: visible;
+
+		&:before {
+			content: "";
+
+			position: absolute;
+			top: 0;
+			left: -25px;
+
+			height: 100%;
+			width: 1px;
+
+			background-color: $color-dark;
+		}
+	}
+
+	.comment-respond {
+		position: relative;
+
+		&:before {
+			top: 0;
+			left: -76px;
+			bottom: 28px;
+		}
+	}
+}
+
+.comments-have-avatars .comment__article:before {
+	position: absolute;
+	top: 66px;
+	left: 32px;
+	bottom: 0;
+	width: 1px;
+}
+
+.comment:last-child:before,
+.comment:not(.parent):last-child .comment__article:before,
+.comment:not(.parent):last-child .comment-respond:before {
+	display: none;
+}
+
+.comments-have-avatars .comment .children:before {
+	position: absolute;
+	width: 30px;
+	height: 1px;
+	top: 32px;
+	left: 32px;
+}
+
+.comments-have-avatars .comment .children:after {
+	position: absolute;
+	top: 0px;
+	left: 32px;
+	width: 1px;
+	height: 32px;
+}
+
+.pingback {
+	&:before {
+		position: absolute;
+		width: 1px;
+		top: 0;
+		left: 32px;
+		bottom: 0;
+
+		content: "";
+		display: block;
+
+		background: $color-dark;
+		pointer-events: none;
+	}
+}

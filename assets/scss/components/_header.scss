@@ -1,0 +1,183 @@
+.site-header {
+
+	@include query-below($small) {
+		padding: 0;
+	}
+}
+
+@include query-below($lap) {
+
+	// nasty
+	body .site-header {
+		overflow: hidden;
+
+		.site-branding {
+			text-align: center;
+			margin: 24px 48px;
+
+			img {
+				margin:0 auto;
+			}
+		}
+
+		.site-logo {
+			display: inline-block;
+		}
+	}
+}
+
+.header {
+
+	@include query-above($lap) {
+		text-align: right;
+		margin-left: - map-get($gutter-small, $lap);
+
+		//.site-title {
+		//	direction: rtl;
+		//}
+	}
+
+	& + .site-branding {
+		margin-top: 100px;
+
+		@include query-above($lap) {
+			display: none;
+		}
+	}
+}
+
+
+.hfeed .site-description-text {
+	margin-bottom: 0;
+}
+
+.site-branding {
+
+	@include query-above(800px) {
+		.header & {
+			padding-top: 2 * map-get($gutter-big, $lap);
+			width: 200%;
+			margin-right: -100%;
+			padding-left: map-get($gutter-small, $lap);
+			padding-bottom: map-get($gutter-small, $lap);
+		}
+	}
+
+	a {
+		display: block;
+	}
+
+	img {
+		display: block;
+
+		@include query-above($lap) {
+			body:not(.singular) & {
+				margin-left: auto;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 800px) and (max-width: 900px) {
+	body .site-header {
+		overflow: visible;
+	}
+
+	body:not(.singular) .site-branding.site-branding.site-branding {
+		margin-top: 0;
+		padding-top: 30px;
+		width: calc(200% + #{map-get($gutter-small, $lap)});
+		margin-left: 0;
+		padding-left: 0;
+	}
+}
+
+.site-logo {
+	width: auto;
+	max-width: 100%;
+}
+
+.archive-title {
+	margin: 0;
+
+	font-family: "Butler", serif;
+	font-size: 100px;
+	font-weight: 900;
+	text-transform: none;
+	text-align: center;
+	letter-spacing: 0;
+
+	span {
+		word-break: keep-all;
+		white-space: nowrap;
+	}
+}
+
+.archive-title--search {
+	font-size: 50px;
+
+	.search-query {
+		opacity: .65;
+	}
+}
+
+.site-title {
+	margin: 0;
+	max-width: 100%;
+
+	font-family: 'Butler', serif;
+	font-weight: 900;
+	font-size: 180px;
+	text-transform: none;
+
+	// for when it is hidden via
+	// position absolute
+	left: 0;
+
+	@include query-below(800px) {
+		font-size: 90px;
+		text-align: center;
+	}
+
+	@include query-above(800px) {
+		line-height: 1.05;
+	}
+
+	.singular & {
+		//margin-bottom: 0.2em;
+		line-height: 1.15;
+	}
+
+	span {
+		display: inline-block;
+		word-break: keep-all;
+
+		hyphens: none;
+	}
+}
+
+.site-title + .site-description-text {
+	margin-top: 12px;
+	margin-bottom: 20px;
+}
+
+@include query-below($desk-big) {
+	.singular .site-description-text {
+		display: none;
+	}
+}
+
+.mobile-logo .site-description-text {
+	display: none;
+}
+
+.site-title span:empty,
+.site-description-text:empty {
+	display: none;
+}
+
+@include query-above(800px) {
+	.overlay-toggle {
+		display: none;
+	}
+}

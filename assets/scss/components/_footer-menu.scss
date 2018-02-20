@@ -1,0 +1,25 @@
+.footer-menu {
+	text-transform: uppercase;
+
+	&, ul {
+		margin-bottom: 0;
+
+		@include query-below($lap) {
+			text-align: center;
+		}
+	}
+
+	@include query-above($lap) {
+		text-align: right;
+	}
+
+	li {
+		display: inline-block;
+	}
+
+	a {
+		font-weight: 300;
+		display: inline-block;
+		padding: .5em 1em;
+	}
+}

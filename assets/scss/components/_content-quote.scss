@@ -1,0 +1,58 @@
+.format-quote .card__meta {
+	z-index: 11;
+}
+
+.content-quote {
+	//background: black;
+	//color: white;
+	text-transform: uppercase;
+	//box-shadow: black 0 0 0 8px inset, white 0 0 0 9px inset;
+	padding: 60px 0 18px 0;
+	text-align: center;
+	position: relative;
+
+	font-size: 20px;
+	line-height: 1.2;
+	font-weight: 400;
+
+	&:before {
+		content: "\201C";
+
+		position: absolute;
+		top: -10px;
+		left: 50%;
+		z-index: 10;
+		transform: translateX(-50%);
+
+		display: block;
+		padding: 0 20px;
+		height: 60px;
+
+		font-family: $font-family--default;
+		font-size: 170px;
+		line-height: 1;
+		font-weight: 100;
+
+		background: white;
+	}
+
+	&:after {
+		content: "";
+
+		position: absolute;
+		top: 26px;
+		left: 50%;
+		transform: translateX(-50%);
+
+		width: 55%;
+
+		border-top: 2px solid black;
+	}
+
+	cite {
+		display: block;
+		font-style: normal;
+		font-size: 16px;
+		margin-top: 32px;
+	}
+}

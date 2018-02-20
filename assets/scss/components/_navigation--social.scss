@@ -1,0 +1,86 @@
+%nav-social {
+	display: flex;
+	margin: 0;
+	padding: 0;
+
+	@include query-above($lap) {
+		justify-content: flex-end;
+
+		.singular & {
+			justify-content: flex-start;
+		}
+	}
+
+	.menu-item {
+		line-height: 1 !important;
+		white-space: nowrap;
+		vertical-align: top;
+	}
+
+	a {
+		width: auto;
+		height: auto;
+		padding: 12px;
+		font-size: 24px;
+		transition: color .15s ease-in-out;
+
+		&:hover {
+			text-decoration: none;
+		}
+
+		@include query-above($lap) {
+			padding: 6px;
+			font-size: 16px;
+
+			&:hover {
+				color: $link-hover;
+			}
+		}
+
+		.is--ie &, .is--ie-le10 & {
+			color: transparent;
+			visibility: visible;
+		}
+
+		&:before {
+			display: block;
+
+			.is--ie & , .is--ie-le10 & {
+				color: black;
+			}
+		}
+	}
+}
+
+.jetpack-social-navigation.jetpack-social-navigation ul {
+	@extend %nav-social;
+}
+
+.jetpack-social-navigation.jetpack-social-navigation {
+	padding-left: 18px;
+
+	@include query-below($lap) {
+		align-self: flex-end;
+		margin-bottom: 18px;
+	}
+
+	@include query-between($xsmall, $lap) {
+		padding-left: 50px;
+	}
+
+	@include query-above($lap) {
+		padding-left: 0;
+		margin-bottom: 0;
+		margin-left: -6px;
+	}
+
+	.singular & {
+		@include query-between($lap, 1240px) {
+			margin-left: 22px;
+		}
+
+		@include query-above($desk-big) {
+			margin-top: 8px;
+		}
+	}
+}
