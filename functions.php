@@ -150,6 +150,9 @@ function gema_scripts() {
 	wp_enqueue_style( 'gema-fonts-montserrat', gema_montserrat_font_url() );
 	wp_enqueue_style( 'gema-fonts-butler', gema_butler_font_url() );
 
+	//Customizer Stylesheet
+	wp_enqueue_style( 'gemalite_customizer_style', get_template_directory_uri() . '/assets/css/admin/customizer.css', array(), '1.0.0', false );
+
 	//Enqueue jQuery
 	wp_enqueue_script( 'jquery' );
 
@@ -236,3 +239,8 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Theme About page.
+ */
+require get_template_directory() . '/inc/admin/about-page.php';

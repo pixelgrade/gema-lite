@@ -1,10 +1,10 @@
 /*
-Theme Name: Gema
-Theme URI: https://pixelgrade.com/demos/gema/
+Theme Name: Gema Lite
+Theme URI: https://pixelgrade.com/demos/gema-lite/
 Author: PixelGrade
 Author URI: https://pixelgrade.com/
 Description: A dynamic grid-based layout inspired and shaped by your content diversity.
-Version: 1.1.5-wpcom
+Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: gema
@@ -1635,7 +1635,7 @@ div#infinite-handle span button:hover,
     margin-top: 1px;
     margin-right: -4px;
     background: linear-gradient(-45deg, black 0%, black 10%, white 10%, white 40%, black 40%, black 60%, white 60%, white 90%, black 90%, black 100%);
-    background-position: top left;
+    background-position: top right;
     background-size: 6px 6px;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
