@@ -32,10 +32,6 @@ function gema_body_classes( $classes ) {
 			$classes[] = 'no-featured-image';
 		}
 
-        if ( is_active_sidebar( 'sidebar-1' ) ) {
-            $classes[] = 'has-active-sidebar';
-        }
-
 	} else {
 		// Adds a class of hfeed to non-singular pages.
 		$classes[] = 'hfeed';
