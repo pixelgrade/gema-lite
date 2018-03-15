@@ -1,20 +1,25 @@
 /*
-Theme Name: Gema
-Theme URI: https://pixelgrade.com/demos/gema/
+Theme Name: Gema Lite
+Theme URI: https://pixelgrade.com/demos/gema-lite
 Author: PixelGrade
 Author URI: https://pixelgrade.com/
-Description: A dynamic grid-based layout inspired and shaped by your content diversity.
-Version: 1.1.5-wpcom
+Description: Gema Lite is a newspaper-inspired theme focused on presenting your content in diverse, daring, and bold ways. Bring forth the stylish traveler, lifestyle connoisseur, the wandering photographer, literary dreamer, or any other passionate persona you keep tucked away. 
+Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: gema
+Text Domain: gema-lite
 Tags: adaptive, blog, bold, bright, clean, custom-menu, editor-style, featured-images, geometric, infinite-scroll, journal, lifestream, light, magazine, microformats, minimal, modern, multiple-menus, news, one-column, post-formats, responsive-layout, right-sidebar, rtl-language-support, scrapbooking, site-logo, smart, theme-options, threaded-comments, three-columns, translation-ready, two-columns, video, white
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
-Gema is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Gema Lite is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Resetting and rebuilding styles have been helped along thanks to the fine work of
+Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
+along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+and Blueprint http://www.blueprintcss.org/
 */
 /**
  * Table of Contents
