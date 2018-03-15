@@ -1227,15 +1227,6 @@ figure {
   .card__hover:hover .card__shadow:after {
     -webkit-transform: none;
             transform: none; }
-  .card__hover:hover .card-title-wrap {
-    -webkit-transform: translate(0, calc(-50% - 12px));
-            transform: translate(0, calc(-50% - 12px)); }
-  .card__hover:hover .card__meta {
-    opacity: 1;
-    margin-top: 0 !important; }
-  .card--text .card__hover:hover .card__meta {
-    -webkit-transform: translateY(-20%);
-            transform: translateY(-20%); }
   .card__wrap,
   .card__shadow:after {
     transition: -webkit-transform 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
