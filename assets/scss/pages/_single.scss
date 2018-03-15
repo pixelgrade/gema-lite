@@ -280,10 +280,18 @@
 				width: 100%;
 			}
 		}
+
+	}
+
+	.entry-image--portrait .entry-featured {
+		@include query-above($lap) {
+			float: none;
+		}
 	}
 
 	@include query-below($lap) {
-		.entry-image--landscape .entry-featured {
+		.entry-image--landscape .entry-featured,
+		.entry-image--portrait .entry-featured {
 			margin: -30px;
 			margin-bottom: 0;
 		}
@@ -292,8 +300,6 @@
 	.entry-image--portrait .entry-featured {
 		@include query-below($lap) {
 			max-width: 600px;
-			margin-left: auto;
-			margin-right: auto;
 		}
 
 		@include query-below($small) {

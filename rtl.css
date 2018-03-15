@@ -3175,16 +3175,19 @@ body div.sharedaddy div.sd-social-icon div.sd-content ul li a.sd-button.share-mo
         margin: 0 auto;
         width: 100%; } }
 
+@media only screen and (min-width: 900px) {
+  .singular .entry-image--portrait .entry-featured {
+    float: none; } }
+
 @media not screen and (min-width: 900px) {
-  .singular .entry-image--landscape .entry-featured {
+  .singular .entry-image--landscape .entry-featured,
+  .singular .entry-image--portrait .entry-featured {
     margin: -30px;
     margin-bottom: 0; } }
 
 @media not screen and (min-width: 900px) {
   .singular .entry-image--portrait .entry-featured {
-    max-width: 600px;
-    margin-right: auto;
-    margin-left: auto; } }
+    max-width: 600px; } }
 
 @media not screen and (min-width: 740px) {
   .singular .entry-image--portrait .entry-featured {
