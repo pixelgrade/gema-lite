@@ -25,7 +25,7 @@ get_header(); ?>
 				</div><!-- .header -->
 				<?php if( is_search() ) : ?>
 					<div class="grid__item">
-						<div class="card  card--text"><?php printf( __( '<h1 class="archive-title  archive-title--search">Search Results for: <span class="search-query">%s</span></h1>', 'gema' ), get_search_query() ); ?></div>
+						<div class="card  card--text"><?php printf( __( '<h1 class="archive-title  archive-title--search">Search Results for: <span class="search-query">%s</span></h1>', 'gema-lite' ), get_search_query() ); ?></div>
 					</div>
 				<?php endif; ?>
 

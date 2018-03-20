@@ -41,7 +41,7 @@
 						edit_post_link(
 							sprintf(
 							/* translators: %s: Name of current post */
-								esc_html__( 'Edit %s', 'gema' ),
+								esc_html__( 'Edit %s', 'gema-lite' ),
 								the_title( '<span class="screen-reader-text">"', '"</span>', false )
 							), '<span class="edit-link-separator"></span>'
 						);
@@ -63,7 +63,7 @@
 					edit_post_link(
 						sprintf(
 						/* translators: %s: Name of current post */
-							esc_html__( 'Edit %s', 'gema' ),
+							esc_html__( 'Edit %s', 'gema-lite' ),
 							the_title( '<span class="screen-reader-text">"', '"</span>', false )
 						), '<span class="edit-link-separator"></span>'
 					);
@@ -74,7 +74,7 @@
 				<?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 				<?php the_excerpt(); ?>
 
-				<a class="btn" href="<?php the_permalink(); ?>"><?php esc_html_e( 'More', 'gema' ); ?></a>
+				<a class="btn" href="<?php the_permalink(); ?>"><?php esc_html_e( 'More', 'gema-lite' ); ?></a>
 			</div>
 		</div>
 

@@ -54,8 +54,8 @@ function gema_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', 'gema' ),
-		'footer'  => esc_html__( 'Footer Menu', 'gema' ),
+		'primary' => esc_html__( 'Primary Menu', 'gema-lite' ),
+		'footer'  => esc_html__( 'Footer Menu', 'gema-lite' ),
 	) );
 
 	/*
@@ -215,11 +215,6 @@ require get_template_directory() . '/inc/extras.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
 
 /**
  * Theme About page.

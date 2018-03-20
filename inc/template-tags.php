@@ -34,7 +34,7 @@ if ( ! function_exists( 'gema_posted_on' ) ) :
 		$author_name = get_the_author();
 
 		$byline = sprintf(
-			esc_html_x( 'by %s', 'post author', 'gema' ),
+			esc_html_x( 'by %s', 'post author', 'gema-lite' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( $author_name ) . '</a></span>'
 		);
 
@@ -69,7 +69,7 @@ if ( ! function_exists( 'gema_get_cats_list' ) ) :
 
 		$cats = '';
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'gema' ), '', $post_ID );
+		$categories_list = get_the_category_list( esc_html__( ', ', 'gema-lite' ), '', $post_ID );
 		if ( $categories_list && gema_categorized_blog() ) {
 			$cats = '<span class="cat-links">' . $categories_list . '</span>';
 		}
@@ -109,7 +109,7 @@ if ( ! function_exists( 'gema_the_posts_navigation' ) ) :
 		global $wp_query;
 
 		$big = 999999999; // need an unlikely integer
-		$a11y_text = esc_html__( 'Page', 'gema' ); // Accessibility improvement
+		$a11y_text = esc_html__( 'Page', 'gema-lite' ); // Accessibility improvement
 
 		$links = paginate_links( array(
 			'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
@@ -117,8 +117,8 @@ if ( ! function_exists( 'gema_the_posts_navigation' ) ) :
 			'current' => max( 1, get_query_var('paged') ),
 			'total' => $wp_query->max_num_pages,
 			'prev_next' => true,
-			'prev_text' => esc_html__( 'Prev', 'gema' ),
-			'next_text' => esc_html__( 'Next', 'gema' ),
+			'prev_text' => esc_html__( 'Prev', 'gema-lite' ),
+			'next_text' => esc_html__( 'Next', 'gema-lite' ),
 			'before_page_number' => '<span class="screen-reader-text">' . $a11y_text . ' </span>',
 		) );
 
@@ -309,7 +309,7 @@ if ( ! function_exists( 'gema_the_image_navigation' ) ) :
 		if ( $post->post_parent ) : ?>
 
 		<nav class="navigation post-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php esc_html_e( 'Image navigation', 'gema' ); ?></h2>
+			<h2 class="screen-reader-text"><?php esc_html_e( 'Image navigation', 'gema-lite' ); ?></h2>
 			<div class="nav-links">
 				<div class="nav-previous">
 
