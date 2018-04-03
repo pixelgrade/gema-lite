@@ -134,9 +134,6 @@ function gema_scripts() {
 	//Customizer Stylesheet
 	wp_enqueue_style( 'gemalite_customizer_style', get_template_directory_uri() . '/assets/css/admin/customizer.css', array(), '1.0.0', false );
 
-	//Enqueue jQuery
-	wp_enqueue_script( 'jquery' );
-
 	wp_enqueue_script('bricklayer', get_template_directory_uri() . '/js/bricklayer.js', array(), '20170421', true);
 
 	wp_enqueue_script('gema-modernizr', get_template_directory_uri() . '/js/modernizr-custom.js', array(), '20160322', true);
