@@ -1,5 +1,5 @@
 {
-    "name": "gema",
+    "name": "gema-lite",
     "devDependencies": {
         "gulp": "*",
         "gulp-sass": "*",
