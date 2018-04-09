@@ -1,0 +1,560 @@
+# Copyright (C) 2018 PixelGrade
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Gema Lite 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/gema-lite\n"
+"POT-Creation-Date: 2018-04-09 07:03:06+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: 404.php:21
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:24
+msgid "It looks like something is amiss. A quick search might help."
+msgstr ""
+
+#: comments.php:30
+msgctxt "comments title"
+msgid "%1$s Comment"
+msgid_plural "%1$s Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:57
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:66 comments.php:67
+msgid "Name"
+msgstr ""
+
+#: comments.php:71 comments.php:72
+msgid "Email"
+msgstr ""
+
+#: comments.php:76 comments.php:77
+msgid "Website"
+msgstr ""
+
+#: comments.php:80
+msgctxt "noun"
+msgid "Comment"
+msgstr ""
+
+#: comments.php:80
+msgid "Message"
+msgstr ""
+
+#: comments.php:83
+msgid "Post"
+msgstr ""
+
+#: footer.php:17
+msgid "https://wordpress.org/"
+msgstr ""
+
+#: footer.php:17
+msgid "Proudly powered by %s"
+msgstr ""
+
+#: footer.php:19
+msgid "Theme: %1$s by %2$s."
+msgstr ""
+
+#: functions.php:57 header.php:30
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:58
+msgid "Footer Menu"
+msgstr ""
+
+#: header.php:33
+msgid "Open Sidebar"
+msgstr ""
+
+#: header.php:38
+msgid "Skip to content"
+msgstr ""
+
+#. translators: used on the attachment page to link to the parent post
+#: image.php:36
+msgid "Published in %s"
+msgstr ""
+
+#: inc/admin/about-page.php:19 inc/admin/about-page.php:21
+msgid "About Gema Lite"
+msgstr ""
+
+#: inc/admin/about-page.php:23
+msgid "Welcome to %s! - Version "
+msgstr ""
+
+#: inc/admin/about-page.php:25
+msgid ""
+" Gema Lite is a free magazine-style theme with clean type, smart layouts and "
+"a design flexibility that makes it perfect for publishers of all kinds."
+msgstr ""
+
+#: inc/admin/about-page.php:33
+msgid "Getting Started"
+msgstr ""
+
+#: inc/admin/about-page.php:34
+msgid "Recommended Actions"
+msgstr ""
+
+#: inc/admin/about-page.php:35
+msgid "Useful Plugins"
+msgstr ""
+
+#: inc/admin/about-page.php:36
+msgid "Support"
+msgstr ""
+
+#: inc/admin/about-page.php:37
+msgid "Changelog"
+msgstr ""
+
+#: inc/admin/about-page.php:38
+msgid "Free VS PRO"
+msgstr ""
+
+#: inc/admin/about-page.php:43 inc/admin/about-page.php:46
+msgid "Contact Support"
+msgstr ""
+
+#: inc/admin/about-page.php:45
+msgid ""
+"We want to make sure you have the best experience using Gema Lite. If you "
+"<strong>do not have a paid upgrade</strong>, please post your question in "
+"our community forums."
+msgstr ""
+
+#: inc/admin/about-page.php:52 inc/admin/about-page.php:85
+msgid "Documentation"
+msgstr ""
+
+#: inc/admin/about-page.php:54 inc/admin/about-page.php:84
+msgid ""
+"Need more details? Please check our full documentation for detailed "
+"information on how to use Gema Lite."
+msgstr ""
+
+#: inc/admin/about-page.php:55
+msgid "Read The Documentation"
+msgstr ""
+
+#: inc/admin/about-page.php:64 inc/admin/about-page.php:66
+msgid "Go to Customizer"
+msgstr ""
+
+#: inc/admin/about-page.php:65
+msgid ""
+"Using the WordPress Customizer you can easily customize every aspect of the "
+"theme."
+msgstr ""
+
+#: inc/admin/about-page.php:73 inc/admin/about-page.php:75
+msgid "Recommended actions"
+msgstr ""
+
+#: inc/admin/about-page.php:74
+msgid ""
+"We have compiled a list of steps for you, to take make sure the experience "
+"you will have using one of our products is very easy to follow."
+msgstr ""
+
+#: inc/admin/about-page.php:77
+msgid "You are good to go!"
+msgstr ""
+
+#: inc/admin/about-page.php:83
+msgid "Read the documentation"
+msgstr ""
+
+#: inc/admin/about-page.php:97
+msgid "View %s"
+msgstr ""
+
+#: inc/admin/about-page.php:100
+msgid "Daring Design for Devoted Readers"
+msgstr ""
+
+#: inc/admin/about-page.php:101
+msgid ""
+"With a unique grid layout, balanced range of diverse post layouts, and "
+"thoughtful choice of type and whitespace, Gema has a sharp and lightweight "
+"look. Precise animations set the right tone for your stories."
+msgstr ""
+
+#: inc/admin/about-page.php:106
+msgid "Mobile-Ready For All Devices"
+msgstr ""
+
+#: inc/admin/about-page.php:107
+msgid ""
+"Gema makes room for your readers to enjoy your articles on the go, no matter "
+"the device their using. We lend a hand by showcasing it beautifully to your "
+"audience."
+msgstr ""
+
+#: inc/admin/about-page.php:112
+msgid "Widgetized Sidebar To Keep Attention"
+msgstr ""
+
+#: inc/admin/about-page.php:113
+msgid ""
+"Gema allows you to add your favorite widgets to the right side of your "
+"articles. Newsletter, categories, comments, you have them all at your "
+"fingertips."
+msgstr ""
+
+#: inc/admin/about-page.php:118
+msgid "Social Icons for Stronger Bonds"
+msgstr ""
+
+#: inc/admin/about-page.php:119
+msgid ""
+"Gema's your go-to product if you really care about being easy to found on "
+"social media. By using them you could efficiently direct your audience "
+"towards your social activity where they can connect with you and become "
+"loyal followers."
+msgstr ""
+
+#: inc/admin/about-page.php:124
+msgid "Adaptive Layouts For Your Posts"
+msgstr ""
+
+#: inc/admin/about-page.php:125
+msgid ""
+"Gema adjusts the post layout so that you can display the featured image in "
+"portrait and landscape mode by the blink of an eye. This way, you can always "
+"make the most out of your visual look-and-feel."
+msgstr ""
+
+#: inc/admin/about-page.php:130
+msgid "Post Formats"
+msgstr ""
+
+#: inc/admin/about-page.php:131
+msgid ""
+"Gema makes the most out of the wide range of post formats to help you pack "
+"your stories beautifully. Text, image, video, audio, everything works "
+"flawlessly."
+msgstr ""
+
+#: inc/admin/about-page.php:136
+msgid "Social Sharing Features To Boost Traffic"
+msgstr ""
+
+#: inc/admin/about-page.php:137
+msgid ""
+"Gema comes with a subtle approach on helping you increase engagement by "
+"displaying social sharing buttons at the end of each post. This way, you "
+"give people a handy option to spread the word about your content right on "
+"time."
+msgstr ""
+
+#: inc/admin/about-page.php:142
+msgid "Premium Support and Assistance"
+msgstr ""
+
+#: inc/admin/about-page.php:143
+msgid ""
+"We offer customer support and assistance to help you get the best results in "
+"due time. We know our products inside-out and we can lend a hand to help you "
+"save resources of all kinds."
+msgstr ""
+
+#: inc/admin/about-page.php:148
+msgid "Friendly Self-Service"
+msgstr ""
+
+#: inc/admin/about-page.php:149
+msgid ""
+"We give you full access to an in-depth documentation to get the job done as "
+"quickly as possible. We don't stay in your way because we know you can make "
+"it too."
+msgstr ""
+
+#: inc/admin/about-page.php:154
+msgid "No Credit Footer Link"
+msgstr ""
+
+#: inc/admin/about-page.php:155
+msgid ""
+"You can easily remove the “Theme: Gema Lite by Pixelgrade” copyright from "
+"the footer area and make the theme yours from start to finish."
+msgstr ""
+
+#: inc/admin/about-page.php:163
+msgid "Already activated"
+msgstr ""
+
+#: inc/admin/about-page.php:164
+msgid "Version: "
+msgstr ""
+
+#: inc/admin/about-page.php:165 inc/admin/about-page.php:182
+msgid "Install and Activate"
+msgstr ""
+
+#: inc/admin/about-page.php:166 inc/admin/about-page.php:183
+msgid "Activate"
+msgstr ""
+
+#: inc/admin/about-page.php:167 inc/admin/about-page.php:184
+msgid "Deactivate"
+msgstr ""
+
+#: inc/admin/about-page.php:188
+msgid ""
+"It is highly recommended that you install Jetpack so you can enable the "
+"<b>Portfolio</b> content type for adding and managing your projects. Plus, "
+"Jetpack provides a whole host of other useful things for you site."
+msgstr ""
+
+#: inc/admin/ti-about-page/class-ti-about-page.php:894
+msgid "Activating"
+msgstr ""
+
+#: inc/customizer.php:24
+msgid "Display Site Title &amp; Tagline"
+msgstr ""
+
+#: inc/customizer.php:27
+msgid "Site Identity"
+msgstr ""
+
+#: inc/customizer.php:31
+msgid "View PRO Version"
+msgstr ""
+
+#: inc/customizer.php:34
+msgid ""
+"<div class=\"upsell-container\">\n"
+"\t\t\t\t\t<h2>Need More? Go PRO</h2>\n"
+"\t\t\t\t\t<p>Take it to the next level. See the features below:</p>\n"
+"\t\t\t\t\t<ul class=\"upsell-features\">\n"
+"                            <li>\n"
+"                            \t<h4>Personalize to Match Your Style</h4>\n"
+"                            \t<div class=\"description\">Having different "
+"tastes and preferences might be tricky for users, but not with Gema onboard. "
+"It has an intuitive and catchy interface which allows you to change "
+"<strong>fonts, colors or layout sizes</strong> in a blink of an eye.</div>\n"
+"                            </li>\n"
+"\n"
+"                            <li>\n"
+"                            \t<h4>Post Formats</h4>\n"
+"                            \t<div class=\"description\">Make room for a "
+"wide range of post formats to pack your engaging stories so that people will "
+"enjoy sharing. Text, image, video, audio—you name it, and you’re covered.</"
+"div>\n"
+"                            </li>\n"
+"\n"
+"                            <li>\n"
+"                            \t<h4>Adaptive Layouts For Your Posts</h4>\n"
+"                            \t<div class=\"description\">Whether your "
+"featured image is in portrait or landscape mode, Gema takes care of it by "
+"changing the post layout to provide the right fit.</div>\n"
+"                            </li>\n"
+"\n"
+"                            <li>\n"
+"                            \t<h4>Premium Customer Support</h4>\n"
+"                            \t<div class=\"description\">You will benefit by "
+"priority support from a caring and devoted team, eager to help and to spread "
+"happiness. We work hard to provide a flawless experience for those who vote "
+"us with trust and choose to be our special clients.</div>\n"
+"                            </li>\n"
+"                            \n"
+"                    </ul> %s </div>"
+msgstr ""
+
+#: inc/customizer.php:59
+msgid "View Gema PRO"
+msgstr ""
+
+#: inc/customizer.php:75
+msgid "Style Presets"
+msgstr ""
+
+#: inc/customizer.php:78
+msgid ""
+"<p>%s provides you hand-crafted style presets so that you never go out of "
+"trends and add some real value to the full package. You can instantly "
+"achieve a different visual approach and level up the users interest. </p><p> "
+"Our designer did his best to carefully match the colors and fonts so that "
+"you can easily refresh the overall style of your website.</p>"
+msgstr ""
+
+#: inc/customizer.php:79 inc/customizer.php:119
+msgid "Gema Pro"
+msgstr ""
+
+#: inc/customizer.php:95
+msgid "Colors"
+msgstr ""
+
+#: inc/customizer.php:98
+msgid ""
+"<p>Play around with colors that fits your vision, your mood or both of them. "
+"You can smoothly make a design twist to quickly catch your wide preferences."
+"</p><p>%s to switch colors and fonts in order to nurture your visual "
+"approach.</p>"
+msgstr ""
+
+#: inc/customizer.php:99 inc/customizer.php:205
+msgid "Upgrade to Gema Pro"
+msgstr ""
+
+#: inc/customizer.php:115
+msgid "Fonts"
+msgstr ""
+
+#: inc/customizer.php:118
+msgid ""
+"<p>Typography can make it or break it. %s gives you a generous playground to "
+"match your needs in terms of fonts and sizes.</p><p>You have full-access to "
+"600+ Google Fonts to mingle with for fine-tuning your style."
+msgstr ""
+
+#: inc/customizer.php:206
+msgid "Pro"
+msgstr ""
+
+#: inc/extras.php:120
+msgid "Pingback:"
+msgstr ""
+
+#: inc/extras.php:124 inc/extras.php:157
+#: template-parts/content-attachment.php:17
+msgid "Edit"
+msgstr ""
+
+#: inc/extras.php:152
+msgid "on %1$s at %2$s"
+msgstr ""
+
+#: inc/extras.php:172
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#. Translators: If there are characters in your language that are not supported
+#. by Montserrat, translate this to 'off'. Do not translate into your own
+#. language.
+#: inc/extras.php:196
+msgctxt "Montserrat font: on or off"
+msgid "on"
+msgstr ""
+
+#. Translators: If there are characters in your language that are not supported
+#. by Butler, translate this to 'off'. Do not translate into your own language.
+#: inc/extras.php:217
+msgctxt "Butler font: on or off"
+msgid "on"
+msgstr ""
+
+#: inc/template-tags.php:37
+msgctxt "post author"
+msgid "by %s"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:72
+msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:112
+msgid "Page"
+msgstr ""
+
+#: inc/template-tags.php:120
+msgid "Prev"
+msgstr ""
+
+#: inc/template-tags.php:121
+msgid "Next"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:312
+msgid "Image navigation"
+msgstr ""
+
+#: index.php:28
+msgid ""
+"<h1 class=\"archive-title  archive-title--search\">Search Results for: <span "
+"class=\"search-query\">%s</span></h1>"
+msgstr ""
+
+#: template-parts/content-attachment.php:43 template-parts/content-page.php:46
+#: template-parts/content-single.php:48
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content-header.php:39
+msgid "Close Primary Menu"
+msgstr ""
+
+#: template-parts/content-none.php:18
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:22
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:26
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:31
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#. translators: %s: Name of current post
+#: template-parts/content-page.php:32 template-parts/content-single.php:32
+#: template-parts/content.php:44 template-parts/content.php:66
+msgid "Edit %s"
+msgstr ""
+
+#: template-parts/content.php:77
+msgid "More"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Gema Lite"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://demos.pixelgrade.com/gema-lite"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Gema Lite is a newspaper-inspired theme focused on presenting your content "
+"in diverse, daring, and bold ways. Bring forth the stylish traveler, "
+"lifestyle connoisseur, the wandering photographer, literary dreamer, or any "
+"other passionate persona you keep tucked away."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "PixelGrade"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://pixelgrade.com/"
+msgstr ""
