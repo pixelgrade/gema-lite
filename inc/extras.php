@@ -109,7 +109,6 @@ add_filter( 'wp_link_pages_link', 'gema_wrap_current_pages_link', 10, 2 );
  * @param array  $args    An array of arguments.
  */
 function gema_comment_markup( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
 		case 'pingback' :
 		case 'trackback' :
@@ -118,11 +117,11 @@ function gema_comment_markup( $comment, $args, $depth ) {
 			<article>
 				<div class="media__body">
 					<header class="comment__meta">
-						<span class="comment__author"><?php esc_html_e( 'Pingback:', 'gema' ); ?></span>
+						<span class="comment__author"><?php esc_html_e( 'Pingback:', 'gema-lite' ); ?></span>
 						<div class="comment__links">
 							<?php
 							//we need some space before Edit
-							edit_comment_link( esc_html__( 'Edit', 'gema' ), '  ' );
+							edit_comment_link( esc_html__( 'Edit', 'gema-lite' ), '  ' );
 							?>
 						</div>
 					</header>
@@ -150,12 +149,12 @@ function gema_comment_markup( $comment, $args, $depth ) {
 					<header class="comment__meta">
 						<?php printf( '<span class="comment__author">%s</span>', get_comment_author_link() ) ?>
 						<time class="comment__time" datetime="<?php comment_time( 'c' ); ?>">
-							<a href="<?php echo esc_url( get_comment_link( get_comment_ID() ) ) ?>" class="comment__timestamp"><?php printf( esc_html__( 'on %s at %s', 'gema' ), get_comment_date(), get_comment_time() ); ?> </a>
+							<a href="<?php echo esc_url( get_comment_link( get_comment_ID() ) ) ?>" class="comment__timestamp"><?php printf( esc_html__( 'on %1$s at %2$s', 'gema-lite' ), get_comment_date(), get_comment_time() ); ?> </a>
 						</time>
 						<div class="comment__links">
 							<?php
 							//we need some space before Edit
-							edit_comment_link( esc_html__( 'Edit', 'gema' ), '  ' );
+							edit_comment_link( esc_html__( 'Edit', 'gema-lite' ), '  ' );
 
 							comment_reply_link( array_merge( $args, array(
 								'depth'     => $depth,
@@ -170,7 +169,7 @@ function gema_comment_markup( $comment, $args, $depth ) {
 					</section>
 					<?php if ( '0' == $comment->comment_approved ) : ?>
 						<div class="comment__alert">
-							<p><?php esc_html_e( 'Your comment is awaiting moderation.', 'gema' ) ?></p>
+							<p><?php esc_html_e( 'Your comment is awaiting moderation.', 'gema-lite' ) ?></p>
 						</div>
 					<?php endif; ?>
 				</div>
@@ -194,7 +193,7 @@ function gema_montserrat_font_url() {
 	* supported by Montserrat, translate this to 'off'. Do not translate
 	* into your own language.
 	*/
-	$montserrat = esc_html_x( 'on', 'Montserrat font: on or off', 'gema' );
+	$montserrat = esc_html_x( 'on', 'Montserrat font: on or off', 'gema-lite' );
 	if ( 'off' !== $montserrat ) {
 		return get_stylesheet_directory_uri() . '/assets/fonts/montserrat/stylesheet.css';
 	}
@@ -215,7 +214,7 @@ function gema_butler_font_url() {
 	* supported by Butler, translate this to 'off'. Do not translate
 	* into your own language.
 	*/
-	$butler = esc_html_x( 'on', 'Butler font: on or off', 'gema' );
+	$butler = esc_html_x( 'on', 'Butler font: on or off', 'gema-lite' );
 	if ( 'off' !== $butler ) {
 		return get_stylesheet_directory_uri() . '/assets/fonts/butler/stylesheet.css';
 	}

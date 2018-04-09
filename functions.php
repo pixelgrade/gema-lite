@@ -23,7 +23,7 @@ function gema_setup() {
 	 * If you're building a theme based on Gema, use a find and replace
 	 * to change 'gema' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'gema', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'gema-lite', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -54,8 +54,8 @@ function gema_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', 'gema' ),
-		'footer'  => esc_html__( 'Footer Menu', 'gema' ),
+		'primary' => esc_html__( 'Primary Menu', 'gema-lite' ),
+		'footer'  => esc_html__( 'Footer Menu', 'gema-lite' ),
 	) );
 
 	/*
@@ -133,9 +133,6 @@ function gema_scripts() {
 
 	//Customizer Stylesheet
 	wp_enqueue_style( 'gemalite_customizer_style', get_template_directory_uri() . '/assets/css/admin/customizer.css', array(), '1.0.0', false );
-
-	//Enqueue jQuery
-	wp_enqueue_script( 'jquery' );
 
 	wp_enqueue_script('bricklayer', get_template_directory_uri() . '/js/bricklayer.js', array(), '20170421', true);
 
@@ -215,11 +212,6 @@ require get_template_directory() . '/inc/extras.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
 
 /**
  * Theme About page.

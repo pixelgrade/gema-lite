@@ -29,7 +29,7 @@
 			edit_post_link(
 				sprintf(
 				/* translators: %s: Name of current post */
-					esc_html__( 'Edit %s', 'gema' ),
+					esc_html__( 'Edit %s', 'gema-lite' ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				), '<span class="edit-link-separator"></span>'
 			);
@@ -45,7 +45,7 @@
 
 			<?php
 			wp_link_pages(array(
-				'before' => '<div class="page-links">' . esc_html__('Pages:', 'gema'),
+				'before' => '<div class="page-links">' . esc_html__('Pages:', 'gema-lite'),
 				'after' => '</div>',
 			));
 			?>

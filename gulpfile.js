@@ -1,4 +1,4 @@
-var theme 		= 'gema',
+var theme 		= 'gema-lite',
 	gulp 		= require('gulp'),
 	sass 		= require('gulp-sass'),
 	prefix 		= require('gulp-autoprefixer'),

@@ -27,14 +27,14 @@
 	<div class="mobile-logo"></div>
 
 	<button class="overlay-toggle  menu-toggle  menu-open" aria-controls="primary-menu" aria-expanded="false">
-		<span class="screen-reader-text"><?php esc_html_e( 'Primary Menu', 'gema' ); ?></span>
+		<span class="screen-reader-text"><?php esc_html_e( 'Primary Menu', 'gema-lite' ); ?></span>
 	</button>
 	<button class="overlay-toggle  sidebar-toggle  sidebar-open"<?php if( ! is_single() ) echo ' disabled="disabled"'; ?> aria-expanded="false">
-		<span class="screen-reader-text"><?php esc_html_e( 'Open Sidebar', 'gema' ); ?></span>
+		<span class="screen-reader-text"><?php esc_html_e( 'Open Sidebar', 'gema-lite' ); ?></span>
 	</button>
 </div>
 
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'gema' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'gema-lite' ); ?></a>
 
 	<div id="content" class="site-content">
