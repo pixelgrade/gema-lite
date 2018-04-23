@@ -167,7 +167,7 @@ gulp.task('zip', ['build'], function(){
 	versionString = '-' + versionString.replace(/\./g,'-');
 
 	return gulp.src('./')
-		.pipe(exec('cd ./../; rm -rf Gema*.zip; cd ./build/; zip -r -X ./../Gema-Installer' + versionString +'.zip ./; cd ./../; rm -rf build'));
+		.pipe(exec('cd ./../; rm -rf Gema*.zip; cd ./build/; zip -r -X ./../gema-lite.zip ./; cd ./../; rm -rf build'));
 
 });
 

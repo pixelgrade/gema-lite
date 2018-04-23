@@ -20,6 +20,9 @@ Gema Lite is a newspaper-inspired theme focused on presenting your content in di
 
 == Changelog ==
 
+= 1.0.1 =
+* Fixed the screenshot images credits
+
 = 1.0.0 =
 * Initial release
 
