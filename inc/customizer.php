@@ -179,24 +179,24 @@
 	 * Assets that will be loaded for the customizer sidebar
 	 */
 	function gemalite_customizer_assets() {
-		wp_enqueue_style( 'gemalite_customizer_style', get_template_directory_uri() . '/assets/css/admin/customizer.css', null, '1.0.4', false );
+		wp_enqueue_style( 'gemalite-customizer-style', get_template_directory_uri() . '/assets/css/admin/customizer.css', null, '1.0.4', false );
 
-		wp_enqueue_script( 'gemalite_customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'jquery' ), '1.0.4', false );
+		wp_enqueue_script( 'gemalite-customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'jquery' ), '1.0.4', false );
 
 		// uncomment this to put back your dismiss notice
-		// update_user_meta( get_current_user_id(), 'hive_upgrade_dismissed_notice', 0 );
-		if ( isset( $_GET['hive-upgrade-dismiss'] ) && check_admin_referer( 'hive-upgrade-dismiss-' . get_current_user_id() ) ) {
-			update_user_meta( get_current_user_id(), 'hive_upgrade_dismissed_notice', 'forever' );
+		// update_user_meta( get_current_user_id(), 'gemalite_upgrade_dismissed_notice', 0 );
+		if ( isset( $_GET['gemalite-upgrade-dismiss'] ) && check_admin_referer( 'gemalite-upgrade-dismiss-' . get_current_user_id() ) ) {
+			update_user_meta( get_current_user_id(), 'gemalite_upgrade_dismissed_notice', 'forever' );
 			return;
 		}
 
-		$dismiss_user = get_user_meta( get_current_user_id(), 'hive_upgrade_dismissed_notice', true );
+		$dismiss_user = get_user_meta( get_current_user_id(), 'gemalite_upgrade_dismissed_notice', true );
 		if ( $dismiss_user === 'forever' ) {
 			return;
 		} elseif ( empty( $dismiss_user ) || ( is_numeric( $dismiss_user ) && $dismiss_user < 2  ) ) {
 
 			$value = $dismiss_user + 1;
-			update_user_meta( get_current_user_id(), 'hive_upgrade_dismissed_notice', $value );
+			update_user_meta( get_current_user_id(), 'gemalite_upgrade_dismissed_notice', $value );
 			return;
 		}
 
@@ -204,10 +204,10 @@
 			'upsell_link'     => gemalite_get_pro_link(),
 			'upsell_label'    => esc_html__( 'Upgrade to Gema Pro', 'gema-lite' ),
 			'pro_badge_label' => esc_html__( 'Pro', 'gema-lite' ) . '<span class="star"></span>',
-			'dismiss_link' => esc_url( wp_nonce_url( add_query_arg( 'hive-upgrade-dismiss', 'forever' ), 'hive-upgrade-dismiss-' . get_current_user_id() ) )
+			'dismiss_link' => esc_url( wp_nonce_url( add_query_arg( 'gemalite-upgrade-dismiss', 'forever' ), 'gemalite-upgrade-dismiss-' . get_current_user_id() ) )
 		);
 
-		wp_localize_script( 'gemalite_customizer', 'hiveCustomizerObject', $localized_strings );
+		wp_localize_script( 'gemalite_customizer', 'gemaliteCustomizerObject', $localized_strings );
 	}
 
 	add_action( 'customize_controls_enqueue_scripts', 'gemalite_customizer_assets' );
@@ -219,12 +219,12 @@
 		return 'https://pixelgrade.com/themes/blogging/gema-lite?utm_source=gema-lite-clients&utm_medium=customizer&utm_campaign=gema-lite#pro';
 	}
 
-	function hive_add_customify_options( $config ) {
+	function gemalite_add_customify_options( $config ) {
 
 		$config['sections'] = array();
 		$config['panels'] = array();
 
 		return $config;
 	}
-	add_filter( 'customify_filter_fields', 'hive_add_customify_options' );
+	add_filter( 'customify_filter_fields', 'gemalite_add_customify_options' );
 ?>

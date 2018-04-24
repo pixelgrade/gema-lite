@@ -16,13 +16,13 @@
 
 		<div class="card__wrap">
 			<div class="card__shadow">
-				<a href="<?php the_permalink(); ?>" <?php gema_the_post_thumbnail_class( 'card__image' ); ?>>
+				<a href="<?php the_permalink(); ?>" <?php gemalite_the_post_thumbnail_class( 'card__image' ); ?>>
                     <?php
                         $attachment = get_post_thumbnail_id( get_the_ID() );
                         $image      = wp_get_attachment_image_src( $attachment, 'full' );
                         $padding    = $image[2] * 100 / $image[1];
                         $thumb_src  = get_the_post_thumbnail_url( get_the_ID(), 'gema-super-small' );
-                        $src        = get_the_post_thumbnail_url( get_the_ID(), 'gema-archive-' . gema_get_post_thumbnail_aspect_ratio_class() );
+                        $src        = get_the_post_thumbnail_url( get_the_ID(), 'gema-archive-' . gemalite_get_post_thumbnail_aspect_ratio_class() );
                     ?>
                     <div class="card__image-wrap" style="padding-top: <?php echo $padding . '%'; ?>;">
                         <img class="card__thumb" src="<?php echo esc_url( $thumb_src ); ?>">
@@ -35,7 +35,7 @@
 					<?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 					<div class="card__meta  entry-meta">
 
-						<?php gema_first_category(); ?>
+						<?php gemalite_first_category(); ?>
 						<?php gema_posted_on(); ?>
 						<?php
 						edit_post_link(
@@ -57,7 +57,7 @@
 			<div class="card__wrap">
 				<div class="card__meta  entry-meta">
 
-					<?php gema_first_category(); ?>
+					<?php gemalite_first_category(); ?>
 					<?php gema_posted_on(); ?>
 					<?php
 					edit_post_link(

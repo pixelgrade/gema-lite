@@ -14,7 +14,7 @@
 	<?php if ( has_post_thumbnail() ) : ?>
 
 		<div class="entry-featured  entry-thumbnail">
-			<?php the_post_thumbnail( 'gema-single-' . gema_get_post_thumbnail_aspect_ratio_class() ); ?>
+			<?php the_post_thumbnail( 'gema-single-' . gemalite_get_post_thumbnail_aspect_ratio_class() ); ?>
 		</div>
 
 	<?php endif; ?>

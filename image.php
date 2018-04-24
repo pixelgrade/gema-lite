@@ -22,7 +22,7 @@ get_header(); ?>
 
 				<?php get_template_part( 'template-parts/content', 'attachment' ); ?>
 
-				<?php gema_the_image_navigation(); ?>
+				<?php gemalite_the_image_navigation(); ?>
 
 				<?php
 				// If comments are open or we have at least one comment, load up the comment template

@@ -12,7 +12,7 @@
 <header id="masthead" class="site-header" role="banner">
 	<div class="site-branding">
 
-		<?php gema_the_custom_logo(); ?>
+		<?php gemalite_the_custom_logo(); ?>
 
 		<?php
 		// on the front page and home page we use H1 for the title

@@ -16,7 +16,7 @@
  *
  * @return array
  */
-function gema_body_classes( $classes ) {
+function gemalite_body_classes( $classes ) {
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -48,7 +48,7 @@ function gema_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'gema_body_classes' );
+add_filter( 'body_class', 'gemalite_body_classes' );
 
 /**
  * Add custom classes for individual posts
@@ -59,24 +59,24 @@ add_filter( 'body_class', 'gema_body_classes' );
  *
  * @return array
  */
-function gema_post_classes( $classes ) {
+function gemalite_post_classes( $classes ) {
 
 	if ( is_archive() || is_home() || is_search() ) {
 		$classes[] = 'grid__item  card';
 
 		// add a dedicated class for the presence of a featured image - when no featured image we treat it as text
 		if ( has_post_thumbnail() && get_post_format() !== "quote") {
-			$classes[] = 'card--image card--' . gema_get_post_thumbnail_aspect_ratio_class();
+			$classes[] = 'card--image card--' . gemalite_get_post_thumbnail_aspect_ratio_class();
 		} else {
 			$classes[] = 'card--text card--portrait';
 		}
 	} else {
-		$classes[] = 'entry-image--' . gema_get_post_thumbnail_aspect_ratio_class();
+		$classes[] = 'entry-image--' . gemalite_get_post_thumbnail_aspect_ratio_class();
 	}
 
 	return $classes;
 }
-add_filter( 'post_class', 'gema_post_classes' );
+add_filter( 'post_class', 'gemalite_post_classes' );
 
 /**
  * Wrap the current page number for single post/page navigation
@@ -88,7 +88,7 @@ add_filter( 'post_class', 'gema_post_classes' );
  *
  * @return string
  */
-function gema_wrap_current_pages_link( $link, $i ) {
+function gemalite_wrap_current_pages_link( $link, $i ) {
 	global $page;
 
 	if ( $i == $page ) {
@@ -97,7 +97,7 @@ function gema_wrap_current_pages_link( $link, $i ) {
 
 	return $link;
 }
-add_filter( 'wp_link_pages_link', 'gema_wrap_current_pages_link', 10, 2 );
+add_filter( 'wp_link_pages_link', 'gemalite_wrap_current_pages_link', 10, 2 );
 
 /**
  * Use a template for individual comment output
@@ -108,7 +108,7 @@ add_filter( 'wp_link_pages_link', 'gema_wrap_current_pages_link', 10, 2 );
  * @param int    $depth   Depth of comment.
  * @param array  $args    An array of arguments.
  */
-function gema_comment_markup( $comment, $args, $depth ) {
+function gemalite_comment_markup( $comment, $args, $depth ) {
 	switch ( $comment->comment_type ) :
 		case 'pingback' :
 		case 'trackback' :
@@ -187,7 +187,7 @@ function gema_comment_markup( $comment, $args, $depth ) {
  *
  * @return string
  */
-function gema_montserrat_font_url() {
+function gemalite_montserrat_font_url() {
 
 	/* Translators: If there are characters in your language that are not
 	* supported by Montserrat, translate this to 'off'. Do not translate
@@ -208,7 +208,7 @@ function gema_montserrat_font_url() {
  *
  * @return string
  */
-function gema_butler_font_url() {
+function gemalite_butler_font_url() {
 
 	/* Translators: If there are characters in your language that are not
 	* supported by Butler, translate this to 'off'. Do not translate
@@ -231,7 +231,7 @@ function gema_butler_font_url() {
  *
  * @return string
  */
-function gema_cleanup_archive_title( $title ) {
+function gemalite_cleanup_archive_title( $title ) {
 
 	if ( is_category() ) {
 
@@ -250,4 +250,4 @@ function gema_cleanup_archive_title( $title ) {
 	return $title;
 
 }
-add_filter( 'get_the_archive_title', 'gema_cleanup_archive_title', 10, 1 );
+add_filter( 'get_the_archive_title', 'gemalite_cleanup_archive_title', 10, 1 );

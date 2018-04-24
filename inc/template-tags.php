@@ -200,12 +200,12 @@ add_action( 'save_post',     'gema_category_transient_flusher' );
  * @param string|array $class One or more classes to add to the class list.
  * @param int|WP_Post $post_id Optional. Post ID or post object.
  */
-function gema_the_post_thumbnail_class( $class = '', $post_id = null ) {
+function gemalite_the_post_thumbnail_class( $class = '', $post_id = null ) {
 	// Separates classes with a single space, collates classes for post thumbnail DIV
-	echo 'class="' . join( ' ', gema_get_post_thumbnail_class( $class, $post_id ) ) . '"';
+	echo 'class="' . join( ' ', gemalite_get_post_thumbnail_class( $class, $post_id ) ) . '"';
 }
 
-if ( ! function_exists( 'gema_get_post_thumbnail_class' ) ) :
+if ( ! function_exists( 'gemalite_get_post_thumbnail_class' ) ) :
 
 	/**
 	 * Retrieve the classes for the post_thumbnail,
@@ -217,7 +217,7 @@ if ( ! function_exists( 'gema_get_post_thumbnail_class' ) ) :
 	 * @param int|WP_Post $post_id Optional. Post ID or post object.
 	 * @return array Array of classes.
 	 */
-	function gema_get_post_thumbnail_class( $class = '', $post_id = null ) {
+	function gemalite_get_post_thumbnail_class( $class = '', $post_id = null ) {
 
 		$post = get_post( $post_id );
 
@@ -228,7 +228,7 @@ if ( ! function_exists( 'gema_get_post_thumbnail_class' ) ) :
 		}
 
 		//get the aspect ratio specific class
-		$classes[] = 'entry-image--' . gema_get_post_thumbnail_aspect_ratio_class( $post );
+		$classes[] = 'entry-image--' . gemalite_get_post_thumbnail_aspect_ratio_class( $post );
 
 		if ( ! empty( $class ) ) {
 			if ( ! is_array( $class ) ) {
@@ -252,7 +252,7 @@ if ( ! function_exists( 'gema_get_post_thumbnail_class' ) ) :
 
 endif;
 
-if ( ! function_exists( 'gema_get_post_thumbnail_aspect_ratio_class' ) ) :
+if ( ! function_exists( 'gemalite_get_post_thumbnail_aspect_ratio_class' ) ) :
 
 	/**
 	 * Get the aspect ratio of the post featured image
@@ -263,7 +263,7 @@ if ( ! function_exists( 'gema_get_post_thumbnail_aspect_ratio_class' ) ) :
 	 *
 	 * @return string Aspect ratio specific class.
 	 */
-	function gema_get_post_thumbnail_aspect_ratio_class( $post_id = null ) {
+	function gemalite_get_post_thumbnail_aspect_ratio_class( $post_id = null ) {
 
 		$post = get_post( $post_id );
 
@@ -296,14 +296,14 @@ if ( ! function_exists( 'gema_get_post_thumbnail_aspect_ratio_class' ) ) :
 
 endif;
 
-if ( ! function_exists( 'gema_the_image_navigation' ) ) :
+if ( ! function_exists( 'gemalite_the_image_navigation' ) ) :
 
 	/**
 	 * Display navigation to next/previous image attachment
 	 *
 	 * @since Gema 1.0
 	 */
-	function gema_the_image_navigation() {
+	function gemalite_the_image_navigation() {
 		global $post;
 
 		if ( $post->post_parent ) : ?>
@@ -332,7 +332,7 @@ if ( ! function_exists( 'gema_the_image_navigation' ) ) :
 endif;
 
 
-if ( ! function_exists( 'gema_first_category' ) ) :
+if ( ! function_exists( 'gemalite_first_category' ) ) :
 
 	/**
 	 * Prints HTML with the category of a certain post, with the most posts in it
@@ -342,7 +342,7 @@ if ( ! function_exists( 'gema_first_category' ) ) :
 	 *
 	 * @param int|WP_Post $post_ID Optional. Post ID or post object.
 	 */
-	function gema_first_category( $post_ID = null) {
+	function gemalite_first_category( $post_ID = null) {
 		global $wp_rewrite;
 
 		//use the current post ID is none given
@@ -381,7 +381,7 @@ if ( ! function_exists( 'gema_first_category' ) ) :
 	} #function
 endif;
 
-if ( ! function_exists( 'gema_compare_categories' ) ) :
+if ( ! function_exists( 'gemalite_compare_categories' ) ) :
 
 	/**
 	 * Compares 2 categories by term_id
@@ -393,7 +393,7 @@ if ( ! function_exists( 'gema_compare_categories' ) ) :
 	 *
 	 * @return int
 	 */
-	function gema_compare_categories( $a1, $a2 ) {
+	function gemalite_compare_categories( $a1, $a2 ) {
 		if ( $a1->term_id == $a2->term_id ) {
 			return 0; //we are only interested by equality but PHP wants the whole thing
 		}
@@ -406,7 +406,7 @@ if ( ! function_exists( 'gema_compare_categories' ) ) :
 
 endif;
 
-if ( ! function_exists( 'gema_the_custom_logo' ) ) :
+if ( ! function_exists( 'gemalite_the_custom_logo' ) ) :
 	/**
 	 * Displays the optional custom logo.
 	 *
@@ -414,7 +414,7 @@ if ( ! function_exists( 'gema_the_custom_logo' ) ) :
 	 *
 	 * @since Gema 1.0
 	 */
-	function gema_the_custom_logo() {
+	function gemalite_the_custom_logo() {
 		//use the WP 4.5 logo functionality if present
 		if ( function_exists( 'the_custom_logo' ) ) {
 			the_custom_logo();

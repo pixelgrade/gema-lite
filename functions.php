@@ -100,7 +100,7 @@ function gema_setup() {
 	/*
 	 * Add editor styles and fonts
 	 */
-	add_editor_style( array( gema_montserrat_font_url() ) );
+	add_editor_style( array( gemalite_montserrat_font_url() ) );
 	add_editor_style( array( 'editor-style.css' ) );
 }
 endif; // gema_setup
@@ -128,8 +128,8 @@ function gema_scripts() {
 	if( !is_rtl() ) wp_enqueue_style( 'gema-style', get_stylesheet_uri() );
 
 	/* Default Self-hosted Fonts */
-	wp_enqueue_style( 'gema-fonts-montserrat', gema_montserrat_font_url() );
-	wp_enqueue_style( 'gema-fonts-butler', gema_butler_font_url() );
+	wp_enqueue_style( 'gema-fonts-montserrat', gemalite_montserrat_font_url() );
+	wp_enqueue_style( 'gema-fonts-butler', gemalite_butler_font_url() );
 
 	//Customizer Stylesheet
 	wp_enqueue_style( 'gemalite_customizer_style', get_template_directory_uri() . '/assets/css/admin/customizer.css', array(), '1.0.0', false );
