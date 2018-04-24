@@ -36,7 +36,7 @@
 					<div class="card__meta  entry-meta">
 
 						<?php gemalite_first_category(); ?>
-						<?php gema_posted_on(); ?>
+						<?php gemalite_posted_on(); ?>
 						<?php
 						edit_post_link(
 							sprintf(
@@ -58,7 +58,7 @@
 				<div class="card__meta  entry-meta">
 
 					<?php gemalite_first_category(); ?>
-					<?php gema_posted_on(); ?>
+					<?php gemalite_posted_on(); ?>
 					<?php
 					edit_post_link(
 						sprintf(

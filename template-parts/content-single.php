@@ -23,8 +23,8 @@
 		<?php the_title('<h1 class="entry-title"><span>', '</span></h1>'); ?>
 
 		<div class="entry-meta">
-			<?php gema_cats_list(); ?>
-			<?php gema_posted_on(); ?>
+			<?php gemalite_cats_list(); ?>
+			<?php gemalite_posted_on(); ?>
 			<?php
 			edit_post_link(
 				sprintf(
@@ -53,7 +53,7 @@
 		</div><!-- .entry-content -->
 
 		<footer class="entry-footer">
-			<?php gema_entry_footer(); ?>
+			<?php gemalite_entry_footer(); ?>
 		</footer><!-- .entry-footer -->
 	</div><!-- .post__content -->
 

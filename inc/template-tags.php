@@ -7,14 +7,14 @@
  * @package Gema
  */
 
-if ( ! function_exists( 'gema_posted_on' ) ) :
+if ( ! function_exists( 'gemalite_posted_on' ) ) :
 
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 *
 	 * @since Gema 1.0
 	 */
-	function gema_posted_on() {
+	function gemalite_posted_on() {
 
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
@@ -44,7 +44,7 @@ if ( ! function_exists( 'gema_posted_on' ) ) :
 
 endif;
 
-if ( ! function_exists( 'gema_get_cats_list' ) ) :
+if ( ! function_exists( 'gemalite_get_cats_list' ) ) :
 
 	/**
 	 * Returns HTML with comma separated category links
@@ -55,7 +55,7 @@ if ( ! function_exists( 'gema_get_cats_list' ) ) :
 	 *
 	 * @return string
 	 */
-	function gema_get_cats_list( $post_ID = null ) {
+	function gemalite_get_cats_list( $post_ID = null ) {
 
 		//use the current post ID is none given
 		if ( empty( $post_ID ) ) {
@@ -70,7 +70,7 @@ if ( ! function_exists( 'gema_get_cats_list' ) ) :
 		$cats = '';
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'gema-lite' ), '', $post_ID );
-		if ( $categories_list && gema_categorized_blog() ) {
+		if ( $categories_list && gemalite_categorized_blog() ) {
 			$cats = '<span class="cat-links">' . $categories_list . '</span>';
 		}
 
@@ -80,7 +80,7 @@ if ( ! function_exists( 'gema_get_cats_list' ) ) :
 
 endif;
 
-if ( ! function_exists( 'gema_cats_list' ) ) :
+if ( ! function_exists( 'gemalite_cats_list' ) ) :
 
 	/**
 	 * Prints HTML with comma separated category links
@@ -89,15 +89,15 @@ if ( ! function_exists( 'gema_cats_list' ) ) :
 	 *
 	 * @param int|WP_Post $post_ID Optional. Post ID or post object.
 	 */
-	function gema_cats_list( $post_ID = null ) {
+	function gemalite_cats_list( $post_ID = null ) {
 
-		echo gema_get_cats_list( $post_ID );
+		echo gemalite_get_cats_list( $post_ID );
 
 	} #function
 
 endif;
 
-if ( ! function_exists( 'gema_the_posts_navigation' ) ) :
+if ( ! function_exists( 'gemalite_the_posts_navigation' ) ) :
 
 	/**
 	 * Prints the HTML of the posts navigation
@@ -105,7 +105,7 @@ if ( ! function_exists( 'gema_the_posts_navigation' ) ) :
 	 *
 	 * @since Gema 1.0
 	 */
-	function gema_the_posts_navigation() {
+	function gemalite_the_posts_navigation() {
 		global $wp_query;
 
 		$big = 999999999; // need an unlikely integer
@@ -127,13 +127,13 @@ if ( ! function_exists( 'gema_the_posts_navigation' ) ) :
 	} #function
 endif;
 
-if ( ! function_exists( 'gema_entry_footer' ) ) :
+if ( ! function_exists( 'gemalite_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 *
 	 * @since Gema 1.0
 	 */
-	function gema_entry_footer() {
+	function gemalite_entry_footer() {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
@@ -152,7 +152,7 @@ endif;
  *
  * @return bool
  */
-function gema_categorized_blog() {
+function gemalite_categorized_blog() {
 	if ( false === ( $all_the_cool_cats = get_transient( 'gema_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
@@ -182,15 +182,15 @@ function gema_categorized_blog() {
  *
  * @since Gema 1.0
  */
-function gema_category_transient_flusher() {
+function gemalite_category_transient_flusher() {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
 	// Like, beat it. Dig?
 	delete_transient( 'gema_categories' );
 }
-add_action( 'edit_category', 'gema_category_transient_flusher' );
-add_action( 'save_post',     'gema_category_transient_flusher' );
+add_action( 'edit_category', 'gemalite_category_transient_flusher' );
+add_action( 'save_post', 'gemalite_category_transient_flusher' );
 
 /**
  * Display the classes for the post thumbnail div.

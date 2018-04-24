@@ -23,7 +23,7 @@
 		<?php the_title('<h1 class="entry-title"><span>', '</span></h1>'); ?>
 
 		<div class="entry-meta">
-			<?php gema_posted_on(); ?>
+			<?php gemalite_posted_on(); ?>
 			<span class="edit-link-separator"></span>
 			<?php
 			edit_post_link(
@@ -50,7 +50,7 @@
 
 		</div><!-- .entry-content -->
 		<footer class="entry-footer">
-			<?php gema_entry_footer(); ?>
+			<?php gemalite_entry_footer(); ?>
 		</footer><!-- .entry-footer -->
 	</div>
 

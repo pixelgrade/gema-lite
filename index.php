@@ -42,7 +42,7 @@ get_header(); ?>
 			</div>
 		</main><!-- #main -->
 
-		<?php gema_the_posts_navigation(); ?>
+		<?php gemalite_the_posts_navigation(); ?>
 
 	</div><!-- #primary -->
 
