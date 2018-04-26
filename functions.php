@@ -198,6 +198,49 @@ function gemalite_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
 }
 add_filter( 'wp_get_attachment_image_attributes', 'gemalite_post_thumbnail_sizes_attr', 10 , 3 );
 
+
+
+/**
+ * Freemius Integration
+ */
+// Create a helper function for easy SDK access.
+function gl_fs() {
+    global $gl_fs;
+
+    if ( ! isset( $gl_fs ) ) {
+        // Include Freemius SDK.
+        require_once dirname(__FILE__) . '/freemius/start.php';
+
+        $gl_fs = fs_dynamic_init( array(
+            'id'                  => '2030',
+            'slug'                => 'gema-lite',
+            'type'                => 'theme',
+            'public_key'          => 'pk_efa9771c213353b903c05cea1a8c1',
+            'is_premium'          => false,
+            'has_addons'          => false,
+            'has_paid_plans'      => false,
+            'menu'                => array(
+                'slug'           => 'gema-lite-welcome',
+                'account'        => false,
+                'contact'        => false,
+                'support'        => false,
+                'parent'         => array(
+                    'slug' => 'themes.php',
+                ),
+            ),
+        ) );
+    }
+
+    return $gl_fs;
+}
+
+// Init Freemius.
+gl_fs();
+// Signal that SDK was initiated.
+do_action( 'gl_fs_loaded' );
+
+
+
 /**
  * Custom template tags for this theme.
  */
