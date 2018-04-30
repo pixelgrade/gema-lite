@@ -369,7 +369,7 @@ if ( ! function_exists( 'gemalite_first_category' ) ) :
 		}
 
 		//now intersect them so that we are left with a descending ordered array of the post's categories
-		$categories = array_uintersect( $all_categories, $categories, 'gema_compare_categories' );
+		$categories = array_uintersect( $all_categories, $categories, 'gemalite_compare_categories' );
 
 		if ( ! empty ( $categories ) ) {
 			$category = array_shift( $categories );

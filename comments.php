@@ -41,7 +41,7 @@ if ( post_password_required() ) {
 					'style'      	=> 'ol',
 					'short_ping' 	=> true,
 					'avatar_size' 	=> 54,
-					'callback' 		=> 'gema_comment_markup'
+					'callback' 		=> 'gemalite_comment_markup'
 				) );
 			?>
 		</ol><!-- .comment-list -->
