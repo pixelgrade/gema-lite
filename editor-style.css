@@ -32,8 +32,7 @@ img {
 button {
   background: none; }
 
-a,
-button {
+a, button {
   color: inherit; }
 
 a, button {
@@ -94,7 +93,12 @@ body {
   body {
     font-size: 16px; } }
 
-p, .mejs-container, blockquote, pre, table, ul, ol, dl {
+
+p, .mejs-container,
+blockquote,
+pre, table,
+ul, ol,
+dl {
   margin-bottom: 28px; }
 
 b, strong, .bold {
@@ -110,6 +114,7 @@ a {
 
 a:hover {
   text-decoration: underline; }
+
 
 blockquote {
   max-width: 440px;
@@ -127,6 +132,7 @@ pre {
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word; }
+
 
 pre {
   padding: 14px 28px;
@@ -382,6 +388,7 @@ figure {
   margin-bottom: 30px; }
 
 /* Definition Lists */
+
 dl {
   display: -ms-flexbox;
   display: flex;
@@ -417,6 +424,7 @@ ul li, ol li {
     border-bottom: 0; }
   ul li:before, ol li:before {
     color: #000000; }
+
 
 ul {
   padding-left: 15px; }
