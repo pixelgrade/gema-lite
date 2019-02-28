@@ -13,6 +13,9 @@ Gema Lite is a newspaper-inspired theme focused on presenting your content in wa
 
 ## Changelog
 
+= 1.0.9 =
+* Fixed a security issue
+
 = 1.0.8 =
 * Added WPForms recommended plugin
 
