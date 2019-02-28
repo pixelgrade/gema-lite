@@ -4,7 +4,7 @@ Theme URI: https://demos.pixelgrade.com/gema-lite
 Author: PixelGrade
 Author URI: https://pixelgrade.com/
 Description: Gema Lite is a newspaper-inspired theme focused on presenting your content in ways that grab attention and interest. No matter if you are a stylish traveler, lifestyle connoisseur, a wandering photographer or literary dreamer, this theme helps you create an outstanding digital presence. Be brave and put your blogging stories out there with Gema Lite!
-Version: 1.0.8
+Version: 1.0.9
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: gema-lite
@@ -96,7 +96,8 @@ img {
 button {
   background: none; }
 
-a, button {
+a,
+button {
   color: inherit; }
 
 a, button {
@@ -160,14 +161,11 @@ body {
   body {
     font-size: 16px; } }
 
-
 p, .mejs-container, .entry-content blockquote,
 .comment__content blockquote, .entry-content pre,
 .comment__content pre, .entry-content table,
 .comment__content table, .pingback .comment__content, .gallery,
-.tiled-gallery,
-ul, ol,
-dl {
+.tiled-gallery, ul, ol, dl {
   margin-bottom: 28px; }
 
 b, strong, .bold {
@@ -196,7 +194,8 @@ a:hover {
   font-weight: 700;
   text-transform: uppercase;
   background: url("assets/images/quote.svg") top left no-repeat; }
-  .entry-content blockquote > :last-child, .comment__content blockquote > :last-child {
+  .entry-content blockquote > :last-child,
+  .comment__content blockquote > :last-child {
     margin-bottom: 0; }
 
 pre {
@@ -219,16 +218,30 @@ table {
   table th, table td {
     vertical-align: middle; }
 
-.entry-content table tr, .comment__content table tr, .entry-content table thead, .comment__content table thead, .entry-content table tbody, .comment__content table tbody, .entry-content table tfoot, .comment__content table tfoot {
+.entry-content table tr,
+.comment__content table tr, .entry-content table thead,
+.comment__content table thead, .entry-content table tbody,
+.comment__content table tbody, .entry-content table tfoot,
+.comment__content table tfoot {
   border-bottom: 1px solid; }
-  .entry-content table tr:last-child, .comment__content table tr:last-child, .entry-content table thead:last-child, .comment__content table thead:last-child, .entry-content table tbody:last-child, .comment__content table tbody:last-child, .entry-content table tfoot:last-child, .comment__content table tfoot:last-child {
+  .entry-content table tr:last-child,
+  .comment__content table tr:last-child, .entry-content table thead:last-child,
+  .comment__content table thead:last-child, .entry-content table tbody:last-child,
+  .comment__content table tbody:last-child, .entry-content table tfoot:last-child,
+  .comment__content table tfoot:last-child {
     border-bottom: 0; }
 
-.entry-content table th, .comment__content table th, .entry-content table td, .comment__content table td {
+.entry-content table th,
+.comment__content table th, .entry-content table td,
+.comment__content table td {
   padding: .5em; }
-  .entry-content table th:first-child, .comment__content table th:first-child, .entry-content table td:first-child, .comment__content table td:first-child {
+  .entry-content table th:first-child,
+  .comment__content table th:first-child, .entry-content table td:first-child,
+  .comment__content table td:first-child {
     padding-right: 0; }
-  .entry-content table th:last-child, .comment__content table th:last-child, .entry-content table td:last-child, .comment__content table td:last-child {
+  .entry-content table th:last-child,
+  .comment__content table th:last-child, .entry-content table td:last-child,
+  .comment__content table td:last-child {
     padding-left: 0; }
 
 h1, .h1 {
@@ -1771,7 +1784,6 @@ input[type=submit].search-submit {
 .comment__article {
   position: relative; }
 
-
 .comments-area:before {
   width: 350px;
   max-width: 100%;
@@ -2006,51 +2018,73 @@ input[type=submit].search-submit {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
-  .entry-content dl dt, .comment__content dl dt, .entry-content dl dd, .comment__content dl dd {
+  .entry-content dl dt,
+  .comment__content dl dt, .entry-content dl dd,
+  .comment__content dl dd {
     padding: 0.5em 0;
     border-bottom: 1px dashed rgba(0, 0, 0, 0.1); }
-    .entry-content dl dt:last-of-type, .comment__content dl dt:last-of-type, .entry-content dl dd:last-of-type, .comment__content dl dd:last-of-type {
+    .entry-content dl dt:last-of-type,
+    .comment__content dl dt:last-of-type, .entry-content dl dd:last-of-type,
+    .comment__content dl dd:last-of-type {
       border-bottom: 0; }
-  .entry-content dl dt, .comment__content dl dt {
+  .entry-content dl dt,
+  .comment__content dl dt {
     font-weight: bold;
     -ms-flex-preferred-size: 33%;
         flex-basis: 33%; }
-  .entry-content dl dd, .comment__content dl dd {
+  .entry-content dl dd,
+  .comment__content dl dd {
     -ms-flex-preferred-size: 66%;
         flex-basis: 66%; }
 
 /* Unordered Lists */
-.entry-content ul ul, .comment__content ul ul, .entry-content ul ol, .comment__content ul ol, .entry-content ol ul, .comment__content ol ul, .entry-content ol ol, .comment__content ol ol {
+.entry-content ul ul,
+.comment__content ul ul, .entry-content ul ol,
+.comment__content ul ol, .entry-content ol ul,
+.comment__content ol ul, .entry-content ol ol,
+.comment__content ol ol {
   list-style: initial;
   margin: 0.5em 0 -0.5em;
   padding-right: 2em; }
 
-.entry-content ul li, .comment__content ul li, .entry-content ol li, .comment__content ol li {
+.entry-content ul li,
+.comment__content ul li, .entry-content ol li,
+.comment__content ol li {
   position: relative;
   padding: 0.5em 0; }
   @media not screen and (min-width: 740px) {
-    .entry-content ul li, .comment__content ul li, .entry-content ol li, .comment__content ol li {
+    .entry-content ul li,
+    .comment__content ul li, .entry-content ol li,
+    .comment__content ol li {
       padding-right: 0;
       margin-right: 0; } }
-  .entry-content ul li:last-child, .comment__content ul li:last-child, .entry-content ol li:last-child, .comment__content ol li:last-child {
+  .entry-content ul li:last-child,
+  .comment__content ul li:last-child, .entry-content ol li:last-child,
+  .comment__content ol li:last-child {
     border-bottom: 0; }
-  .entry-content ul li:before, .comment__content ul li:before, .entry-content ol li:before, .comment__content ol li:before {
+  .entry-content ul li:before,
+  .comment__content ul li:before, .entry-content ol li:before,
+  .comment__content ol li:before {
     color: #000000; }
 
 .entry-content ul,
 .comment__content ul {
   padding-right: 15px; }
-  .entry-content ul > li:before, .comment__content ul > li:before {
+  .entry-content ul > li:before,
+  .comment__content ul > li:before {
     position: absolute;
     right: -15px;
     content: '-';
     font-size: 0.85em; }
-  .entry-content ul ol,
-  .comment__content ul ol {
+  .entry-content ul ol, .comment__content ul ol {
     counter-reset: inside-ul-item; }
-    .entry-content ul ol > li, .comment__content ul .entry-content ol > li, .entry-content ul .comment__content ol > li, .comment__content ul ol > li {
+    .entry-content ul ol > li,
+    .comment__content ul .entry-content ol > li, .entry-content ul
+    .comment__content ol > li, .comment__content ul ol > li {
       counter-increment: inside-ul-item; }
-      .entry-content ul ol > li:before, .comment__content ul .entry-content ol > li:before, .entry-content ul .comment__content ol > li:before, .comment__content ul ol > li:before {
+      .entry-content ul ol > li:before,
+      .comment__content ul .entry-content ol > li:before, .entry-content ul
+      .comment__content ol > li:before, .comment__content ul ol > li:before {
         display: inline-block;
         padding-left: 1em;
         font-weight: bold;
@@ -2059,9 +2093,11 @@ input[type=submit].search-submit {
 .entry-content ol,
 .comment__content ol {
   counter-reset: list-item; }
-  .entry-content ol > li, .comment__content ol > li {
+  .entry-content ol > li,
+  .comment__content ol > li {
     counter-increment: list-item; }
-    .entry-content ol > li:before, .comment__content ol > li:before {
+    .entry-content ol > li:before,
+    .comment__content ol > li:before {
       display: inline-block;
       padding-left: 1em;
       font-weight: bold;
