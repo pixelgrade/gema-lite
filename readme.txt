@@ -6,6 +6,7 @@ Description: Gema Lite is a newspaper-inspired theme focused on presenting your 
 Version: 1.0.9
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tested up to: 5.1
 Tags: one-column, two-columns, three-columns, grid-layout, editor-style, featured-images, rtl-language-support, sticky-post, translation-ready, blog, news
 
 == Description ==
