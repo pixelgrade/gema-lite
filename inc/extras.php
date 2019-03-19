@@ -251,3 +251,24 @@ function gemalite_cleanup_archive_title( $title ) {
 
 }
 add_filter( 'get_the_archive_title', 'gemalite_cleanup_archive_title', 10, 1 );
+
+/**
+ * Handle the WUpdates theme identification.
+ *
+ * @param array $ids
+ *
+ * @return array
+ */
+function gema_wupdates_add_id_wporg( $ids = array() ) {
+
+	// First get the theme directory name (unique)
+	$slug = basename( get_template_directory() );
+
+	// Now add the predefined details about this product
+	// Do not tamper with these please!!!
+	$ids[ $slug ] = array( 'name' => 'Gema Lite', 'slug' => 'gema-lite', 'id' => 'ML4Gm', 'type' => 'theme_wporg', 'digest' => '0f5505d9923953741169d1ccb1a26d76', );
+
+	return $ids;
+}
+// The 5 priority is intentional to allow for pro to overwrite.
+add_filter( 'wupdates_gather_ids', 'gema_wupdates_add_id_wporg', 5, 1 );
