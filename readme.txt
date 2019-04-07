@@ -3,11 +3,12 @@ Theme URI: https://pixelgrade.com/themes/gema-lite/
 Author: Pixelgrade
 Author URI: https://pixelgrade.com
 Description: Gema Lite is a newspaper-inspired theme focused on presenting your content in diverse, daring, and bold ways. Bring forth the stylish traveler, lifestyle connoisseur, the wandering photographer, literary dreamer, or any other passionate persona you keep tucked away.
-Version: 1.0.9
+Version: 1.1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tested up to: 5.1
-Tags: one-column, two-columns, three-columns, grid-layout, editor-style, featured-images, rtl-language-support, sticky-post, translation-ready, blog, news
+Requires at least: 4.9.9
+Tested up to: 5.1.1
+Tags: one-column, two-columns, three-columns, grid-layout, right-sidebar, editor-style, featured-images, rtl-language-support, custom-menu, custom-logo, sticky-post, translation-ready, blog, news, food-and-drink, threaded-comments
 
 == Description ==
 
@@ -20,6 +21,9 @@ Gema Lite is a newspaper-inspired theme focused on presenting your content in wa
 3. Click Activate to use your new theme right away.
 
 == Changelog ==
+
+= 1.1.0 =
+* Improved the overall onboarding experience with the theme and introduced a dedicated help tool.
 
 = 1.0.9 =
 * Fixed a security issue
@@ -63,5 +67,5 @@ Unless otherwise specified, all the theme files, scripts and images are licensed
 
 * smartResize.js: script by John Hann (https://gist.github.com/pkdsleeper/3802022), licensed under the [MIT License](http://opensource.org/licenses/mit-license.html).
 
-* Images: screenshot iamges by Pixabay (https://www.pexels.com/@pixabay) - [Source](https://www.pexels.com/photo/abandoned-alley-architecture-blue-208560/), Godisable Jacob (https://www.pexels.com/@godisable-jacob-226636) - [Source](https://www.pexels.com/photo/woman-in-brown-and-gray-t-shirt-sitting-on-brown-wooden-table-949670/), 
+* Images: screenshot iamges by Pixabay (https://www.pexels.com/@pixabay) - [Source](https://www.pexels.com/photo/abandoned-alley-architecture-blue-208560/), Godisable Jacob (https://www.pexels.com/@godisable-jacob-226636) - [Source](https://www.pexels.com/photo/woman-in-brown-and-gray-t-shirt-sitting-on-brown-wooden-table-949670/),
 Automnenoble Bogomolov (https://www.pexels.com/@automnenoble) - [Source](https://www.pexels.com/photo/woman-wearing-blue-crew-neck-sweater-and-pants-792192/), Pixabay (https://www.pexels.com/@pixabay) - [Source](https://www.pexels.com/photo/house-terrace-with-green-leaf-plants-during-daytime-161932/), Igor Starkov (https://www.pexels.com/@igor-starkov-233202) - [Source](https://www.pexels.com/photo/two-green-potted-plants-791810/), Pixabay (https://www.pexels.com/@pixabay) - [Source](https://www.pexels.com/photo/arch-architecture-art-blue-277590/), licensed under CC0 Public Domain.

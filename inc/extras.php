@@ -260,13 +260,12 @@ add_filter( 'get_the_archive_title', 'gemalite_cleanup_archive_title', 10, 1 );
  * @return array
  */
 function gema_wupdates_add_id_wporg( $ids = array() ) {
-
 	// First get the theme directory name (unique)
 	$slug = basename( get_template_directory() );
 
 	// Now add the predefined details about this product
 	// Do not tamper with these please!!!
-	$ids[ $slug ] = array( 'name' => 'Gema Lite', 'slug' => 'gema-lite', 'id' => 'ML4Gm', 'type' => 'theme_wporg', 'digest' => '0f5505d9923953741169d1ccb1a26d76', );
+	$ids[ $slug ] = array( 'name' => 'Gema', 'slug' => 'gema', 'id' => 'ML4Gm', 'type' => 'theme_wporg', 'digest' => 'caa70401bbaebb6a943f5998328b6f30', );
 
 	return $ids;
 }

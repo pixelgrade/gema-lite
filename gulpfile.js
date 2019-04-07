@@ -1,24 +1,16 @@
-var theme 		= 'gema-lite',
-	gulp 		= require('gulp'),
-	sass 		= require('gulp-sass'),
-	prefix 		= require('gulp-autoprefixer'),
-	exec 		= require('gulp-exec'),
-	replace 	= require('gulp-replace'),
-	minify 		= require('gulp-minify-css'),
-	livereload 	= require('gulp-livereload'),
-	concat 		= require('gulp-concat'),
-	notify 		= require('gulp-notify'),
-	beautify 	= require('gulp-beautify'),
-	csscomb 	= require('gulp-csscomb'),
-	cmq 		= require('gulp-combine-media-queries'),
-	fs          = require('fs'),
-	rtlcss 		= require('gulp-rtlcss'),
-	postcss 	= require('gulp-postcss'),
-	del         = require('del'),
-	rename 		= require('gulp-rename'),
-	sourcemaps  = require('gulp-sourcemaps');
+var gulp = require('gulp'),
+	plugins = require('gulp-load-plugins')(),
+	del = require('del'),
+	fs = require('fs');
 
-require('es6-promise').polyfill();
+var u = plugins.util,
+	c = plugins.util.colors,
+	log = plugins.util.log
+
+function logError (err, res) {
+	log(c.red('Sass failed to compile'))
+	log(c.red('> ') + err.file.split('/')[err.file.split('/').length - 1] + ' ' + c.underline('line ' + err.line) + ': ' + err.message)
+}
 
 jsFiles = [
 	'./assets/js/vendor/*.js',
@@ -30,74 +22,102 @@ jsFiles = [
 	'./assets/js/main/wrapper_end.js'
 ];
 
+var theme_name = 'gema-lite',
+	theme = theme_name,
+	main_branch = 'master',
+	options = {
+		silent: true,
+		continueOnError: true // default: false
+	};
 
-var options = {
-	silent: true,
-	continueOnError: true // default: false
-};
+function stylesMain() {
+	return gulp.src('assets/scss/**/*.scss')
+		.pipe(plugins.sourcemaps.init())
+		.pipe(plugins.sass({'sourcemap=auto': true, style: 'expanded'}).on('error', logError))
+		.pipe(plugins.autoprefixer())
+		.pipe(plugins.sourcemaps.write('.'))
+		.pipe(plugins.replace(/^@charset \"UTF-8\";\n/gm, ''))
+		.pipe(gulp.dest('./', {mode: "0644"}))
+}
+stylesMain.description = 'Compiles main css files (ie. style.css editor-style.css)';
+gulp.task('styles-main', stylesMain);
 
-gulp.task('styles', ['style.css'], function () {
+function stylesRTL() {
 	return gulp.src('style.css')
-			.pipe(rtlcss())
-			.pipe(rename('rtl.css'))
-			.pipe(gulp.dest('.'));
-});
+		.pipe(plugins.rtlcss())
+		.pipe(plugins.rename('style-rtl.css'))
+		.pipe(gulp.dest('.', {mode: "0644"}))
+}
+stylesRTL.description = 'Generate style-rtl.css file based on style.css';
+gulp.task('styles-rtl', stylesRTL)
 
-gulp.task('style.css', ['assets/css'], function () {
-	return gulp.src(['assets/scss/style.scss', 'assets/scss/editor-style.scss'])
-			.pipe(sourcemaps.init())
-			.pipe(sass().on('error', sass.logError))
-			.pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
-			.pipe(sourcemaps.write('.'))
-			.pipe(gulp.dest('.', {"mode": "0644"}));
-});
+function stylesWatch() {
+	plugins.livereload.listen();
+	return gulp.watch('assets/scss/**/*.scss', stylesMain);
+}
+gulp.task('styles-watch', stylesWatch);
 
-gulp.task('assets/css', function () {
-	return gulp.src(['assets/scss/**/*.scss', '!assets/scss/style.scss', '!assets/scss/editor-style.scss'])
-			.pipe(sourcemaps.init())
-			.pipe(sass().on('error', sass.logError))
-			.pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
-			.pipe(sourcemaps.write('./'))
-			.pipe(gulp.dest('./assets/css', {"mode": "0644"}));
-});
+function stylesSequence(cb) {
+	return gulp.series( 'styles-main', 'styles-rtl' )(cb);
+}
+stylesSequence.description = 'Compile the styles and generate RTL version.';
+gulp.task( 'styles', stylesSequence  );
 
-// javascript stuff
-gulp.task('scripts', function () {
+
+/*
+ * javascript stuff
+ */
+
+function scripts() {
 	return gulp.src(jsFiles)
-		.pipe(concat('main.js'))
-		.pipe(beautify({indentSize: 2}))
+		.pipe(plugins.concat('main.js'))
+		.pipe(plugins.beautify({indentSize: 2}))
 		.pipe(gulp.dest('./assets/js/', {"mode": "0644"}));
-});
+}
+gulp.task('scripts', scripts);
 
-gulp.task('watch', function () {
-	livereload.listen();
-	gulp.watch('assets/scss/**/*.scss', ['styles']);
-	gulp.watch('assets/js/**/*.js', ['scripts']);
-});
+function scriptsWatch() {
+	plugins.livereload.listen();
+	return gulp.watch('assets/js/**/*.js', scripts);
+}
+gulp.task('scripts-watch', scriptsWatch);
 
-// usually there is a default task for lazy people who just wanna type gulp
-gulp.task('start', ['styles', 'scripts'], function () {
-	// silence
-});
-
-gulp.task('server', ['styles', 'scripts'], function () {
-	console.log('The styles and scripts have been compiled for production! Go and clear the caches!');
-});
+function watch() {
+	gulp.watch('assets/scss/**/*.scss', stylesMain);
+	gulp.watch('assets/js/**/*.js', scripts);
+}
+gulp.task('watch', watch);
 
 
 /**
  * Copy theme folder outside in a build folder, recreate styles before that
  */
-gulp.task('copy-folder', ['styles', 'scripts'], function () {
-
-	return gulp.src('./')
-		.pipe(exec('rm -Rf ./../build; mkdir -p ./../build/' + theme + '; rsync -av --exclude="node_modules" ./* ./../build/' + theme + '/', options));
-});
+function copyFolder() {
+	var dir = process.cwd();
+	return gulp.src( './*' )
+		.pipe( plugins.exec( 'rm -Rf ./../build; mkdir -p ./../build/' + theme + ';', {
+			silent: true,
+			continueOnError: true // default: false
+		} ) )
+		.pipe( plugins.rsync({
+			root: dir,
+			destination: '../build/' + theme + '/',
+			// archive: true,
+			progress: false,
+			silent: false,
+			compress: false,
+			recursive: true,
+			emptyDirectories: true,
+			clean: true,
+			exclude: ['node_modules']
+		}));
+}
+gulp.task( 'copy-folder', copyFolder );
 
 /**
  * Clean the folder of unneeded files and folders
  */
-gulp.task('build', ['copy-folder'], function () {
+function removeUnneededFiles(done) {
 
 	// files that should not be present in build
 	files_to_remove = [
@@ -106,12 +126,11 @@ gulp.task('build', ['copy-folder'], function () {
 		'config.rb',
 		'gulpfile.js',
 		'package.json',
+		'package-lock.json',
 		'pxg.json',
 		'build',
 		'css',
 		'.idea',
-		'.travis.yml',
-		'circle.yml',
 		'**/.svn*',
 		'**/*.css.map',
 		'**/.sass*',
@@ -123,27 +142,57 @@ gulp.task('build', ['copy-folder'], function () {
 		'**/.DS_Store',
 		'__MACOSX',
 		'**/__MACOSX',
+		'tests',
+		'circle.yml',
+		'circle_scripts',
 		'README.md',
-		'LICENSE',
-
-		'assets/scss',
-		'assets/js/main',
-		'assets/js/modules',
-		'assets/js/vendor',
-		'assets/js/plugins'
+		'.labels',
+		'.circleci',
+		'.csscomb',
+		'.csscomb.json',
+		'.codeclimate.yml',
+		'tests',
+		'.jscsrc',
+		'.jshintignore',
+		'browserslist',
+		'babel.config.js'
 	];
 
 	files_to_remove.forEach(function (e, k) {
 		files_to_remove[k] = '../build/' + theme + '/' + e;
 	});
 
-	del.sync(files_to_remove, {force: true});
-});
+	return del(files_to_remove, {force: true});
+}
+gulp.task( 'remove-files', removeUnneededFiles );
+
+/**
+ * Copy theme folder outside in a build folder, recreate styles before that
+ */
+function maybeFixBuildPermissions() {
+	var dir = process.cwd();
+	return gulp.src( './*' )
+		// Make sure that file and directory permissions are right
+		.pipe(plugins.exec('find ./../build -type d -exec chmod 755 {} \\;'))
+		.pipe(plugins.exec(' find ./../build -type f -exec chmod 644 {} \\;'));
+}
+gulp.task( 'fix-build-permissions', maybeFixBuildPermissions );
+
+// -----------------------------------------------------------------------------
+// Replace the themes' text domain with the actual text domain (think variations)
+// -----------------------------------------------------------------------------
+function replaceThemeTextdomainPlaceholder() {
+
+	return gulp.src( '../build/' + theme + '/**/*.php' )
+		.pipe( plugins.replace( /['|"]__theme_txtd['|"]/g, '\'' + theme + '\'' ) )
+		.pipe( gulp.dest( '../build/' + theme ) );
+}
+gulp.task( 'txtdomain-replace', replaceThemeTextdomainPlaceholder);
 
 /**
  * Create a zip archive out of the cleaned folder and delete the folder
  */
-gulp.task('zip', ['build'], function(){
+function createZipFile(){
 
 	var versionString = '';
 	//get theme version from styles.css
@@ -166,35 +215,87 @@ gulp.task('zip', ['build'], function(){
 	versionString = versionLine[0].replace(/^[Vv]ersion:/, '' ).trim();
 	versionString = '-' + versionString.replace(/\./g,'-');
 
+	// Right now we create a zip without the version information in the name.
 	return gulp.src('./')
-		.pipe(exec('cd ./../; rm -rf Gema*.zip; cd ./build/; zip -r -X ./../gema-lite.zip ./; cd ./../; rm -rf build'));
+		.pipe(plugins.exec('cd ./../; rm -rf ' + theme + '*.zip; cd ./build/; zip -r -X ./../' + theme + '.zip ./; cd ./../; rm -rf build'));
+	// return gulp.src('./')
+	// 	.pipe(exec('cd ./../; rm -rf' + theme[0].toUpperCase() + theme.slice(1) + '*.zip; cd ./build/; zip -r -X ./../' + theme[0].toUpperCase() + theme.slice(1) + versionString + '.zip ./; cd ./../; rm -rf build'));
 
-});
+}
+gulp.task( 'make-zip', createZipFile );
 
-// usually there is a default task  for lazy people who just wanna type gulp
-gulp.task('default', ['start'], function () {
-	// silence
-});
+function buildSequence(cb) {
+	return gulp.series( 'copy-folder', 'remove-files', 'fix-build-permissions', 'txtdomain-replace' )(cb);
+}
+buildSequence.description = 'Sets up the build folder';
+gulp.task( 'build', buildSequence );
+
+function zipSequence(cb) {
+	return gulp.series( 'build', 'make-zip' )(cb);
+}
+zipSequence.description = 'Creates the zip file';
+gulp.task( 'zip', zipSequence  );
+
+function updateDemoInstall() {
+
+	var run_exec = require('child_process').exec;
+
+	gulp.src('./')
+		.pipe(plugins.prompt.confirm( "This task will stash all your local changes without commiting them,\n Make sure you did all your commits and pushes to the main " + main_branch + " branch! \n Are you sure you want to continue?!? "))
+		.pipe(plugins.prompt.prompt({
+			type: 'list',
+			name: 'demo_update',
+			message: 'Which demo would you like to update?',
+			choices: ['cancel', 'test.demos.pixelgrade.com/' + theme_name, 'demos.pixelgrade.com/' + theme_name]
+		}, function(res){
+
+			if ( res.demo_update === 'cancel' ) {
+				console.log( 'No hard feelings!' );
+				return false;
+			}
+
+			console.log('This task may ask for a github user / password or a ssh passphrase');
+
+			if ( res.demo_update ===  'test.demos.pixelgrade.com/' + theme_name ) {
+				run_exec('git fetch; git checkout test; git pull origin ' + main_branch + '; git push origin test; git checkout ' + main_branch + ';', function (err, stdout, stderr) {
+					// console.log(stdout);
+					// console.log(stderr);
+				});
+				console.log( " ==== The master branch is up-to-date now. But is the CircleCi job to update the remote test.demo.pixelgrade.com" );
+				return true;
+			}
+
+
+			if ( res.demo_update === 'demos.pixelgrade.com/' + theme_name ) {
+				run_exec('git fetch; git checkout master; git pull origin test; git push origin master; git checkout ' + main_branch + ';', function (err, stdout, stderr) {
+					// console.log(stdout);
+					// console.log(stderr);
+				});
+
+				console.log( " ==== The master branch is up-to-date now. But is the CircleCi job to update the remote demo.pixelgrade.com" );
+				return true;
+			}
+		}));
+}
+gulp.task('update-demo', updateDemoInstall);
+
 
 /**
  * Short commands help
  */
-
-gulp.task('help', function () {
+function help(done) {
 
 	var $help = '\nCommands available : \n \n' +
 		'=== General Commands === \n' +
 		'start              (default)Compiles all styles and scripts and makes the theme ready to start \n' +
 		'zip               	Generate the zip archive \n' +
-		'build						  Generate the build directory with the cleaned theme \n' +
+		'build				Generate the build directory with the cleaned theme \n' +
 		'help               Print all commands \n' +
 		'=== Style === \n' +
-		'styles             Compiles styles in production mode\n' +
-		'styles-dev         Compiles styles in development mode \n' +
-		'styles-admin       Compiles admin styles \n' +
+		'styles-main        Compiles styles in production mode\n' +
+		'styles-rtl         Compiles RTL styles in production mode\n' +
 		'=== Scripts === \n' +
 		'scripts            Concatenate all js scripts \n' +
-		'scripts-dev        Concatenate all js scripts and live-reload \n' +
 		'=== Watchers === \n' +
 		'watch              Watches all js and scss files \n' +
 		'styles-watch       Watch only styles\n' +
@@ -202,4 +303,6 @@ gulp.task('help', function () {
 
 	console.log($help);
 
-});
+	done();
+}
+gulp.task('help', help);

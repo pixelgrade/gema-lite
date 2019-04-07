@@ -3,7 +3,6 @@
 
 .word-wrap, body {
   -webkit-hyphens: auto;
-  -moz-hyphens: auto;
   -ms-hyphens: auto;
       hyphens: auto;
   word-break: break-word; }
@@ -32,8 +31,7 @@ img {
 button {
   background: none; }
 
-a,
-button {
+a, button {
   color: inherit; }
 
 a, button {
@@ -72,7 +70,8 @@ img {
   border: 0; }
 
 *, *:before, *:after {
-  box-sizing: border-box; }
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
 
 html {
   font-size: 100%;
@@ -94,7 +93,12 @@ body {
   body {
     font-size: 16px; } }
 
-p, .mejs-container, blockquote, pre, table, ul, ol, dl {
+
+p, .mejs-container,
+blockquote,
+pre, table,
+ul, ol,
+dl {
   margin-bottom: 28px; }
 
 b, strong, .bold {
@@ -110,6 +114,7 @@ a {
 
 a:hover {
   text-decoration: underline; }
+
 
 blockquote {
   max-width: 440px;
@@ -127,6 +132,7 @@ pre {
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word; }
+
 
 pre {
   padding: 14px 28px;
@@ -166,7 +172,6 @@ h1, h2, h3, h4, h5, h6,
   margin-bottom: 15px;
   letter-spacing: 0.029em;
   -webkit-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
-     -moz-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
           font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1; }
 
 h1 + h1, h1:first-child, h2 + h1, h2:first-child, h3 + h1, h3:first-child, h4 + h1, h4:first-child, h5 + h1, h5:first-child, h6 + h1, h6:first-child, h1 + h2, h2 + h2, h3 + h2, h4 + h2, h5 + h2, h6 + h2, h1 + h3, h2 + h3, h3 + h3, h4 + h3, h5 + h3, h6 + h3, h1 + h4, h2 + h4, h3 + h4, h4 + h4, h5 + h4, h6 + h4, h1 + h5, h2 + h5, h3 + h5, h4 + h5, h5 + h5, h6 + h5, h1 + h6, h2 + h6, h3 + h6, h4 + h6, h5 + h6, h6 + h6 {
@@ -382,7 +387,9 @@ figure {
   margin-bottom: 30px; }
 
 /* Definition Lists */
+
 dl {
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
@@ -417,6 +424,7 @@ ul li, ol li {
     border-bottom: 0; }
   ul li:before, ol li:before {
     color: #000000; }
+
 
 ul {
   padding-left: 15px; }
