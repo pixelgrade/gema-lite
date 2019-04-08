@@ -12,20 +12,24 @@
 	wp.customize( 'blogname', function( value ) {
 		value.bind( function( text ) {
 			$( '.site-title a span, .site-title text' ).text( text );
-			Logo.init();
+			$.Gema.Logo.adjustSiteTitle();
+			$.Gema.Logo.adjustArchiveTitle();
+			$.Gema.Logo.prepare();
 		} );
 	} );
 
 	wp.customize( 'blogdescription', function( value ) {
 		value.bind( function( text ) {
-			$( '.site-description' ).text( text );
+			$( '.site-description-text' ).text( text );
 		} );
 	} );
 
 	wp.customize( 'jetpack_fonts[selected_fonts]', function( value ) {
 		value.bind( function( to ) {
 			setTimeout(function() {
-				Logo.onResize();
+				$.Gema.Logo.adjustSiteTitle();
+				$.Gema.Logo.adjustArchiveTitle();
+				$.Gema.Logo.prepare();
 			}, 1);
 		} );
 	} );

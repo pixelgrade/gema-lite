@@ -168,12 +168,18 @@ function gemalite_sanitize_site_title_outline( $outline ) {
  * Assets that will be loaded for the customizer sidebar
  */
 function gemalite_customizer_assets() {
-	wp_enqueue_style( 'gemalite-customizer-style', get_template_directory_uri() . '/assets/css/admin/customizer.css', null, '1.1.1', false );
-
-	wp_enqueue_script( 'gemalite-customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'jquery' ), '1.1.1', false );
+	wp_enqueue_style( 'gemalite-customizer-style', get_template_directory_uri() . '/inc/admin/css/customizer.css', array(), '1.1.2', false );
 }
-
 add_action( 'customize_controls_enqueue_scripts', 'gemalite_customizer_assets' );
+
+/**
+ * JavaScript that handles the Customizer AJAX logic
+ * This will be added in the preview part
+ */
+function gemalite_customizer_preview_assets() {
+	wp_enqueue_script( 'gemalite_customizer_preview', get_template_directory_uri() . '/assets/js/customizer-preview.js', array( 'customize-preview' ), '1.1.2', true );
+}
+add_action( 'customize_preview_init', 'gemalite_customizer_preview_assets' );
 
 /**
  * Generate a link to the Gema Lite info page.
