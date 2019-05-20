@@ -62,7 +62,7 @@ class PixelgradeCare_Install_Notice {
 	}
 
 	public function outputMarkup() {
-		$button_text = esc_html__( 'Install the Pixelgrade Care&reg; plugin', '__theme_txtd' );
+		$button_text = esc_html__( 'Download Pixelgrade Care plugin for Free', '__theme_txtd' );
 		// Pixelgrade Care plugin installed, but not activated.
 		if ( ! class_exists( 'PixelgradeCare' ) && file_exists( WP_PLUGIN_DIR . '/pixelgrade-care/pixelgrade-care.php' ) ) {
 			$button_text = esc_html__( 'Activate the Pixelgrade Care&reg; plugin', '__theme_txtd' );
@@ -94,7 +94,7 @@ class PixelgradeCare_Install_Notice {
 			      method="post">
 				<noscript><input type="hidden" name="pixcare-notice-no-js" value="1"/></noscript>
 
-				<div class="pixcare-notice__wrap">
+				<div class="pixcare-notice__wrap pixcare-notice--download">
 					<div class="pixcare-notice__media">
                         <div class="pixcare-notice__screenshot">
                             <?php
@@ -110,8 +110,8 @@ class PixelgradeCare_Install_Notice {
                         </div>
 					</div>
 					<div class="pixcare-notice__body">
-						<h1><?php echo wp_kses( sprintf( __( 'Thanks for installing %s, you\'re awesome!<br>Let\'s make an experience out of it.', '__theme_txtd' ),  $theme->get( 'Name' ) ), wp_kses_allowed_html('post') ); ?></h1>
-						<p><?php echo wp_kses( __('We\'ve prepared a special onboarding setup that helps you get started and configure your upcoming website in style. Let\'s make it shine!', '__theme_txtd' ), wp_kses_allowed_html('post') ); ?></p>
+						<h1><?php echo wp_kses( sprintf( __( 'Thanks for installing %s, you\'re awesome! Let\'s make an experience out of it.', '__theme_txtd' ),  $theme->get( 'Name' ) ), wp_kses_allowed_html('post') ); ?></h1>
+						<p><?php echo wp_kses( __('We\'ve created a special onboarding setup through our <strong>Pixelgrade Care plugin</strong>. It helps you get started and configure your upcoming website in style. Let\'s make it shine!', '__theme_txtd' ), wp_kses_allowed_html('post') ); ?></p>
 						<ul>
 							<li>
 								<i></i><span><?php echo wp_kses( __('<strong>Recommended plugins</strong> to boost your site.', '__theme_txtd' ), wp_kses_allowed_html() ); ?></span>
@@ -130,6 +130,43 @@ class PixelgradeCare_Install_Notice {
                                 <span class="pixcare-notice-button__text"><?php echo $button_text ?></span>
                             </span>
                         </button>
+
+						<noscript>
+							<button type="submit" class="notice-dismiss"><span class="screen-reader-text"><?php esc_html_e( 'Dismiss this notice.', '__theme_txtd' ); ?></span></button>
+						</noscript>
+					</div>
+				</div>
+
+				<div class="pixcare-notice__wrap pixcare-notice--thankyou not-hidden">
+					<div class="pixcare-notice__media">
+                        <div class="pixcare-notice__screenshot">
+                            <?php
+                            $theme = get_template_directory_uri();
+                            $image = $theme . "/inc/admin/assets/thankyou.png";
+
+                            ?>
+                                <img src="<?php echo $image; ?>" alt="Thank you">
+                        
+                        </div>
+					</div>
+					<div class="pixcare-notice__body">
+						<h1><?php echo wp_kses( sprintf( __( 'Thanks for downloading Pixelgrade Care plugin! Let\'s install and make most out of it.', '__theme_txtd' ) ), wp_kses_allowed_html('post') ); ?></h1>
+						<p><?php echo wp_kses( __('Installing Pixelgrade Care works like any other WordPress plugin. Go to your Plugins page, upload, then activate:', '__theme_txtd' ), wp_kses_allowed_html('post') ); ?></p>
+						<ol>
+							<li>
+								<i></i><span><?php echo wp_kses( __('Go to <strong>Plugins » Add New</strong> page and click on the <strong>Upload Plugin</strong> button', '__theme_txtd' ), wp_kses_allowed_html() ); ?></span>
+							</li>
+							<li>
+								<i></i><span><?php echo wp_kses( __('<strong>Select the plugin file</strong> you just downloaded to your computer', '__theme_txtd' ), wp_kses_allowed_html() ); ?></span>
+							</li>
+							<li>
+								<i></i><span><?php echo wp_kses( __('Click on the <strong>Install Now</strong> button then <strong>Activate</strong> to start using it', '__theme_txtd' ), wp_kses_allowed_html() ); ?></span>
+							</li>
+						</ol>
+						<div class="message js-plugin-message"></div>
+						<a href="" class="pixcare-notice-button button--primary">
+                            <span class="pixcare-notice-button__text">Go to Plugins page to install →</span>
+                        </a>
 
 						<noscript>
 							<button type="submit" class="notice-dismiss"><span class="screen-reader-text"><?php esc_html_e( 'Dismiss this notice.', '__theme_txtd' ); ?></span></button>
