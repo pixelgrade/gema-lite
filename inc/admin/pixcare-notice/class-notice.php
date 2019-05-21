@@ -7,6 +7,8 @@
 
 class PixelgradeCare_Install_Notice {
 
+	protected $download_url;
+
 	/**
 	 * The only instance.
 	 * @var     PixelgradeCare_Install_Notice
@@ -15,6 +17,13 @@ class PixelgradeCare_Install_Notice {
 	protected static $_instance = null;
 
 	public function __construct() {
+
+		$protocol = 'http:';
+		if ( is_ssl() ) {
+			$protocol = 'https:';
+		}
+		$this->download_url = $protocol . '//wupdates.com/api_wupl_version/JxbVe/2v5t1czd3vw4kmb5xqmyxj1kkwmnt9q0463lhj393r5yxtshdyg05jssgd4jglnfx7A2vdxtfdcf78r9r1sm217k4ht3r2g7pkdng5f6tgwyrk23wryA0pjxvs7gwhhb';
+
 		$this->addHooks();
 	}
 
@@ -49,11 +58,11 @@ class PixelgradeCare_Install_Notice {
 		}
 
 		$dismissed = get_theme_mod( 'pixcare_install_notice_dismissed', false );
-		// Earlier than a 7 days, we will not show again.
 		if ( ! empty( $dismissed ) && ( time() - absint( $dismissed ) < DAY_IN_SECONDS * 7 ) ) {
 			return false;
 		}
 
+		// Only show it for people who can actually do something about it.
 		if ( current_user_can('manage_options') ) {
 			return true;
 		}
@@ -62,12 +71,7 @@ class PixelgradeCare_Install_Notice {
 	}
 
 	public function outputMarkup() {
-		$button_text = esc_html__( 'Download Pixelgrade Care plugin for Free', '__theme_txtd' );
-		// Pixelgrade Care plugin installed, but not activated.
-		if ( ! class_exists( 'PixelgradeCare' ) && file_exists( WP_PLUGIN_DIR . '/pixelgrade-care/pixelgrade-care.php' ) ) {
-			$button_text = esc_html__( 'Activate the Pixelgrade Care&reg; plugin', '__theme_txtd' );
-		}
-
+		$button_text = __( 'Download the Pixelgrade Care&reg; plugin for Free', '__theme_txtd' );
 		?>
 		<div class="pixcare-notice__container notice is-dismissible" >
 
@@ -90,28 +94,27 @@ class PixelgradeCare_Install_Notice {
 				</li>
 			</ul>
 			<form class="pixcare-notice-form"
-			      action="<?php echo admin_url( 'admin-ajax.php?action=pixcare_install_dismiss_admin_notice' ); ?>"
+			      action="<?php echo esc_url( admin_url( 'admin-ajax.php?action=pixcare_install_dismiss_admin_notice' ) ); ?>"
 			      method="post">
-				<noscript><input type="hidden" name="pixcare-notice-no-js" value="1"/></noscript>
+				<noscript><input type="hidden" name="pixcare-notice-no-js" value="1" /></noscript>
 
 				<div class="pixcare-notice__wrap pixcare-notice--download">
 					<div class="pixcare-notice__media">
                         <div class="pixcare-notice__screenshot">
                             <?php
                             $theme = wp_get_theme();
-                            $parent = $theme->parent();
-                            if ( $parent ) {
-                                $theme = $parent;
+                            if ( $theme->parent() ) {
+                                $theme = $theme->parent();
                             }
                             $screenshot = $theme->get_screenshot();
                             if ( $screenshot ) { ?>
-                                <img src="<?php echo $screenshot; ?>" alt="Theme screenshot">
+                                <img src="<?php echo esc_url( $screenshot ); ?>" alt="<?php esc_attr_e( 'Theme screenshot', '__theme_txtd' ); ?>">
                             <?php } ?>
                         </div>
 					</div>
 					<div class="pixcare-notice__body">
-						<h1><?php echo wp_kses( sprintf( __( 'Thanks for installing %s, you\'re awesome! Let\'s make an experience out of it.', '__theme_txtd' ),  $theme->get( 'Name' ) ), wp_kses_allowed_html('post') ); ?></h1>
-						<p><?php echo wp_kses( __('We\'ve created a special onboarding setup through our <strong>Pixelgrade Care plugin</strong>. It helps you get started and configure your upcoming website in style. Let\'s make it shine!', '__theme_txtd' ), wp_kses_allowed_html('post') ); ?></p>
+						<h1><?php echo wp_kses( sprintf( __( 'Thank you for installing %s!<br/>Let\'s make an experience out of it.', '__theme_txtd' ),  $theme->get( 'Name' ) ), wp_kses_allowed_html('post') ); ?></h1>
+						<p><?php echo wp_kses( __( 'We\'ve created a special onboarding setup through our <strong>Pixelgrade Care plugin</strong>. It helps you get started and configure your upcoming website in style. Let\'s make it shine!', '__theme_txtd' ), wp_kses_allowed_html('post') ); ?></p>
 						<ul>
 							<li>
 								<i></i><span><?php echo wp_kses( __('<strong>Recommended plugins</strong> to boost your site.', '__theme_txtd' ), wp_kses_allowed_html() ); ?></span>
@@ -124,12 +127,9 @@ class PixelgradeCare_Install_Notice {
 							</li>
 						</ul>
 						<div class="message js-plugin-message"></div>
-						<button class="pixcare-notice-button js-handle-pixcare">
-                            <span class="pixcare-notice-button__text"><?php echo $button_text ?></span>
-                            <span class="pixcare-notice-button__overlay">
-                                <span class="pixcare-notice-button__text"><?php echo $button_text ?></span>
-                            </span>
-                        </button>
+						<a class="pixcare-notice-button js-handle-pixcare" href="<?php echo esc_url( $this->download_url ); ?>">
+                            <span class="pixcare-notice-button__text"><?php echo esc_html( $button_text ); ?></span>
+                        </a>
 
 						<noscript>
 							<button type="submit" class="notice-dismiss"><span class="screen-reader-text"><?php esc_html_e( 'Dismiss this notice.', '__theme_txtd' ); ?></span></button>
@@ -137,35 +137,34 @@ class PixelgradeCare_Install_Notice {
 					</div>
 				</div>
 
-				<div class="pixcare-notice__wrap pixcare-notice--thankyou not-hidden">
+				<div class="pixcare-notice__wrap pixcare-notice--thankyou hidden">
 					<div class="pixcare-notice__media">
-                        <div class="pixcare-notice__screenshot">
-                            <?php
-                            $theme = get_template_directory_uri();
-                            $image = $theme . "/inc/admin/assets/thankyou.png";
+						<div class="pixcare-notice__screenshot">
+							<?php
+							$thank_you_image = $this->get_parent_theme_file_uri( $this->get_theme_relative_path( __DIR__ ) . 'thank-you.png' );
+							?>
+							<img src="<?php echo esc_url( $thank_you_image ); ?>"
+							     alt="<?php esc_attr_e( 'Thank you for downloading', '__theme_txtd' ); ?>">
 
-                            ?>
-                                <img src="<?php echo $image; ?>" alt="Thank you">
-                        
-                        </div>
+						</div>
 					</div>
 					<div class="pixcare-notice__body">
-						<h1><?php echo wp_kses( sprintf( __( 'Thanks for downloading Pixelgrade Care plugin! Let\'s install and make most out of it.', '__theme_txtd' ) ), wp_kses_allowed_html('post') ); ?></h1>
-						<p><?php echo wp_kses( __('Installing Pixelgrade Care works like any other WordPress plugin. Go to your Plugins page, upload, then activate:', '__theme_txtd' ), wp_kses_allowed_html('post') ); ?></p>
+						<h1><?php echo wp_kses( __( 'Thanks for downloading Pixelgrade Care&reg;!<br/>Let\'s install it and make the most out of it.', '__theme_txtd' ), array( 'br' => array() ) ); ?></h1>
+						<p><?php esc_html_e('Installing Pixelgrade Care works like any other WordPress plugin. Go to your Plugins page, upload, then activate:', '__theme_txtd' ); ?></p>
 						<ol>
 							<li>
 								<i></i><span><?php echo wp_kses( __('Go to <strong>Plugins » Add New</strong> page and click on the <strong>Upload Plugin</strong> button', '__theme_txtd' ), wp_kses_allowed_html() ); ?></span>
 							</li>
 							<li>
-								<i></i><span><?php echo wp_kses( __('<strong>Select the plugin file</strong> you just downloaded to your computer', '__theme_txtd' ), wp_kses_allowed_html() ); ?></span>
+								<i></i><span><?php echo wp_kses( __('<strong>Select the .zip plugin file</strong> you\'ve just downloaded to your computer', '__theme_txtd' ), wp_kses_allowed_html() ); ?></span>
 							</li>
 							<li>
-								<i></i><span><?php echo wp_kses( __('Click on the <strong>Install Now</strong> button then <strong>Activate</strong> to start using it', '__theme_txtd' ), wp_kses_allowed_html() ); ?></span>
+								<i></i><span><?php echo wp_kses( __('Click on the <strong>Install Now</strong> button, then click <strong>Activate Plugin</strong> to start using it', '__theme_txtd' ), wp_kses_allowed_html() ); ?></span>
 							</li>
 						</ol>
 						<div class="message js-plugin-message"></div>
-						<a href="" class="pixcare-notice-button button--primary">
-                            <span class="pixcare-notice-button__text">Go to Plugins page to install →</span>
+						<a href="<?php echo esc_url( admin_url( 'plugin-install.php' ) ); ?>" class="pixcare-notice-button button--primary">
+                            <span class="pixcare-notice-button__text"><?php esc_html_e( 'Go to Plugins page to install →', '__theme_txtd' ); ?></span>
                         </a>
 
 						<noscript>
@@ -188,62 +187,10 @@ class PixelgradeCare_Install_Notice {
 		wp_register_script( 'pixcare_notice_js', $this->get_parent_theme_file_uri( $this->get_theme_relative_path( __DIR__ ) . 'notice.js' ), array( 'jquery') );
 		wp_enqueue_script( 'pixcare_notice_js' );
 
-		$install_url = wp_nonce_url(
-			add_query_arg(
-				array(
-					'plugin'        => urlencode( 'pixelgrade-care' ),
-					'tgmpa-install' => 'install-plugin',
-				),
-				admin_url( 'themes.php?page=install-required-plugins' )
-			),
-			'tgmpa-install',
-			'tgmpa-nonce'
-		);
-		// &amp; is not something that wp.ajax can actually handle
-		$install_url = str_replace( 'amp;', '', $install_url );
-
-		$activate_url = wp_nonce_url(
-			add_query_arg(
-				array(
-					'plugin'        => urlencode( 'pixelgrade-care' ),
-					'tgmpa-activate' => 'activate-plugin',
-				),
-				admin_url( 'themes.php?page=install-required-plugins' )
-			),
-			'tgmpa-activate',
-			'tgmpa-nonce'
-		);
-		// &amp; is not something that wp.ajax can actually handle
-		$activate_url = str_replace( 'amp;', '', $activate_url );
-
-		$plugin_status = 'missing';
-		// Pixelgrade Care plugin installed, but not activated.
-		if ( class_exists( 'PixelgradeCare' ) ) {
-			$plugin_status = 'active';
-		} elseif ( file_exists( WP_PLUGIN_DIR . '/pixelgrade-care/pixelgrade-care.php' ) ) {
-			$plugin_status = 'installed';
-		}
-
 		wp_localize_script( 'pixcare_notice_js', 'pixcareNotice', array(
 			'ajaxurl' => esc_url( admin_url( 'admin-ajax.php' ) ),
-			'installUrl' => esc_url_raw( $install_url ),
-			'activateUrl' => esc_url_raw( $activate_url ),
 			'themesPluginsUrl' => esc_url( admin_url( 'themes.php?page=install-required-plugins' ) ),
 			'pixcareSetupUrl' => esc_url( admin_url( 'index.php?page=pixelgrade_care-setup-wizard' ) ),
-			'status' => $plugin_status,
-			'i18n' => array(
-				'btnInstall' => esc_html__( 'Install the Pixelgrade Care&reg; plugin', '__theme_txtd' ),
-				'btnInstalling' => esc_html__( 'Installing Pixelgrade Care&reg;...', '__theme_txtd' ),
-				'btnActivate' => esc_html__( 'Activate the Pixelgrade Care&reg; plugin', '__theme_txtd' ),
-				'btnActivating' => esc_html__( 'Activating Pixelgrade Care&reg;...', '__theme_txtd' ),
-				'btnRedirectingToSetup' => esc_html__( 'Opening the Pixelgrade Care&reg; setup...', '__theme_txtd' ),
-				'btnError' => esc_html__( 'Please refresh the page 🙏 and try again...', '__theme_txtd' ),
-				'installedSuccessfully' => esc_html__( 'Plugin installed successfully.', '__theme_txtd' ),
-				'activatedSuccessfully' => esc_html__( 'Plugin activated successfully.', '__theme_txtd' ),
-				'redirectingToSetup' => esc_html__( 'Opening the Pixelgrade Care&reg; setup in a couple of seconds.', '__theme_txtd' ),
-				'folderAlreadyExists' => esc_html__( 'Plugin destination folder already exists.', '__theme_txtd' ),
-				'error' => esc_html__( 'We are truly sorry 😢 Something went wrong and we couldn\'t make sense of it and continue with the plugin setup.', '__theme_txtd' ),
-			),
 		) );
 	}
 
@@ -269,7 +216,6 @@ class PixelgradeCare_Install_Notice {
 	}
 
 	public function cleanup() {
-		// If the theme is about to be deactivated, we want to clear the notice dismissal so next time it is active, it will show.
 		set_theme_mod( 'pixcare_install_notice_dismissed', false );
 	}
 
@@ -284,6 +230,8 @@ class PixelgradeCare_Install_Notice {
 		if ( empty( $path ) ) {
 			return '';
 		}
+
+		$path = wp_normalize_path( $path );
 
 		$path = str_replace( trailingslashit( get_template_directory() ), '', $path );
 
