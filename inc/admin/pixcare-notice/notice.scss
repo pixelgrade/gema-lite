@@ -85,6 +85,7 @@ div.pixcare-notice--hidden {
         font: inherit;
         padding: 0;
         margin-bottom: 1em;
+        max-width: 50em;
     }
 
     h2, h3 {
@@ -97,10 +98,7 @@ div.pixcare-notice--hidden {
         min-width: 110px;
         height: auto;
         padding: 3px 20px;
-    }
-
-    .button + .button {
-        margin-left: 7px;
+        transition: all .3s;
     }
 
     .button-primary {
@@ -112,6 +110,25 @@ div.pixcare-notice--hidden {
         1px 0 1px #6E3EAD,
         0 1px 1px #6E3EAD,
         -1px 0 1px #6E3EAD;
+
+
+        &:hover,
+        &:focus {
+          background: #A274DB;
+        }
+    }
+
+    @media screen and (min-width: 782px) {
+      .button + .button {
+          margin-left: 7px;
+      }
+    }
+
+    @media screen and (max-width: 782px) {
+       .button {
+          width: 100%;
+          padding: 8px;
+       }
     }
 }
 

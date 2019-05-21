@@ -73,7 +73,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 	}
 
 	public function outputSmallMarkup() {
-		$button_text = __( 'Download the Pixelgrade Care&reg; plugin for Free', '__theme_txtd' );
+		$button_text = __( 'Download the Pixelgrade Care plugin for Free', '__theme_txtd' );
 		?>
         <div class="pixcare-notice__container notice notice--border is-dismissible" >
 
@@ -126,7 +126,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
                         </div>
                     </div>
                     <div class="pixcare-notice__body">
-                        <h2><?php echo wp_kses( __( 'Thanks for downloading Pixelgrade Care&reg;! Let\'s install it and make the most out of it.', '__theme_txtd' ), array( 'br' => array() ) ); ?></h2>
+                        <h2><?php echo wp_kses( __( 'Thanks for downloading Pixelgrade Care! Let\'s install it and make the most out of it.', '__theme_txtd' ), array( 'br' => array() ) ); ?></h2>
                         <p><?php esc_html_e('Installing Pixelgrade Care works like any other WordPress plugin. Go to your Plugins page, upload, then activate:', '__theme_txtd' ); ?></p>
 
                         <div class="message js-plugin-message"></div>
@@ -146,7 +146,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 	}
 
 	public function outputThemesMarkup() {
-		$button_text = __( 'Download the Pixelgrade Care&reg; plugin for Free', '__theme_txtd' );
+		$button_text = __( 'Download the Pixelgrade Care plugin for Free', '__theme_txtd' );
 		?>
 		<div class="pixcare-notice__container notice is-dismissible" >
 
@@ -156,7 +156,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 					<span class="pxg-wizard__progress"><b></b></span>
 				</li>
 				<li class="pxg-wizard__step pxg-wizard__step--current">
-					<span class="pxg-wizard__label"><?php esc_html_e( 'Pixelgrade Care&reg;', '__theme_txtd' ); ?></span>
+					<span class="pxg-wizard__label"><?php esc_html_e( 'Pixelgrade Care', '__theme_txtd' ); ?></span>
 					<span class="pxg-wizard__progress"><b></b></span>
 				</li>
 				<li class="pxg-wizard__step">
@@ -224,7 +224,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 						</div>
 					</div>
 					<div class="pixcare-notice__body">
-						<h1><?php echo wp_kses( __( 'Thanks for downloading Pixelgrade Care&reg;!<br/>Let\'s install it and make the most out of it.', '__theme_txtd' ), array( 'br' => array() ) ); ?></h1>
+						<h1><?php echo wp_kses( __( 'Thanks for downloading Pixelgrade Care!<br/>Let\'s install it and make the most out of it.', '__theme_txtd' ), array( 'br' => array() ) ); ?></h1>
 						<p><?php esc_html_e('Installing Pixelgrade Care works like any other WordPress plugin. Go to your Plugins page, upload, then activate:', '__theme_txtd' ); ?></p>
 						<ol>
 							<li>

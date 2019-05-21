@@ -44,7 +44,8 @@ div.pixcare-notice--hidden {
   .pixcare-notice__container.notice p {
     font: inherit;
     padding: 0;
-    margin-bottom: 1em; }
+    margin-bottom: 1em;
+    max-width: 50em; }
   .pixcare-notice__container.notice h2, .pixcare-notice__container.notice h3 {
     padding: 0;
     margin-top: 0;
@@ -52,15 +53,24 @@ div.pixcare-notice--hidden {
   .pixcare-notice__container.notice .button {
     min-width: 110px;
     height: auto;
-    padding: 3px 20px; }
-  .pixcare-notice__container.notice .button + .button {
-    margin-left: 7px; }
+    padding: 3px 20px;
+    -webkit-transition: all .3s;
+    transition: all .3s; }
   .pixcare-notice__container.notice .button-primary {
     background: #8E65C0;
     border: 1px solid #2B2B2B;
     -webkit-box-shadow: 0px 1px 0px #6E3EAD;
             box-shadow: 0px 1px 0px #6E3EAD;
     text-shadow: 0 -1px 1px #6E3EAD, 1px 0 1px #6E3EAD, 0 1px 1px #6E3EAD, -1px 0 1px #6E3EAD; }
+    .pixcare-notice__container.notice .button-primary:hover, .pixcare-notice__container.notice .button-primary:focus {
+      background: #A274DB; }
+  @media screen and (min-width: 782px) {
+    .pixcare-notice__container.notice .button + .button {
+      margin-left: 7px; } }
+  @media screen and (max-width: 782px) {
+    .pixcare-notice__container.notice .button {
+      width: 100%;
+      padding: 8px; } }
 
 .pixcare-notice__container.notice--border {
   border-left: 4px solid #8E65C0; }
