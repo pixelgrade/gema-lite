@@ -32,7 +32,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 		global $pagenow;
 
 		if ( $this->shouldShow() ) {
-			if ( $pagenow === 'themes.php' ) {
+			if ( 'themes.php' === $pagenow ) {
 				add_action( 'admin_notices', array( $this, 'outputThemesMarkup' ) );
 			} else {
 				add_action( 'admin_notices', array( $this, 'outputSmallMarkup' ) );
