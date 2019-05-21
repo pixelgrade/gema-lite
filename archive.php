@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
-if ( have_posts() ) :?>
+if ( have_posts() ) : ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" role="main">

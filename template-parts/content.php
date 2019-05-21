@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 			<div class="card-title-wrap">
 				<div class="card__title">
-					<?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">' . esc_url( get_permalink() ) ) . '</a></h2>' ); ?>
+					<?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 					<div class="card__meta  entry-meta">
 
 						<?php gemalite_first_category(); ?>
@@ -75,7 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				</div>
 
-				<?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">' . esc_url( get_permalink() ) ) . '</a></h2>' ); ?>
+				<?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 				<?php the_excerpt(); ?>
 
 				<a class="btn" href="<?php the_permalink(); ?>"><?php esc_html_e( 'More', 'gema-lite' ); ?></a>

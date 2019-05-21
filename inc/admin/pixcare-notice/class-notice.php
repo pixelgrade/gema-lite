@@ -1,17 +1,17 @@
 <?php
 /**
- * Pixelgrade Care install/activate notice class.
+ * Pixelgrade Care download notice class.
  *
- * @package Felt
+ * @package Gema Lite
  */
 
-class PixelgradeCare_Install_Notice {
+class GemaLite_PixelgradeCare_DownloadNotice {
 
 	protected $download_url;
 
 	/**
 	 * The only instance.
-	 * @var     PixelgradeCare_Install_Notice
+	 * @var     GemaLite_PixelgradeCare_DownloadNotice
 	 * @access  protected
 	 */
 	protected static $_instance = null;
@@ -22,6 +22,7 @@ class PixelgradeCare_Install_Notice {
 		if ( is_ssl() ) {
 			$protocol = 'https:';
 		}
+		// This URL will always deliver the latest version of the plugin.
 		$this->download_url = $protocol . '//wupdates.com/api_wupl_version/JxbVe/2v5t1czd3vw4kmb5xqmyxj1kkwmnt9q0463lhj393r5yxtshdyg05jssgd4jglnfx7A2vdxtfdcf78r9r1sm217k4ht3r2g7pkdng5f6tgwyrk23wryA0pjxvs7gwhhb';
 
 		$this->addHooks();
@@ -35,7 +36,7 @@ class PixelgradeCare_Install_Notice {
 			add_action( 'admin_enqueue_scripts', array( $this, 'outputJS' ) );
 		}
 
-		add_action( 'wp_ajax_pixcare_install_dismiss_admin_notice', array( $this, 'dismiss_notice' ) );
+		add_action( 'wp_ajax_pixcare_download_dismiss_admin_notice', array( $this, 'dismiss_notice' ) );
 		add_action( 'switch_theme', array( $this, 'cleanup' ) );
 	}
 
@@ -48,7 +49,7 @@ class PixelgradeCare_Install_Notice {
 		}
 
 		// We want to show it only on the themes.php page and in the dashboard.
-		if ( $pagenow !== 'themes.php' && $pagenow !== 'index.php' ) {
+		if ( $pagenow !== 'themes.php' ) {
 			return false;
 		}
 
@@ -57,7 +58,7 @@ class PixelgradeCare_Install_Notice {
 			return false;
 		}
 
-		$dismissed = get_theme_mod( 'pixcare_install_notice_dismissed', false );
+		$dismissed = get_theme_mod( 'pixcare_download_notice_dismissed', false );
 		if ( ! empty( $dismissed ) && ( time() - absint( $dismissed ) < DAY_IN_SECONDS * 7 ) ) {
 			return false;
 		}
@@ -94,7 +95,7 @@ class PixelgradeCare_Install_Notice {
 				</li>
 			</ul>
 			<form class="pixcare-notice-form"
-			      action="<?php echo esc_url( admin_url( 'admin-ajax.php?action=pixcare_install_dismiss_admin_notice' ) ); ?>"
+			      action="<?php echo esc_url( admin_url( 'admin-ajax.php?action=pixcare_download_dismiss_admin_notice' ) ); ?>"
 			      method="post">
 				<noscript><input type="hidden" name="pixcare-notice-no-js" value="1" /></noscript>
 
@@ -141,7 +142,7 @@ class PixelgradeCare_Install_Notice {
 					<div class="pixcare-notice__media">
 						<div class="pixcare-notice__screenshot">
 							<?php
-							$thank_you_image = $this->get_parent_theme_file_uri( $this->get_theme_relative_path( __DIR__ ) . 'thank-you.png' );
+							$thank_you_image = get_parent_theme_file_uri( $this->get_theme_relative_path( __DIR__ ) . 'thank-you.png' );
 							?>
 							<img src="<?php echo esc_url( $thank_you_image ); ?>"
 							     alt="<?php esc_attr_e( 'Thank you for downloading', '__theme_txtd' ); ?>">
@@ -172,25 +173,23 @@ class PixelgradeCare_Install_Notice {
 						</noscript>
 					</div>
 				</div>
-				<?php wp_nonce_field( 'pixcare_install_dismiss_admin_notice', 'nonce-pixcare_install-dismiss' ); ?>
+				<?php wp_nonce_field( 'pixcare_download_dismiss_admin_notice', 'nonce-pixcare_download-dismiss' ); ?>
 			</form>
 		</div>
 	<?php
 	}
 
 	public function outputCSS() {
-		wp_register_style( 'pixcare_notice_css', $this->get_parent_theme_file_uri( $this->get_theme_relative_path( __DIR__ ) . 'notice.css' ), false );
+		wp_register_style( 'pixcare_notice_css', get_parent_theme_file_uri( $this->get_theme_relative_path( __DIR__ ) . 'notice.css' ), false );
 		wp_enqueue_style( 'pixcare_notice_css' );
 	}
 
 	public function outputJS() {
-		wp_register_script( 'pixcare_notice_js', $this->get_parent_theme_file_uri( $this->get_theme_relative_path( __DIR__ ) . 'notice.js' ), array( 'jquery') );
+		wp_register_script( 'pixcare_notice_js', get_parent_theme_file_uri( $this->get_theme_relative_path( __DIR__ ) . 'notice.js' ), array( 'jquery') );
 		wp_enqueue_script( 'pixcare_notice_js' );
 
 		wp_localize_script( 'pixcare_notice_js', 'pixcareNotice', array(
 			'ajaxurl' => esc_url( admin_url( 'admin-ajax.php' ) ),
-			'themesPluginsUrl' => esc_url( admin_url( 'themes.php?page=install-required-plugins' ) ),
-			'pixcareSetupUrl' => esc_url( admin_url( 'index.php?page=pixelgrade_care-setup-wizard' ) ),
 		) );
 	}
 
@@ -199,10 +198,10 @@ class PixelgradeCare_Install_Notice {
 	 */
 	public function dismiss_notice() {
 		// Check nonce.
-		check_ajax_referer( 'pixcare_install_dismiss_admin_notice', 'nonce_dismiss' );
+		check_ajax_referer( 'pixcare_download_dismiss_admin_notice', 'nonce_dismiss' );
 
 		// Remember the dismissal (time).
-		set_theme_mod( 'pixcare_install_notice_dismissed', time());
+		set_theme_mod( 'pixcare_download_notice_dismissed', time());
 
 		// Redirect if this is not an ajax request.
 		if ( isset( $_POST['pixcare-notice-no-js'] ) ) {
@@ -216,7 +215,7 @@ class PixelgradeCare_Install_Notice {
 	}
 
 	public function cleanup() {
-		set_theme_mod( 'pixcare_install_notice_dismissed', false );
+		set_theme_mod( 'pixcare_download_notice_dismissed', false );
 	}
 
 	/**
@@ -238,50 +237,18 @@ class PixelgradeCare_Install_Notice {
 		return trailingslashit( $path );
 	}
 
-	/**
-	 * Retrieves the URL of a file in the parent theme.
-	 *
-	 * It will use the new function in WP 4.7, but will fallback to the old way of doing things otherwise.
-	 *
-	 * @param string $file Optional. File to return the URL for in the template directory.
-	 * @return string The URL of the file.
-	 */
-	protected function get_parent_theme_file_uri( $file = '' ) {
-		if ( function_exists( 'get_parent_theme_file_uri' ) ) {
-			return get_parent_theme_file_uri( $file );
-		} else {
-			$file = ltrim( $file, '/' );
-
-			if ( empty( $file ) ) {
-				$url = get_template_directory_uri();
-			} else {
-				$url = get_template_directory_uri() . '/' . $file;
-			}
-
-			/**
-			 * Filters the URL to a file in the parent theme.
-			 *
-			 * @since 4.7.0
-			 *
-			 * @param string $url The file URL.
-			 * @param string $file The requested file to search for.
-			 */
-			return apply_filters( 'parent_theme_file_uri', $url, $file );
-		}
-	}
-
 	public static function init() {
 		return self::instance();
 	}
 
 	/**
-	 * Main PixelgradeCare_Install_Notice Instance
+	 * Main GemaLite_PixelgradeCare_DownloadNotice Instance
 	 *
-	 * Ensures only one instance of PixelgradeCare_Install_Notice is loaded or can be loaded.
+	 * Ensures only one instance of GemaLite_PixelgradeCare_DownloadNotice is loaded or can be loaded.
 	 *
 	 * @static
 	 *
-	 * @return PixelgradeCare_Install_Notice Main PixelgradeCare_Install_Notice instance
+	 * @return GemaLite_PixelgradeCare_DownloadNotice Main GemaLite_PixelgradeCare_DownloadNotice instance
 	 */
 	public static function instance() {
 		if ( is_null( self::$_instance ) ) {

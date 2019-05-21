@@ -195,7 +195,7 @@ function gemalite_montserrat_font_url() {
 	*/
 	$montserrat = esc_html_x( 'on', 'Montserrat font: on or off', 'gema-lite' );
 	if ( 'off' !== $montserrat ) {
-		return get_stylesheet_directory_uri() . '/assets/fonts/montserrat/stylesheet.css';
+		return get_parent_theme_file_uri( '/assets/fonts/montserrat/stylesheet.css' );
 	}
 
 	return '';
@@ -216,7 +216,7 @@ function gemalite_butler_font_url() {
 	*/
 	$butler = esc_html_x( 'on', 'Butler font: on or off', 'gema-lite' );
 	if ( 'off' !== $butler ) {
-		return get_stylesheet_directory_uri() . '/assets/fonts/butler/stylesheet.css';
+		return get_parent_theme_file_uri( '/assets/fonts/butler/stylesheet.css' );
 	}
 
 	return '';
@@ -259,7 +259,7 @@ add_filter( 'get_the_archive_title', 'gemalite_cleanup_archive_title', 10, 1 );
  *
  * @return array
  */
-function gema_wupdates_add_id_wporg( $ids = array() ) {
+function gemalite_wupdates_add_id_wporg( $ids = array() ) {
 	// First get the theme directory name (unique)
 	$slug = basename( get_template_directory() );
 
@@ -270,4 +270,23 @@ function gema_wupdates_add_id_wporg( $ids = array() ) {
 	return $ids;
 }
 // The 5 priority is intentional to allow for pro to overwrite.
-add_filter( 'wupdates_gather_ids', 'gema_wupdates_add_id_wporg', 5, 1 );
+add_filter( 'wupdates_gather_ids', 'gemalite_wupdates_add_id_wporg', 5, 1 );
+
+/**
+ * Fix skip link focus in IE11.
+ *
+ * This does not enqueue the script because it is tiny and because it is only for IE11,
+ * thus it does not warrant having an entire dedicated blocking script being loaded.
+ *
+ * @link https://git.io/vWdr2
+ */
+function gemalite_skip_link_focus_fix() {
+	// The following is minified via `terser --compress --mangle -- js/skip-link-focus-fix.js`.
+	?>
+	<script>
+		/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
+	</script>
+	<?php
+}
+// We will put this script inline since it is so small.
+add_action( 'wp_print_footer_scripts', 'gemalite_skip_link_focus_fix' );

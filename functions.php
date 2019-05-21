@@ -88,17 +88,6 @@ function gemalite_setup() {
 		)
 	) );
 
-	if ( ! function_exists( 'the_custom_logo' ) ) {
-		//in case we are on a WP version older than 4.5, try to use Jetpack's Site Logo feature
-		add_theme_support( 'site-logo', array(
-			'size'        => 'gema-site-logo',
-			'header-text' => array(
-				'site-title',
-				'site-description-text',
-			)
-		) );
-	}
-
 	add_image_size( 'gema-site-logo', 710, 220, false );
 
 	/*
@@ -108,7 +97,6 @@ function gemalite_setup() {
 	add_editor_style( array( 'editor-style.css' ) );
 }
 endif; // gemalite_setup
-
 add_action('after_setup_theme', 'gemalite_setup' );
 
 /**
@@ -130,26 +118,20 @@ function gemalite_scripts() {
 	$theme = wp_get_theme( get_template() );
 
 	// The main theme stylesheet
-	wp_enqueue_style( 'gema-style', get_template_directory_uri() . '/style.css', array(), $theme->get( 'Version' ) );
+	wp_enqueue_style( 'gema-style', get_parent_theme_file_uri( 'style.css' ), array(), $theme->get( 'Version' ) );
 	wp_style_add_data( 'gema-style', 'rtl', 'replace' );
 
 	/* Default Self-hosted Fonts */
 	wp_enqueue_style( 'gema-fonts-montserrat', gemalite_montserrat_font_url() );
 	wp_enqueue_style( 'gema-fonts-butler', gemalite_butler_font_url() );
 
-	//Customizer Stylesheet
-	wp_enqueue_style( 'gemalite_customizer_style', get_template_directory_uri() . '/assets/css/admin/customizer.css', array(), '1.0.0', false );
-
-	wp_enqueue_script('bricklayer', get_template_directory_uri() . '/js/bricklayer.js', array(), '20170421', true);
-
-	wp_enqueue_script('gema-modernizr', get_template_directory_uri() . '/js/modernizr-custom.js', array(), '20160322', true);
-
-    wp_enqueue_script('gema-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20160126', true);
+	wp_register_script('bricklayer', get_parent_theme_file_uri( 'js/bricklayer.js' ), array(), '20170421', true);
+	wp_enqueue_script('gema-modernizr', get_parent_theme_file_uri( 'js/modernizr-custom.js' ), array(), '20160322', true);
 
 	/* Enqueue the main theme script file */
-	wp_enqueue_script( 'gema-scripts', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery', 'bricklayer', 'imagesloaded' ), $theme->get( 'Version' ), true );
+	wp_enqueue_script( 'gema-scripts', get_parent_theme_file_uri( 'assets/js/main.js' ), array( 'jquery', 'bricklayer', 'imagesloaded' ), $theme->get( 'Version' ), true );
 
-	if (is_singular() && comments_open() && get_option('thread_comments')) {
+	if ( is_singular() && comments_open() && get_option('thread_comments') ) {
         wp_enqueue_script('comment-reply');
     }
 }

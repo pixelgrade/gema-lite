@@ -62,7 +62,7 @@ function gemalite_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'gemalite_style_view_pro_desc', array(
 		'default'           => '',
-		'sanitize_callback' => 'gemalite_sanitize_checkbox',
+		'sanitize_callback' => '__return_true',
 	) );
 	$wp_customize->add_control( 'gemalite_style_view_pro_desc', array(
 		'section' => 'gemalite_style_view_pro',
@@ -82,7 +82,7 @@ function gemalite_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'gemalite_style_presets_desc', array(
 		'default'           => '',
-		'sanitize_callback' => 'gemalite_sanitize_checkbox',
+		'sanitize_callback' => '__return_true',
 	) );
 	$wp_customize->add_control( 'gemalite_style_presets_desc', array(
 		'section' => 'gemalite_style_presets',
@@ -103,7 +103,7 @@ function gemalite_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'gemalite_colors_desc', array(
 		'default'           => '',
-		'sanitize_callback' => 'gemalite_sanitize_checkbox',
+		'sanitize_callback' => '__return_true',
 	) );
 	$wp_customize->add_control( 'gemalite_colors_desc', array(
 		'section' => 'gemalite_colors',
@@ -124,7 +124,7 @@ function gemalite_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'gemalite_fonts_desc', array(
 		'default'           => '',
-		'sanitize_callback' => 'gemalite_sanitize_checkbox',
+		'sanitize_callback' => '__return_true',
 	) );
 	$wp_customize->add_control( 'gemalite_fonts_desc', array(
 		'section' => 'gemalite_fonts',
@@ -133,21 +133,6 @@ function gemalite_customize_register( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'gemalite_customize_register', 15 );
-
-/**
- * Sanitize the checkbox.
- *
- * @param boolean $input .
- *
- * @return boolean true if is 1 or '1', false if anything else
- */
-function gemalite_sanitize_checkbox( $input ) {
-	if ( 1 == $input ) {
-		return true;
-	} else {
-		return false;
-	}
-}
 
 /**
  * Sanitize the Site Title Outline value.
@@ -168,7 +153,7 @@ function gemalite_sanitize_site_title_outline( $outline ) {
  * Assets that will be loaded for the customizer sidebar
  */
 function gemalite_customizer_assets() {
-	wp_enqueue_style( 'gemalite-customizer-style', get_template_directory_uri() . '/inc/admin/css/customizer.css', array(), '1.1.2', false );
+	wp_enqueue_style( 'gemalite-customizer-style', get_template_directory_uri() . '/inc/admin/css/customizer.css', array(), '1.1.3', false );
 }
 add_action( 'customize_controls_enqueue_scripts', 'gemalite_customizer_assets' );
 
@@ -177,7 +162,7 @@ add_action( 'customize_controls_enqueue_scripts', 'gemalite_customizer_assets' )
  * This will be added in the preview part
  */
 function gemalite_customizer_preview_assets() {
-	wp_enqueue_script( 'gemalite_customizer_preview', get_template_directory_uri() . '/assets/js/customizer-preview.js', array( 'customize-preview' ), '1.1.2', true );
+	wp_enqueue_script( 'gemalite_customizer_preview', get_template_directory_uri() . '/assets/js/customizer-preview.js', array( 'customize-preview' ), '1.1.3', true );
 }
 add_action( 'customize_preview_init', 'gemalite_customizer_preview_assets' );
 
@@ -195,5 +180,4 @@ function gemalite_add_customify_options( $config ) {
 
 	return $config;
 }
-
 add_filter( 'customify_filter_fields', 'gemalite_add_customify_options' );

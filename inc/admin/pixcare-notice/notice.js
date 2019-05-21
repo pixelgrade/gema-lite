@@ -31,8 +31,8 @@
 				url: pixcareNotice.ajaxurl,
 				type: 'post',
 				data: {
-					action: 'pixcare_install_dismiss_admin_notice',
-					nonce_dismiss: $noticeContainer.find('#nonce-pixcare_install-dismiss').val()
+					action: 'pixcare_download_dismiss_admin_notice',
+					nonce_dismiss: $noticeContainer.find('#nonce-pixcare_download-dismiss').val()
 				}
 			})
 		}
