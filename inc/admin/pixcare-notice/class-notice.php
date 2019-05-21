@@ -251,7 +251,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 	}
 
 	public function outputCSS() {
-		wp_register_style( 'pixcare_notice_css', get_parent_theme_file_uri( $this->get_theme_relative_path( __DIR__ ) . 'notice.css' ), false );
+		wp_register_style( 'pixcare_notice_css', get_parent_theme_file_uri( $this->get_theme_relative_path( __DIR__ ) . 'notice.css' ) );
 		wp_enqueue_style( 'pixcare_notice_css' );
 	}
 
