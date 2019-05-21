@@ -78,7 +78,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 	}
 
 	public function outputSmallMarkup() {
-		$button_text = __( 'Download the Pixelgrade Care&reg; plugin for Free', '__theme_txtd' );
+		$button_text = __( 'Download the Pixelgrade Care plugin for Free', '__theme_txtd' );
 		?>
         <div class="pixcare-notice__container notice notice--border is-dismissible" >
 
@@ -123,7 +123,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
                     <div class="pixcare-notice__media">
                         <div class="pixcare-notice__screenshot">
 							<?php
-							$thank_you_image = get_parent_theme_file_uri( $this->get_theme_relative_path( __DIR__ ) . 'thank-you.png' );
+							$thank_you_image = get_parent_theme_file_uri( $this->get_theme_relative_path( __DIR__ ) . 'icon-pixel-heart.png' );
 							?>
                             <img src="<?php echo esc_url( $thank_you_image ); ?>"
                                  alt="<?php esc_attr_e( 'Thank you for downloading', '__theme_txtd' ); ?>">
@@ -131,11 +131,11 @@ class GemaLite_PixelgradeCare_DownloadNotice {
                         </div>
                     </div>
                     <div class="pixcare-notice__body">
-                        <h2><?php echo wp_kses( __( 'Thanks for downloading Pixelgrade Care&reg;! Let\'s install it and make the most out of it.', '__theme_txtd' ), array( 'br' => array() ) ); ?></h2>
-                        <p><?php esc_html_e('Installing Pixelgrade Care works like any other WordPress plugin. Go to your Plugins page, upload, then activate:', '__theme_txtd' ); ?></p>
+                        <h2><?php echo wp_kses( __( 'Thanks for downloading Pixelgrade Care! Let\'s install it and make the most out of it.', '__theme_txtd' ), array( 'br' => array() ) ); ?></h2>
+                         <p><?php echo wp_kses( __( 'Installing Pixelgrade Care works like any other WordPress plugin. Go to your <strong>Plugins page</strong> and click on the <strong>Upload Plugin</strong> button, select the file you just downloaded, click Install, then Activate.', '__theme_txtd' ), wp_kses_allowed_html('post') ); ?></p>
 
                         <div class="message js-plugin-message"></div>
-                        <a href="<?php echo esc_url( admin_url( 'plugin-install.php' ) ); ?>" class="button button-primary">
+                        <a href="<?php echo esc_url( admin_url( 'plugin-install.php?tab=upload' ) ); ?>" class="button button-primary">
                             <?php esc_html_e( 'Go to Plugins page to install →', '__theme_txtd' ); ?>
                         </a>
 
@@ -151,7 +151,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 	}
 
 	public function outputThemesMarkup() {
-		$button_text = __( 'Download the Pixelgrade Care&reg; plugin for Free', '__theme_txtd' );
+		$button_text = __( 'Download the Pixelgrade Care plugin for Free', '__theme_txtd' );
 		?>
 		<div class="pixcare-notice__container notice is-dismissible" >
 
@@ -161,7 +161,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 					<span class="pxg-wizard__progress"><b></b></span>
 				</li>
 				<li class="pxg-wizard__step pxg-wizard__step--current">
-					<span class="pxg-wizard__label"><?php esc_html_e( 'Pixelgrade Care&reg;', '__theme_txtd' ); ?></span>
+					<span class="pxg-wizard__label"><?php esc_html_e( 'Pixelgrade Care', '__theme_txtd' ); ?></span>
 					<span class="pxg-wizard__progress"><b></b></span>
 				</li>
 				<li class="pxg-wizard__step">
@@ -229,7 +229,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 						</div>
 					</div>
 					<div class="pixcare-notice__body">
-						<h1><?php echo wp_kses( __( 'Thanks for downloading Pixelgrade Care&reg;!<br/>Let\'s install it and make the most out of it.', '__theme_txtd' ), array( 'br' => array() ) ); ?></h1>
+						<h1><?php echo wp_kses( __( 'Thanks for downloading Pixelgrade Care!<br/>Let\'s install it and make the most out of it.', '__theme_txtd' ), array( 'br' => array() ) ); ?></h1>
 						<p><?php esc_html_e('Installing Pixelgrade Care works like any other WordPress plugin. Go to your Plugins page, upload, then activate:', '__theme_txtd' ); ?></p>
 						<ol>
 							<li>
