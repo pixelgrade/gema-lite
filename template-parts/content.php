@@ -6,6 +6,10 @@
  *
  * @package Gema
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -24,7 +28,7 @@
                         $thumb_src  = get_the_post_thumbnail_url( get_the_ID(), 'gema-super-small' );
                         $src        = get_the_post_thumbnail_url( get_the_ID(), 'gema-archive-' . gemalite_get_post_thumbnail_aspect_ratio_class() );
                     ?>
-                    <div class="card__image-wrap" style="padding-top: <?php echo $padding . '%'; ?>;">
+                    <div class="card__image-wrap" style="padding-top: <?php echo esc_attr( $padding ) . '%'; ?>;">
                         <img class="card__thumb" src="<?php echo esc_url( $thumb_src ); ?>">
                         <div class="card__image--large" data-src="<?php echo esc_url( $src ); ?>"></div>
                     </div>
@@ -32,7 +36,7 @@
 			</div>
 			<div class="card-title-wrap">
 				<div class="card__title">
-					<?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+					<?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">' . esc_url( get_permalink() ) ) . '</a></h2>' ); ?>
 					<div class="card__meta  entry-meta">
 
 						<?php gemalite_first_category(); ?>
@@ -71,7 +75,7 @@
 
 				</div>
 
-				<?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+				<?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">' . esc_url( get_permalink() ) ) . '</a></h2>' ); ?>
 				<?php the_excerpt(); ?>
 
 				<a class="btn" href="<?php the_permalink(); ?>"><?php esc_html_e( 'More', 'gema-lite' ); ?></a>

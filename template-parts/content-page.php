@@ -7,6 +7,9 @@
  * @package Gema
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 ?>
 
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

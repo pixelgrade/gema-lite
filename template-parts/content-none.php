@@ -7,9 +7,11 @@
  * @package Gema
  */
 
-?>
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
-<?php get_template_part('template-parts/content', 'header'); ?>
+get_template_part('template-parts/content', 'header'); ?>
 
 <div id="primary" class="content-area  content--not-found">
 	<main id="main" class="site-main" role="main">

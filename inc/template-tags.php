@@ -202,7 +202,7 @@ add_action( 'save_post', 'gemalite_category_transient_flusher' );
  */
 function gemalite_the_post_thumbnail_class( $class = '', $post_id = null ) {
 	// Separates classes with a single space, collates classes for post thumbnail DIV
-	echo 'class="' . join( ' ', gemalite_get_post_thumbnail_class( $class, $post_id ) ) . '"';
+	echo 'class="' . esc_attr( join( ' ', gemalite_get_post_thumbnail_class( $class, $post_id ) ) ) . '"';
 }
 
 if ( ! function_exists( 'gemalite_get_post_thumbnail_class' ) ) :
@@ -404,23 +404,4 @@ if ( ! function_exists( 'gemalite_compare_categories' ) ) :
 		return -1;
 	} #function
 
-endif;
-
-if ( ! function_exists( 'gemalite_the_custom_logo' ) ) :
-	/**
-	 * Displays the optional custom logo.
-	 *
-	 * Does nothing if the custom logo is not available.
-	 *
-	 * @since Gema 1.0
-	 */
-	function gemalite_the_custom_logo() {
-		//use the WP 4.5 logo functionality if present
-		if ( function_exists( 'the_custom_logo' ) ) {
-			the_custom_logo();
-		} elseif ( function_exists( 'jetpack_the_site_logo' ) ) {
-			// try to use the Jetpack Site Logo if WP 4.5 the core functionality is not present
-			jetpack_the_site_logo();
-		}
-	} #function
 endif;

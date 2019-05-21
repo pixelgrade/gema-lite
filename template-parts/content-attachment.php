@@ -6,12 +6,16 @@
  *
  * @package Gema
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">' . esc_url( get_permalink() ) ) . '</a></h2>' ); ?>
 
 		<div class="entry-meta">
 			<?php edit_post_link( esc_html__( 'Edit', 'gema-lite' ), '<span class="edit-link">', '</span>' ); ?>
@@ -24,9 +28,9 @@
 
 		<div class="entry-attachment">
 
-			<?php echo wp_get_attachment_image( get_the_ID(), 'large' ); ?>
+			<?php echo wp_get_attachment_image( get_the_ID(), 'large' );
 
-			<?php if ( has_excerpt() ) : ?>
+			if ( has_excerpt() ) : ?>
 
 				<div class="entry-caption">
 					<?php the_excerpt(); ?>

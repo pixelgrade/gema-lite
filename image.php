@@ -5,6 +5,10 @@
  * @package Gema
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 global $content_width;
 
 $content_width = 1050; /* pixels */

@@ -7,14 +7,16 @@
  * @package Gema
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 ?>
 
 <header id="masthead" class="site-header" role="banner">
 	<div class="site-branding">
 
-		<?php gemalite_the_custom_logo(); ?>
+		<?php the_custom_logo();
 
-		<?php
 		// on the front page and home page we use H1 for the title
 		echo ( is_front_page() && is_home() ) ? '<h1 class="site-title">' : '<div class="site-title">'; ?>
 

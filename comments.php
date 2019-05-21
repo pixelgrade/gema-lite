@@ -10,6 +10,10 @@
  * @package Gema
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 /*
  * If the current post is protected by a password and
  * the visitor has not yet entered the password we will

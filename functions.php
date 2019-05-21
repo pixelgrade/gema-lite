@@ -7,6 +7,10 @@
  * @package Gema
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! function_exists( 'gemalite_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -208,11 +212,6 @@ require get_template_directory() . '/inc/template-tags.php';
  * Custom functions that act independently of the theme templates.
  */
 require get_template_directory() . '/inc/extras.php';
-
-/**
- * Load the required plugins (TGMPA) logic.
- */
-require get_template_directory() . '/inc/required-plugins.php';
 
 /**
  * Customizer additions.
