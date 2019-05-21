@@ -26,7 +26,7 @@
 			setTimeout( function() {
 				$noticeThankYou.removeClass( 'pixcare-notice--hidden' ).css( 'position', 'static' );
 				$noticeDownload.hide();
-			}, 800);
+			}, 500);
 		})
 
 		// Send ajax on click of dismiss icon
