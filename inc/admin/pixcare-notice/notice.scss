@@ -84,7 +84,8 @@ div.pixcare-notice--hidden {
     p {
         font: inherit;
         padding: 0;
-        margin-bottom: 1em;
+        margin-bottom: 0.9em;
+        margin-top: 0;
         max-width: 50em;
     }
 
@@ -120,7 +121,7 @@ div.pixcare-notice--hidden {
 
     @media screen and (min-width: 782px) {
       .button + .button {
-          margin-left: 7px;
+          margin-left: 8px;
       }
     }
 
@@ -128,7 +129,11 @@ div.pixcare-notice--hidden {
        .button {
           width: 100%;
           padding: 8px;
-       }
+        }
+
+        .button + .button {
+            margin-top: 10px;
+        }
     }
 }
 
@@ -277,13 +282,12 @@ $pixcare-notice-small-spacing: 20px;
 
     @media only screen and (min-width: 1000px) {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
     }
 }
 
 .pixcare-notice__media {
-    flex: 0 0 112px;
-    align-self: flex-start;
+    flex: 0 0 135px;
 
     img {
         display: block;
@@ -296,6 +300,10 @@ $pixcare-notice-small-spacing: 20px;
         flex: 0 1 50%;
         background-color: #F2F4F5;
         align-self: stretch;
+    }
+    
+    @media only screen and (max-width: 1000px) {
+      display: none;
     }
 }
 
