@@ -17,6 +17,7 @@
 				thankyouHeight = $noticeThankYou.height();
 
 			$noticeDownload.addClass('pixcare-notice--hidden' );
+			$noticeDownload.height( downloadHeight );
 
 			setTimeout(function() {
 				$noticeDownload.height( thankyouHeight );
