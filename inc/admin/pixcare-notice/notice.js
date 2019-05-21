@@ -13,11 +13,19 @@
 
 		$button.on('click', function() {
 
-			$noticeDownload.toggleClass('hidden');
+			var downloadHeight = $noticeDownload.height(),
+				thankyouHeight = $noticeThankYou.height();
+
+			$noticeDownload.addClass('pixcare-notice--hidden' );
+
+			setTimeout(function() {
+				$noticeDownload.height( thankyouHeight );
+			}, 300);
 
 			setTimeout( function() {
-				$noticeThankYou.toggleClass('hidden');
-			}, 1000 );
+				$noticeThankYou.removeClass( 'pixcare-notice--hidden' ).css( 'position', 'static' );
+				$noticeDownload.hide();
+			}, 800);
 		})
 
 		// Send ajax on click of dismiss icon

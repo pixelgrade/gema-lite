@@ -138,7 +138,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 					</div>
 				</div>
 
-				<div class="pixcare-notice__wrap pixcare-notice--thankyou hidden">
+				<div class="pixcare-notice__wrap pixcare-notice--thankyou pixcare-notice--hidden">
 					<div class="pixcare-notice__media">
 						<div class="pixcare-notice__screenshot">
 							<?php

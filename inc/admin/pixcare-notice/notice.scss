@@ -37,6 +37,28 @@ $gray-light: #CCCCCC;
   }
 }
 
+.pixcare-notice-form {
+  position: relative;
+}
+
+.pixcare-notice--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pixcare-notice--thankyou {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.pixcare-notice__wrap {
+  transition:
+      height .5s ease-out,
+      opacity .3s ease-out;
+}
+
 .pixcare-notice__container[class] {
   display: block;
   position: relative;
