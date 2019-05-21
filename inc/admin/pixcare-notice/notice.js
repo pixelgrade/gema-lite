@@ -31,7 +31,6 @@
 					$noticeDownload.hide();
 				}, 500);
 
-				ajaxDismiss( $noticeContainer );
 			});
 
 			// Send ajax on click of dismiss icon
@@ -54,7 +53,7 @@
 					action: 'pixcare_download_dismiss_admin_notice',
 					nonce_dismiss: dismissElement.find( '#nonce-pixcare_download-dismiss' ).val()
 				}
-			})
+			});
 		}
 	});
 })(jQuery);

@@ -33,10 +33,10 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 
 		if ( $this->shouldShow() ) {
 			if ( $pagenow === 'themes.php' ) {
-			    add_action( 'admin_notices', array( $this, 'outputThemesMarkup' ) );
-            } else {
-    			add_action( 'admin_notices', array( $this, 'outputSmallMarkup' ) );
-            }
+				add_action( 'admin_notices', array( $this, 'outputThemesMarkup' ) );
+			} else {
+				add_action( 'admin_notices', array( $this, 'outputSmallMarkup' ) );
+			}
 			add_action( 'admin_enqueue_scripts', array( $this, 'outputCSS' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'outputJS' ) );
 		}
@@ -53,8 +53,8 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 			return false;
 		}
 
-		// We want to show it only on the themes.php page and in the dashboard.
-		if ( $pagenow !== 'themes.php' && $pagenow !== 'index.php' ) {
+		// We want to show it only on the themes.php page and in the dashboard, but different versions.
+		if ( ! in_array( $pagenow, array( 'themes.php', 'index.php' ) ) ) {
 			return false;
 		}
 
@@ -63,8 +63,9 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 			return false;
 		}
 
-		$dismissed = get_theme_mod( 'pixcare_download_notice_dismissed', false );
-		if ( ! empty( $dismissed ) && ( time() - absint( $dismissed ) < DAY_IN_SECONDS * 7 ) ) {
+		$timestamp = get_theme_mod( 'pixcare_download_notice_dismissed_timestamp', false );
+		$times = get_theme_mod( 'pixcare_download_notice_dismissed_times', 0 );
+		if ( ! empty( $timestamp ) && ( time() - absint( $timestamp ) < WEEK_IN_SECONDS * $times ) ) {
 			return false;
 		}
 
@@ -77,7 +78,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 	}
 
 	public function outputSmallMarkup() {
-		$button_text = __( 'Download the Pixelgrade Care&reg; plugin for Free', '__theme_txtd' );
+		$button_text = __( 'Download the Pixelgrade Care plugin for Free', '__theme_txtd' );
 		?>
         <div class="pixcare-notice__container notice notice--border" >
 
@@ -118,7 +119,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
                     <div class="pixcare-notice__media">
                         <div class="pixcare-notice__screenshot">
 							<?php
-							$thank_you_image = get_parent_theme_file_uri( $this->get_theme_relative_path( __DIR__ ) . 'thank-you.png' );
+							$thank_you_image = get_parent_theme_file_uri( $this->get_theme_relative_path( __DIR__ ) . 'icon-pixel-heart.png' );
 							?>
                             <img src="<?php echo esc_url( $thank_you_image ); ?>"
                                  alt="<?php esc_attr_e( 'Thank you for downloading', '__theme_txtd' ); ?>">
@@ -126,11 +127,11 @@ class GemaLite_PixelgradeCare_DownloadNotice {
                         </div>
                     </div>
                     <div class="pixcare-notice__body">
-                        <h2><?php echo wp_kses( __( 'Thanks for downloading Pixelgrade Care&reg;! Let\'s install it and make the most out of it.', '__theme_txtd' ), array( 'br' => array() ) ); ?></h2>
-                        <p><?php esc_html_e('Installing Pixelgrade Care works like any other WordPress plugin. Go to your Plugins page, upload, then activate:', '__theme_txtd' ); ?></p>
+                        <h2><?php echo wp_kses( __( 'Thanks for downloading Pixelgrade Care! Let\'s install it and make the most out of it.', '__theme_txtd' ), array( 'br' => array() ) ); ?></h2>
+                         <p><?php echo wp_kses( __( 'Installing Pixelgrade Care works like any other WordPress plugin. Go to your <strong>Plugins page</strong> and click on the <strong>Upload Plugin</strong> button, select the file you just downloaded, click Install, then Activate.', '__theme_txtd' ), wp_kses_allowed_html('post') ); ?></p>
 
                         <div class="message js-plugin-message"></div>
-                        <a href="<?php echo esc_url( admin_url( 'plugin-install.php' ) ); ?>" class="button button-primary">
+                        <a href="<?php echo esc_url( admin_url( 'plugin-install.php?tab=upload' ) ); ?>" class="button button-primary">
                             <?php esc_html_e( 'Go to Plugins page to install →', '__theme_txtd' ); ?>
                         </a>
                     </div>
@@ -142,7 +143,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 	}
 
 	public function outputThemesMarkup() {
-		$button_text = __( 'Download the Pixelgrade Care&reg; plugin for Free', '__theme_txtd' );
+		$button_text = __( 'Download the Pixelgrade Care plugin for Free', '__theme_txtd' );
 		?>
 		<div class="pixcare-notice__container notice notice--huge is-dismissible" >
 
@@ -152,7 +153,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 					<span class="pxg-wizard__progress"><b></b></span>
 				</li>
 				<li class="pxg-wizard__step pxg-wizard__step--current">
-					<span class="pxg-wizard__label"><?php esc_html_e( 'Pixelgrade Care&reg;', '__theme_txtd' ); ?></span>
+					<span class="pxg-wizard__label"><?php esc_html_e( 'Pixelgrade Care', '__theme_txtd' ); ?></span>
 					<span class="pxg-wizard__progress"><b></b></span>
 				</li>
 				<li class="pxg-wizard__step">
@@ -220,7 +221,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 						</div>
 					</div>
 					<div class="pixcare-notice__body">
-						<h1><?php echo wp_kses( __( 'Thanks for downloading Pixelgrade Care&reg;!<br/>Let\'s install it and make the most out of it.', '__theme_txtd' ), array( 'br' => array() ) ); ?></h1>
+						<h1><?php echo wp_kses( __( 'Thanks for downloading Pixelgrade Care!<br/>Let\'s install it and make the most out of it.', '__theme_txtd' ), array( 'br' => array() ) ); ?></h1>
 						<p><?php esc_html_e('Installing Pixelgrade Care works like any other WordPress plugin. Go to your Plugins page, upload, then activate:', '__theme_txtd' ); ?></p>
 						<ol>
 							<li>
@@ -271,7 +272,8 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 		check_ajax_referer( 'pixcare_download_dismiss_admin_notice', 'nonce_dismiss' );
 
 		// Remember the dismissal (time).
-		set_theme_mod( 'pixcare_download_notice_dismissed', time());
+		set_theme_mod( 'pixcare_download_notice_dismissed_timestamp', time() );
+		set_theme_mod( 'pixcare_download_notice_dismissed_times', get_theme_mod( 'pixcare_download_notice_dismissed_times', 0 ) + 1 );
 
 		// Redirect if this is not an ajax request.
 		if ( isset( $_POST['pixcare-notice-no-js'] ) ) {
@@ -285,7 +287,8 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 	}
 
 	public function cleanup() {
-		set_theme_mod( 'pixcare_download_notice_dismissed', false );
+		set_theme_mod( 'pixcare_download_notice_dismissed_timestamp', false );
+		set_theme_mod( 'pixcare_download_notice_dismissed_times', 0 );
 	}
 
 	/**
