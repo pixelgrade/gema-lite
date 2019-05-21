@@ -130,7 +130,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
                         <p><?php esc_html_e('Installing Pixelgrade Care works like any other WordPress plugin. Go to your Plugins page, upload, then activate:', '__theme_txtd' ); ?></p>
 
                         <div class="message js-plugin-message"></div>
-                        <a href="<?php echo esc_url( admin_url( 'plugin-install.php' ) ); ?>" class="button button-primary">
+                        <a href="<?php echo esc_url( admin_url( 'plugin-install.php?tab=upload' ) ); ?>" class="button button-primary">
                             <?php esc_html_e( 'Go to Plugins page to install →', '__theme_txtd' ); ?>
                         </a>
 
