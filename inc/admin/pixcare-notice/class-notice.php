@@ -118,7 +118,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
                     <div class="pixcare-notice__media">
                         <div class="pixcare-notice__screenshot">
 							<?php
-							$thank_you_image = get_parent_theme_file_uri( $this->get_theme_relative_path( __DIR__ ) . 'thank-you.png' );
+							$thank_you_image = get_parent_theme_file_uri( $this->get_theme_relative_path( __DIR__ ) . 'icon-pixel-heart.png' );
 							?>
                             <img src="<?php echo esc_url( $thank_you_image ); ?>"
                                  alt="<?php esc_attr_e( 'Thank you for downloading', '__theme_txtd' ); ?>">
@@ -127,7 +127,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
                     </div>
                     <div class="pixcare-notice__body">
                         <h2><?php echo wp_kses( __( 'Thanks for downloading Pixelgrade Care! Let\'s install it and make the most out of it.', '__theme_txtd' ), array( 'br' => array() ) ); ?></h2>
-                        <p><?php esc_html_e('Installing Pixelgrade Care works like any other WordPress plugin. Go to your Plugins page, upload, then activate:', '__theme_txtd' ); ?></p>
+                         <p><?php echo wp_kses( __( 'Installing Pixelgrade Care works like any other WordPress plugin. Go to your <strong>Plugins page</strong> and click on the <strong>Upload Plugin</strong> button, select the file you just downloaded, click Install, then Activate.', '__theme_txtd' ), wp_kses_allowed_html('post') ); ?></p>
 
                         <div class="message js-plugin-message"></div>
                         <a href="<?php echo esc_url( admin_url( 'plugin-install.php?tab=upload' ) ); ?>" class="button button-primary">
