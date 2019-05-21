@@ -31,7 +31,8 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 	public function addHooks() {
 
 		if ( $this->shouldShow() ) {
-			add_action( 'admin_notices', array( $this, 'outputMarkup' ) );
+			add_action( 'admin_notices', array( $this, 'outputSmallMarkup' ) );
+//			add_action( 'admin_notices', array( $this, 'outputThemesMarkup' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'outputCSS' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'outputJS' ) );
 		}
@@ -49,7 +50,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 		}
 
 		// We want to show it only on the themes.php page and in the dashboard.
-		if ( $pagenow !== 'themes.php' ) {
+		if ( $pagenow !== 'themes.php' && $pagenow !== 'index.php' ) {
 			return false;
 		}
 
@@ -71,7 +72,80 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 		return false;
 	}
 
-	public function outputMarkup() {
+	public function outputSmallMarkup() {
+		$button_text = __( 'Download the Pixelgrade Care&reg; plugin for Free', '__theme_txtd' );
+		?>
+        <div class="pixcare-notice__container notice notice--border is-dismissible" >
+
+            <form class="pixcare-notice-form"
+                  action="<?php echo esc_url( admin_url( 'admin-ajax.php?action=pixcare_download_dismiss_admin_notice' ) ); ?>"
+                  method="post">
+                <noscript><input type="hidden" name="pixcare-notice-no-js" value="1" /></noscript>
+
+                <div class="pixcare-notice__wrap pixcare-notice--download">
+                    <div class="pixcare-notice__media pixcare-notice__media--border">
+                        <div class="pixcare-notice__screenshot">
+							<?php
+							$theme = wp_get_theme();
+							if ( $theme->parent() ) {
+								$theme = $theme->parent();
+							}
+							$screenshot = $theme->get_screenshot();
+							if ( $screenshot ) { ?>
+                                <img src="<?php echo esc_url( $screenshot ); ?>" alt="<?php esc_attr_e( 'Theme screenshot', '__theme_txtd' ); ?>">
+							<?php } ?>
+                        </div>
+                    </div>
+                    <div class="pixcare-notice__body">
+                        <h2><?php echo wp_kses( sprintf( __( 'Thanks for trying %s! Are you looking for a better experience to set up your site?', '__theme_txtd' ),  $theme->get( 'Name' ) ), wp_kses_allowed_html('post') ); ?></h2>
+                        <p><?php echo wp_kses( __( 'We\'ve created a special onboarding setup through our <strong>Pixelgrade Care plugin</strong>. It helps you get started and configure your upcoming website in style. Let\'s make it shine!', '__theme_txtd' ), wp_kses_allowed_html('post') ); ?></p>
+                        <div class="message js-plugin-message"></div>
+
+                        <a class="button button-primary js-handle-pixcare" href="<?php echo esc_url( $this->download_url ); ?>">
+                            <?php echo esc_html( $button_text ); ?>
+                        </a>
+                        <button class="button">
+                            <?php _e( "No thanks, I'll be fine", '__theme_txtd' ); ?>
+                        </button>
+
+                        <noscript>
+                            <button type="submit" class="notice-dismiss"><span class="screen-reader-text"><?php esc_html_e( 'Dismiss this notice.', '__theme_txtd' ); ?></span></button>
+                        </noscript>
+                    </div>
+                </div>
+
+                <div class="pixcare-notice__wrap pixcare-notice--thankyou pixcare-notice--hidden">
+                    <div class="pixcare-notice__media">
+                        <div class="pixcare-notice__screenshot">
+							<?php
+							$thank_you_image = get_parent_theme_file_uri( $this->get_theme_relative_path( __DIR__ ) . 'thank-you.png' );
+							?>
+                            <img src="<?php echo esc_url( $thank_you_image ); ?>"
+                                 alt="<?php esc_attr_e( 'Thank you for downloading', '__theme_txtd' ); ?>">
+
+                        </div>
+                    </div>
+                    <div class="pixcare-notice__body">
+                        <h2><?php echo wp_kses( __( 'Thanks for downloading Pixelgrade Care&reg;! Let\'s install it and make the most out of it.', '__theme_txtd' ), array( 'br' => array() ) ); ?></h2>
+                        <p><?php esc_html_e('Installing Pixelgrade Care works like any other WordPress plugin. Go to your Plugins page, upload, then activate:', '__theme_txtd' ); ?></p>
+
+                        <div class="message js-plugin-message"></div>
+                        <a href="<?php echo esc_url( admin_url( 'plugin-install.php' ) ); ?>" class="button button-primary">
+                            <?php esc_html_e( 'Go to Plugins page to install →', '__theme_txtd' ); ?>
+                        </a>
+
+                        <noscript>
+                            <button type="submit" class="notice-dismiss"><span class="screen-reader-text"><?php esc_html_e( 'Dismiss this notice.', '__theme_txtd' ); ?></span></button>
+                        </noscript>
+                    </div>
+                </div>
+				<?php wp_nonce_field( 'pixcare_download_dismiss_admin_notice', 'nonce-pixcare_download-dismiss' ); ?>
+            </form>
+        </div>
+		<?php
+	}
+
+	public function outputThemesMarkup() {
 		$button_text = __( 'Download the Pixelgrade Care&reg; plugin for Free', '__theme_txtd' );
 		?>
 		<div class="pixcare-notice__container notice is-dismissible" >
