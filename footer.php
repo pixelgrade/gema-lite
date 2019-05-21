@@ -18,9 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'gema-lite' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'gema-lite' ), 'WordPress' ); ?></a>
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', '__theme_txtd' ) ); ?>"><?php /* translators: %s: WordPress  */ printf( esc_html__( 'Proudly powered by %s', '__theme_txtd' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'gema-lite' ), 'Gema Lite', '<a href="https://pixelgrade.com/?utm_source=gema-lite-clients&utm_medium=footer&utm_campaign=gema-lite" title="' . esc_html__( 'The Pixelgrade Website', 'gema-lite' ) . '" rel="designer">Pixelgrade</a>' ); ?>
+			<?php /* translators: %1$s: The theme name, %2$s: The theme author name. */ printf( esc_html__( 'Theme: %1$s by %2$s.', '__theme_txtd' ), 'Gema Lite', '<a href="https://pixelgrade.com/?utm_source=gema-lite-clients&utm_medium=footer&utm_campaign=gema-lite" title="' . esc_html__( 'The Pixelgrade Website', '__theme_txtd' ) . '" rel="designer">Pixelgrade</a>' ); ?>
 		</div><!-- .site-info -->
 		<?php
 			wp_nav_menu( array(

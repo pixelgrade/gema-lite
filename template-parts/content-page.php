@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			edit_post_link(
 				sprintf(
 				/* translators: %s: Name of current post */
-					esc_html__( 'Edit %s', 'gema-lite' ),
+					esc_html__( 'Edit %s', '__theme_txtd' ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				)
 			);
@@ -46,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php the_content(); ?>
 			<?php
 			wp_link_pages(array(
-				'before' => '<div class="page-links">' . esc_html__('Pages:', 'gema-lite'),
+				'before' => '<div class="page-links">' . esc_html__('Pages:', '__theme_txtd'),
 				'after' => '</div>',
 			));
 			?>

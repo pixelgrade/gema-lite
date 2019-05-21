@@ -102,7 +102,9 @@ class GemaLite_PixelgradeCare_DownloadNotice {
                         </div>
                     </div>
                     <div class="pixcare-notice__body">
-                        <h2><?php echo wp_kses( sprintf( __( 'Thanks for trying %s! Are you looking for a better experience to set up your site?', '__theme_txtd' ),  $theme->get( 'Name' ) ), wp_kses_allowed_html('post') ); ?></h2>
+                        <h2><?php
+	                        /* translators: %s: The theme name. */
+	                        echo wp_kses( sprintf( __( 'Thanks for trying %s! Are you looking for a better experience to set up your site?', '__theme_txtd' ),  $theme->get( 'Name' ) ), wp_kses_allowed_html('post') ); ?></h2>
                         <p><?php echo wp_kses( __( 'We\'ve created a special onboarding setup through our <strong>Pixelgrade Care plugin</strong>. It helps you get started and configure your upcoming website in style. Let\'s make it shine!', '__theme_txtd' ), wp_kses_allowed_html('post') ); ?></p>
                         <div class="message js-plugin-message"></div>
 
@@ -110,7 +112,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
                             <?php echo esc_html( $button_text ); ?>
                         </a>
                         <button class="button js-dismiss-notice">
-                            <?php _e( "No thanks, I'll be fine", '__theme_txtd' ); ?>
+                            <?php esc_html_e( 'No thanks, I\'ll be fine', '__theme_txtd' ); ?>
                         </button>
                     </div>
                 </div>
@@ -185,7 +187,9 @@ class GemaLite_PixelgradeCare_DownloadNotice {
                         </div>
 					</div>
 					<div class="pixcare-notice__body">
-						<h1><?php echo wp_kses( sprintf( __( 'Thank you for installing %s!<br/>Let\'s make an experience out of it.', '__theme_txtd' ),  $theme->get( 'Name' ) ), wp_kses_allowed_html('post') ); ?></h1>
+						<h1><?php
+							/* translators: %s: The theme name. */
+							echo wp_kses( sprintf( __( 'Thank you for installing %s!<br/>Let\'s make an experience out of it.', '__theme_txtd' ),  $theme->get( 'Name' ) ), wp_kses_allowed_html('post') ); ?></h1>
 						<p><?php echo wp_kses( __( 'We\'ve created a special onboarding setup through our <strong>Pixelgrade Care plugin</strong>. It helps you get started and configure your upcoming website in style. Let\'s make it shine!', '__theme_txtd' ), wp_kses_allowed_html('post') ); ?></p>
 						<ul>
 							<li>
@@ -303,9 +307,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 			return '';
 		}
 
-		$path = wp_normalize_path( $path );
-
-		$path = str_replace( trailingslashit( get_template_directory() ), '', $path );
+		$path = str_replace( trailingslashit( wp_normalize_path( get_template_directory() ) ), '', wp_normalize_path( $path ) );
 
 		return trailingslashit( $path );
 	}

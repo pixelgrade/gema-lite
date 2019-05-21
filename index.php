@@ -19,7 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 // If we have posts display the masonry archive
-if ( have_posts() ) :?>
+if ( have_posts() ) : ?>
+
 	<div id="primary" class="content-area">
 		<main id="main" role="main">
 			<div class="grid">
@@ -28,7 +29,10 @@ if ( have_posts() ) :?>
 				</div><!-- .header -->
 				<?php if ( is_search() ) : ?>
 					<div class="grid__item">
-						<div class="card  card--text"><?php printf( __( '<h1 class="archive-title  archive-title--search">Search Results for: <span class="search-query">%s</span></h1>', 'gema-lite' ), get_search_query() ); ?></div>
+						<div class="card  card--text"><h1 class="archive-title  archive-title--search"><?php
+							/* translators: %s: The search query. */
+							printf( esc_html__( 'Search Results for: %s', '__theme_txtd' ), '<span class="search-query">' . esc_html( get_search_query() ) . '</span>' );
+						?></h1></div>
 					</div>
 				<?php endif; ?>
 

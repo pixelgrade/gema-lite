@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$description = get_bloginfo( 'description', 'display' );
 		if ( $description || is_customize_preview() ) : ?>
 
-			<p class="site-description-text"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+			<p class="site-description-text"><?php echo $description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 
 		<?php endif; ?>
 
@@ -38,7 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<nav id="site-navigation" class="main-navigation" role="navigation">
 		<button class="overlay-toggle  menu-toggle  menu-close" aria-expanded="false">
-			<span class="screen-reader-text"><?php esc_html_e( 'Close Primary Menu', 'gema-lite' ); ?></span>
+			<span class="screen-reader-text"><?php esc_html_e( 'Close Primary Menu', '__theme_txtd' ); ?></span>
 		</button>
 
 		<?php wp_nav_menu( array(
@@ -48,7 +48,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'container'      => ''
 		) ); ?>
 
-		<?php if ( function_exists( 'jetpack_social_menu' ) ) jetpack_social_menu(); ?>
+		<?php if ( function_exists( 'jetpack_social_menu' ) ) {
+			jetpack_social_menu();
+		} ?>
 
 	</nav><!-- #site-navigation -->
 

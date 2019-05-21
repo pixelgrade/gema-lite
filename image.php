@@ -35,9 +35,9 @@ get_header(); ?>
 				endif;
 
 				// The parent post link.
-				/* translators: used on the attachment page to link to the parent post */
 				the_post_navigation( array(
-					'prev_text' => sprintf( esc_html__( 'Published in %s', 'gema-lite' ), '<span class="post-title">%title</span>' ),
+					/* translators: %s: The post title. */
+					'prev_text' => sprintf( esc_html__( 'Published in %s', '__theme_txtd' ), '<span class="post-title">%title</span>' ),
 					)
 				); ?>
 

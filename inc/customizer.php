@@ -21,16 +21,17 @@ function gemalite_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
 	// Rename the label to "Display Site Title & Tagline" in order to make this option clearer.
-	$wp_customize->get_control( 'display_header_text' )->label = esc_html__( 'Display Site Title &amp; Tagline', 'gema-lite' );
+	$wp_customize->get_control( 'display_header_text' )->label = esc_html__( 'Display Site Title &amp; Tagline', '__theme_txtd' );
 
 	// Add a pretty icon to Site Identity
-	$wp_customize->get_section( 'title_tagline' )->title = '&#x1f465; ' . esc_html__( 'Site Identity', 'gema-lite' );
+	$wp_customize->get_section( 'title_tagline' )->title = '&#x1f465; ' . esc_html__( 'Site Identity', '__theme_txtd' );
 
 	// View Pro
 	$wp_customize->add_section( 'gemalite_style_view_pro', array(
-		'title'       => '' . esc_html__( 'View PRO Version', 'gema-lite' ),
+		'title'       => '' . esc_html__( 'View PRO Version', '__theme_txtd' ),
 		'priority'    => 2,
 		'description' => sprintf(
+			/* translators: %s: The theme pro link. */
 			__( '<div class="upsell-container">
 					<h2>Need More? Go PRO</h2>
 					<p>Take it to the next level. See the features below:</p>
@@ -55,8 +56,9 @@ function gemalite_customize_register( $wp_customize ) {
                             	<div class="description">You will benefit by priority support from a caring and devoted team, eager to help and to spread happiness. We work hard to provide a flawless experience for those who vote us with trust and choose to be our special clients.</div>
                             </li>
                             
-                    </ul> %s </div>', 'gema-lite' ),
-			sprintf( '<a href="%1$s" target="_blank" class="button button-primary">%2$s</a>', esc_url( gemalite_get_pro_link() ), esc_html__( 'View Gema PRO', 'gema-lite' ) )
+                    </ul> %s </div>', '__theme_txtd' ),
+			/* translators: %1$s: The theme pro URL, %2$s: The theme pro link text.  */
+			sprintf( '<a href="%1$s" target="_blank" class="button button-primary">%2$s</a>', esc_url( gemalite_get_pro_link() ), esc_html__( 'View Gema PRO', '__theme_txtd' ) )
 		),
 	) );
 
@@ -66,68 +68,6 @@ function gemalite_customize_register( $wp_customize ) {
 	) );
 	$wp_customize->add_control( 'gemalite_style_view_pro_desc', array(
 		'section' => 'gemalite_style_view_pro',
-		'type'    => 'hidden',
-	) );
-
-
-	// Style Presets
-	$wp_customize->add_section( 'gemalite_style_presets', array(
-		'title'       => '&#x1f3ad; ' . esc_html__( 'Style Presets', 'gema-lite' ),
-		'priority'    => 29,
-		'description' => sprintf(
-			__( '<p>%s provides you hand-crafted style presets so that you never go out of trends and add some real value to the full package. You can instantly achieve a different visual approach and level up the users interest. </p><p> Our designer did his best to carefully match the colors and fonts so that you can easily refresh the overall style of your website.</p>', 'gema-lite' ),
-			sprintf( '<a href="%1$s" target="_blank">%2$s</a>', esc_url( gemalite_get_pro_link() ), esc_html__( 'Gema Pro', 'gema-lite' ) )
-		),
-	) );
-
-	$wp_customize->add_setting( 'gemalite_style_presets_desc', array(
-		'default'           => '',
-		'sanitize_callback' => '__return_true',
-	) );
-	$wp_customize->add_control( 'gemalite_style_presets_desc', array(
-		'section' => 'gemalite_style_presets',
-		'type'    => 'hidden',
-	) );
-
-
-	// Colors
-	$wp_customize->add_section( 'gemalite_colors', array(
-		'title'       => '&#x1f3a8; ' . esc_html__( 'Colors', 'gema-lite' ),
-		'priority'    => 30,
-		'description' => sprintf(
-			__( '<p>Play around with colors that fits your vision, your mood or both of them. You can smoothly make a design twist to quickly catch your wide preferences.</p><p>%s to switch colors and fonts in order to nurture your visual approach.</p>', 'gema-lite' ),
-			sprintf( '<a href="%1$s" target="_blank">%2$s</a>', esc_url( gemalite_get_pro_link() ), esc_html__( 'Upgrade to Gema Pro', 'gema-lite' )
-			)
-		),
-	) );
-
-	$wp_customize->add_setting( 'gemalite_colors_desc', array(
-		'default'           => '',
-		'sanitize_callback' => '__return_true',
-	) );
-	$wp_customize->add_control( 'gemalite_colors_desc', array(
-		'section' => 'gemalite_colors',
-		'type'    => 'hidden',
-	) );
-
-	// Fonts
-	$wp_customize->add_section( 'gemalite_fonts', array(
-		'title'       => '&#x1f4dd; ' . esc_html__( 'Fonts', 'gema-lite' ),
-		'priority'    => 31,
-		'description' => sprintf(
-			__( '<p>Typography can make it or break it. %s gives you a generous playground to match your needs in terms of fonts and sizes.</p><p>You have full-access to 600+ Google Fonts to mingle with for fine-tuning your style.', 'gema-lite' ),
-			sprintf( '<a href="%1$s" target="_blank">%2$s</a>', esc_url( gemalite_get_pro_link() ), esc_html__( 'Gema Pro', 'gema-lite' )
-			)
-		),
-	) );
-
-
-	$wp_customize->add_setting( 'gemalite_fonts_desc', array(
-		'default'           => '',
-		'sanitize_callback' => '__return_true',
-	) );
-	$wp_customize->add_control( 'gemalite_fonts_desc', array(
-		'section' => 'gemalite_fonts',
 		'type'    => 'hidden',
 	) );
 

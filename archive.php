@@ -46,7 +46,7 @@ if ( have_posts() ) : ?>
 						}
 
 						if ( is_author() ) {
-							echo '<p>' . get_the_author_meta('description') . '</p>';
+							echo '<p>' . wp_kses_post( get_the_author_meta('description') ) . '</p>';
 						}
 					?>
 					</div>

@@ -34,11 +34,12 @@ if ( ! function_exists( 'gemalite_posted_on' ) ) :
 		$author_name = get_the_author();
 
 		$byline = sprintf(
-			esc_html_x( 'by %s', 'post author', 'gema-lite' ),
+			/* translators: %s: The post author name. */
+			esc_html_x( 'by %s', 'post author', '__theme_txtd' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( $author_name ) . '</a></span>'
 		);
 
-		echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>';
+		echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	} #function
 
@@ -69,7 +70,7 @@ if ( ! function_exists( 'gemalite_get_cats_list' ) ) :
 
 		$cats = '';
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'gema-lite' ), '', $post_ID );
+		$categories_list = get_the_category_list( esc_html__( ', ', '__theme_txtd' ), '', $post_ID );
 		if ( $categories_list && gemalite_categorized_blog() ) {
 			$cats = '<span class="cat-links">' . $categories_list . '</span>';
 		}
@@ -91,7 +92,7 @@ if ( ! function_exists( 'gemalite_cats_list' ) ) :
 	 */
 	function gemalite_cats_list( $post_ID = null ) {
 
-		echo gemalite_get_cats_list( $post_ID );
+		echo gemalite_get_cats_list( $post_ID ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	} #function
 
@@ -109,7 +110,7 @@ if ( ! function_exists( 'gemalite_the_posts_navigation' ) ) :
 		global $wp_query;
 
 		$big = 999999999; // need an unlikely integer
-		$a11y_text = esc_html__( 'Page', 'gema-lite' ); // Accessibility improvement
+		$a11y_text = esc_html__( 'Page', '__theme_txtd' ); // Accessibility improvement
 
 		$links = paginate_links( array(
 			'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
@@ -117,13 +118,13 @@ if ( ! function_exists( 'gemalite_the_posts_navigation' ) ) :
 			'current' => max( 1, get_query_var('paged') ),
 			'total' => $wp_query->max_num_pages,
 			'prev_next' => true,
-			'prev_text' => esc_html__( 'Prev', 'gema-lite' ),
-			'next_text' => esc_html__( 'Next', 'gema-lite' ),
+			'prev_text' => esc_html__( 'Prev', '__theme_txtd' ),
+			'next_text' => esc_html__( 'Next', '__theme_txtd' ),
 			'before_page_number' => '<span class="screen-reader-text">' . $a11y_text . ' </span>',
 		) );
 
-		//wrap the links in a standard navigational markup
-		echo _navigation_markup( $links, 'archive-navigation' );
+		// Wrap the links in a standard navigational markup
+		echo _navigation_markup( $links, 'archive-navigation' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	} #function
 endif;
 
@@ -139,7 +140,7 @@ if ( ! function_exists( 'gemalite_entry_footer' ) ) :
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', '' );
 			if ( $tags_list ) {
-				echo '<div class="tags">' . $tags_list . '</div>';
+				echo '<div class="tags">' . $tags_list . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 	} #function
@@ -309,7 +310,7 @@ if ( ! function_exists( 'gemalite_the_image_navigation' ) ) :
 		if ( $post->post_parent ) : ?>
 
 		<nav class="navigation post-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php esc_html_e( 'Image navigation', 'gema-lite' ); ?></h2>
+			<h2 class="screen-reader-text"><?php esc_html_e( 'Image navigation', '__theme_txtd' ); ?></h2>
 			<div class="nav-links">
 				<div class="nav-previous">
 
@@ -375,7 +376,7 @@ if ( ! function_exists( 'gemalite_first_category' ) ) :
 			$category = array_shift( $categories );
 			$rel = ( is_object( $wp_rewrite ) && $wp_rewrite->using_permalinks() ) ? 'rel="category tag"' : 'rel="category"';
 
-			echo '<span class="cat-links"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '" ' . $rel . '>' . $category->name . '</a></span>';
+			echo '<span class="cat-links"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '" ' . esc_html( $rel ) . '>' . esc_html( $category->name ) . '</a></span>';
 		}
 
 	} #function
