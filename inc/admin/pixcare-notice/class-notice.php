@@ -29,10 +29,14 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 	}
 
 	public function addHooks() {
+        global $pagenow;
 
 		if ( $this->shouldShow() ) {
-			add_action( 'admin_notices', array( $this, 'outputSmallMarkup' ) );
-//			add_action( 'admin_notices', array( $this, 'outputThemesMarkup' ) );
+			if ( $pagenow === 'themes.php' ) {
+			    add_action( 'admin_notices', array( $this, 'outputThemesMarkup' ) );
+            } else {
+    			add_action( 'admin_notices', array( $this, 'outputSmallMarkup' ) );
+            }
 			add_action( 'admin_enqueue_scripts', array( $this, 'outputCSS' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'outputJS' ) );
 		}
@@ -75,7 +79,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 	public function outputSmallMarkup() {
 		$button_text = __( 'Download the Pixelgrade Care&reg; plugin for Free', '__theme_txtd' );
 		?>
-        <div class="pixcare-notice__container notice notice--border is-dismissible" >
+        <div class="pixcare-notice__container notice notice--border" >
 
             <form class="pixcare-notice-form"
                   action="<?php echo esc_url( admin_url( 'admin-ajax.php?action=pixcare_download_dismiss_admin_notice' ) ); ?>"
@@ -104,13 +108,9 @@ class GemaLite_PixelgradeCare_DownloadNotice {
                         <a class="button button-primary js-handle-pixcare" href="<?php echo esc_url( $this->download_url ); ?>">
                             <?php echo esc_html( $button_text ); ?>
                         </a>
-                        <button class="button">
+                        <button class="button js-dismiss-notice">
                             <?php _e( "No thanks, I'll be fine", '__theme_txtd' ); ?>
                         </button>
-
-                        <noscript>
-                            <button type="submit" class="notice-dismiss"><span class="screen-reader-text"><?php esc_html_e( 'Dismiss this notice.', '__theme_txtd' ); ?></span></button>
-                        </noscript>
                     </div>
                 </div>
 
@@ -133,10 +133,6 @@ class GemaLite_PixelgradeCare_DownloadNotice {
                         <a href="<?php echo esc_url( admin_url( 'plugin-install.php' ) ); ?>" class="button button-primary">
                             <?php esc_html_e( 'Go to Plugins page to install →', '__theme_txtd' ); ?>
                         </a>
-
-                        <noscript>
-                            <button type="submit" class="notice-dismiss"><span class="screen-reader-text"><?php esc_html_e( 'Dismiss this notice.', '__theme_txtd' ); ?></span></button>
-                        </noscript>
                     </div>
                 </div>
 				<?php wp_nonce_field( 'pixcare_download_dismiss_admin_notice', 'nonce-pixcare_download-dismiss' ); ?>
@@ -148,7 +144,7 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 	public function outputThemesMarkup() {
 		$button_text = __( 'Download the Pixelgrade Care&reg; plugin for Free', '__theme_txtd' );
 		?>
-		<div class="pixcare-notice__container notice is-dismissible" >
+		<div class="pixcare-notice__container notice notice--huge is-dismissible" >
 
 			<ul class="pxg-wizard">
 				<li class="pxg-wizard__step pxg-wizard__step--done">
