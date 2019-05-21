@@ -356,7 +356,7 @@ $pixcare-notice-mobile-spacing: 20px;
   &:hover {
     color: #FFFFFF;
     cursor: pointer;
-    transform: scale(1.05) translateY(-3px);
+    transform: scale(1.02) translateY(-2px);
     box-shadow:
         0 64px 128px rgba(42, 54, 52, 0.1),
         0 32px 64px rgba(42, 54, 52, 0.1),
@@ -371,9 +371,11 @@ $pixcare-notice-mobile-spacing: 20px;
     box-shadow: none;
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    color: #FFFFFF;
     transform: perspective(1px) translateY(2px) translateZ(0);
-    transition-duration: .05s;
+    transition-duration: .3s;
     box-shadow: none;
   }
 

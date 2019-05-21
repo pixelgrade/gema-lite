@@ -160,11 +160,11 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 								<i></i><span><?php echo wp_kses( __('<strong>Select the .zip plugin file</strong> you\'ve just downloaded to your computer', '__theme_txtd' ), wp_kses_allowed_html() ); ?></span>
 							</li>
 							<li>
-								<i></i><span><?php echo wp_kses( __('Click on the <strong>Install Now</strong> button, then click <strong>Activate Plugin</strong> to start using it', '__theme_txtd' ), wp_kses_allowed_html() ); ?></span>
+								<i></i><span><?php echo wp_kses( __('Click on the <strong>Install Now</strong> button then <strong>Activate Plugin</strong> to start using it', '__theme_txtd' ), wp_kses_allowed_html() ); ?></span>
 							</li>
 						</ol>
 						<div class="message js-plugin-message"></div>
-						<a href="<?php echo esc_url( admin_url( 'plugin-install.php' ) ); ?>" class="pixcare-notice-button button--primary">
+						<a href="<?php echo esc_url( admin_url( 'plugin-install.php?tab=upload' ) ); ?>" class="pixcare-notice-button button--primary">
                             <span class="pixcare-notice-button__text"><?php esc_html_e( 'Go to Plugins page to install →', '__theme_txtd' ); ?></span>
                         </a>
 
