@@ -29,10 +29,14 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 	}
 
 	public function addHooks() {
+		global $pagenow;
 
 		if ( $this->shouldShow() ) {
-			add_action( 'admin_notices', array( $this, 'outputSmallMarkup' ) );
-//			add_action( 'admin_notices', array( $this, 'outputThemesMarkup' ) );
+			if ( $pagenow === 'themes.php' ) {
+				add_action( 'admin_notices', array( $this, 'outputThemesMarkup' ) );
+			} else {
+				add_action( 'admin_notices', array( $this, 'outputSmallMarkup' ) );
+			}
 			add_action( 'admin_enqueue_scripts', array( $this, 'outputCSS' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'outputJS' ) );
 		}
@@ -49,8 +53,8 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 			return false;
 		}
 
-		// We want to show it only on the themes.php page and in the dashboard.
-		if ( $pagenow !== 'themes.php' && $pagenow !== 'index.php' ) {
+		// We want to show it only on the themes.php page and in the dashboard, but different versions.
+		if ( ! in_array( $pagenow, array( 'themes.php', 'index.php' ) ) ) {
 			return false;
 		}
 
@@ -59,8 +63,9 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 			return false;
 		}
 
-		$dismissed = get_theme_mod( 'pixcare_download_notice_dismissed', false );
-		if ( ! empty( $dismissed ) && ( time() - absint( $dismissed ) < DAY_IN_SECONDS * 7 ) ) {
+		$timestamp = get_theme_mod( 'pixcare_download_notice_dismissed_timestamp', false );
+		$times = get_theme_mod( 'pixcare_download_notice_dismissed_times', 0 );
+		if ( ! empty( $timestamp ) && ( time() - absint( $timestamp ) < WEEK_IN_SECONDS * $times ) ) {
 			return false;
 		}
 
@@ -104,8 +109,8 @@ class GemaLite_PixelgradeCare_DownloadNotice {
                         <a class="button button-primary js-handle-pixcare" href="<?php echo esc_url( $this->download_url ); ?>">
                             <?php echo esc_html( $button_text ); ?>
                         </a>
-                        <button class="button">
-                            <?php _e( "No thanks, I'll be fine", '__theme_txtd' ); ?>
+                        <button class="button notice-dismiss-alt">
+                            <?php esc_html_e( "No thanks, I'll be fine", '__theme_txtd' ); ?>
                         </button>
 
                         <noscript>
@@ -275,7 +280,8 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 		check_ajax_referer( 'pixcare_download_dismiss_admin_notice', 'nonce_dismiss' );
 
 		// Remember the dismissal (time).
-		set_theme_mod( 'pixcare_download_notice_dismissed', time());
+		set_theme_mod( 'pixcare_download_notice_dismissed_timestamp', time() );
+		set_theme_mod( 'pixcare_download_notice_dismissed_times', get_theme_mod( 'pixcare_download_notice_dismissed_times', 0 ) + 1 );
 
 		// Redirect if this is not an ajax request.
 		if ( isset( $_POST['pixcare-notice-no-js'] ) ) {
@@ -289,7 +295,8 @@ class GemaLite_PixelgradeCare_DownloadNotice {
 	}
 
 	public function cleanup() {
-		set_theme_mod( 'pixcare_download_notice_dismissed', false );
+		set_theme_mod( 'pixcare_download_notice_dismissed_timestamp', false );
+		set_theme_mod( 'pixcare_download_notice_dismissed_times', 0 );
 	}
 
 	/**

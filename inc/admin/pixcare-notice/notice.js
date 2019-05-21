@@ -30,7 +30,9 @@
 		})
 
 		// Send ajax on click of dismiss icon
-		$noticeContainer.on( 'click', '.notice-dismiss', function() {
+		$noticeContainer.on( 'click', '.notice-dismiss, .notice-dismiss-alt', function( event ) {
+			event.preventDefault();
+
 			ajaxDismiss( $(this) );
 		});
 
@@ -44,6 +46,9 @@
 					nonce_dismiss: $noticeContainer.find('#nonce-pixcare_download-dismiss').val()
 				}
 			})
+			.done(function( data ) {
+				$noticeContainer.hide();
+			});
 		}
 	});
 })(jQuery);
