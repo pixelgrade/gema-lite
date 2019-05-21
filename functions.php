@@ -129,7 +129,7 @@ function gemalite_scripts() {
 	wp_enqueue_script('gema-modernizr', get_parent_theme_file_uri( 'js/modernizr-custom.js' ), array(), '20160322', true);
 
 	/* Enqueue the main theme script file */
-	wp_enqueue_script( 'gema-scripts', get_parent_theme_file_uri( 'assets/js/main.js' ), array( 'jquery', 'bricklayer', 'imagesloaded' ), $theme->get( 'Version' ), true );
+	wp_enqueue_script( 'gema-scripts', get_parent_theme_file_uri( 'assets/js/main.js' ), array( 'jquery', 'bricklayer', 'imagesloaded', 'hoverintent' ), $theme->get( 'Version' ), true );
 
 	if ( is_singular() && comments_open() && get_option('thread_comments') ) {
         wp_enqueue_script('comment-reply');
