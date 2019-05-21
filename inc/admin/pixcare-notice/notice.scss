@@ -41,22 +41,31 @@ $gray-light: #CCCCCC;
   position: relative;
 }
 
-.pixcare-notice--hidden {
+div.pixcare-notice--hidden {
   opacity: 0;
   pointer-events: none;
 }
 
+.pixcare-notice--download {
+  &.pixcare-notice--hidden {
+    transform: translateY(-15px);
+  }
+}
+
 .pixcare-notice--thankyou {
+  transform: translateY(0px);
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
+
+  &.pixcare-notice--hidden {
+    transform: translateY(15px);
+  }
 }
 
 .pixcare-notice__wrap {
-  transition:
-      height .5s ease-out,
-      opacity .3s ease-out;
+  transition: all .5s ease;
 }
 
 .pixcare-notice__container[class] {
@@ -253,7 +262,7 @@ $pixcare-notice-mobile-spacing: 20px;
     padding-left: 50px;
     padding-right: 40px;
 
-    max-width: 40em;
+    max-width: 39em;
     margin-right: auto;
   }
 

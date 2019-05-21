@@ -108,6 +108,7 @@ gulp.task('scripts-watch', scriptsWatch);
 
 function watch() {
 	gulp.watch('assets/scss/**/*.scss', stylesMain);
+	gulp.watch('inc/admin/pixcare-notice/*.scss', stylesPixcareNotice);
 	gulp.watch('assets/js/**/*.js', scripts);
 }
 gulp.task('watch', watch);
