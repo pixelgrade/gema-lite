@@ -279,7 +279,7 @@ gulp.task( 'zip', zipSequence  );
 
 function updateDemoInstall() {
 
-	var run_exec = require('child_process').exec;
+	var run_exec = cp.exec;
 
 	gulp.src('./')
 		.pipe(plugins.prompt.confirm( "This task will stash all your local changes without commiting them,\n Make sure you did all your commits and pushes to the main " + main_branch + " branch! \n Are you sure you want to continue?!? "))
