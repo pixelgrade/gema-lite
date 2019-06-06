@@ -199,8 +199,3 @@ require get_template_directory() . '/inc/extras.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Admin dashboard logic.
- */
-require get_template_directory() . '/inc/admin/admin.php';

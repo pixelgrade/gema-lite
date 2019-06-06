@@ -109,7 +109,7 @@ add_filter( 'wp_link_pages_link', 'gemalite_wrap_current_pages_link', 10, 2 );
  * @param array  $args    An array of arguments.
  */
 function gemalite_comment_markup( $comment, $args, $depth ) {
-	switch ( $comment->comment_type ) :
+	switch ( $comment->comment_type ) {
 		case 'pingback' :
 		case 'trackback' :
 			?>
@@ -137,19 +137,21 @@ function gemalite_comment_markup( $comment, $args, $depth ) {
 
 		default : ?>
 
-		<li <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="li-comment-<?php comment_ID(); ?>">
+			<li <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="li-comment-<?php comment_ID(); ?>">
 			<article id="comment-<?php comment_ID() ?>" class="comment__article  media">
 				<?php
 				// grab the avatar - by default the Mystery Man
 				$avatar = get_avatar( $comment, $args['avatar_size'] ); ?>
 
-				<aside class="comment__avatar  media__img"><?php echo wp_kses( $avatar, array_merge_recursive( wp_kses_allowed_html('post' ), array( 'img' => array( 'srcset'   => true, ), ) ) ); ?></aside>
+				<aside
+					class="comment__avatar  media__img"><?php echo wp_kses( $avatar, array_merge_recursive( wp_kses_allowed_html( 'post' ), array( 'img' => array( 'srcset' => true, ), ) ) ); ?></aside>
 
 				<div class="media__body">
 					<header class="comment__meta">
 						<?php printf( '<span class="comment__author">%s</span>', get_comment_author_link() ) ?>
 						<time class="comment__time" datetime="<?php comment_time( 'c' ); ?>">
-							<a href="<?php echo esc_url( get_comment_link( get_comment_ID() ) ) ?>" class="comment__timestamp"><?php
+							<a href="<?php echo esc_url( get_comment_link( get_comment_ID() ) ) ?>"
+							   class="comment__timestamp"><?php
 								printf(
 								/* translators: %1$s: The comment date, %2$s: The comment time. */
 									esc_html__( 'on %1$s at %2$s', '__theme_txtd' ), esc_html( get_comment_date() ), esc_html( get_comment_time() ) ); ?> </a>
@@ -180,7 +182,7 @@ function gemalite_comment_markup( $comment, $args, $depth ) {
 			<!-- </li> is added by WordPress automatically -->
 			<?php
 			break;
-	endswitch;
+	}
 }
 
 /**
@@ -251,29 +253,8 @@ function gemalite_cleanup_archive_title( $title ) {
 	}
 
 	return $title;
-
 }
 add_filter( 'get_the_archive_title', 'gemalite_cleanup_archive_title', 10, 1 );
-
-/**
- * Handle the WUpdates theme identification.
- *
- * @param array $ids
- *
- * @return array
- */
-function gemalite_wupdates_add_id_wporg( $ids = array() ) {
-	// First get the theme directory name (unique)
-	$slug = basename( get_template_directory() );
-
-	// Now add the predefined details about this product
-	// Do not tamper with these please!!!
-	$ids[ $slug ] = array( 'name' => 'Gema', 'slug' => 'gema', 'id' => 'ML4Gm', 'type' => 'theme_wporg', 'digest' => 'caa70401bbaebb6a943f5998328b6f30', );
-
-	return $ids;
-}
-// The 5 priority is intentional to allow for pro to overwrite.
-add_filter( 'wupdates_gather_ids', 'gemalite_wupdates_add_id_wporg', 5, 1 );
 
 /**
  * Fix skip link focus in IE11.
