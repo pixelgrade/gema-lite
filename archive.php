@@ -34,18 +34,9 @@ if ( have_posts() ) : ?>
 				<div class="grid__item">
 					<div class="card  card--text"><?php the_archive_title( '<h1 class="archive-title"><span>', '</span></h1>' ); ?>
 					<?php
-						if( is_category() ) {
-							global $cat;
-							echo category_description( $cat );
-						}
-
-						if( is_tag() ) {
-							global $tag;
-							$tag_id = get_term_by( 'slug', $tag);
-							echo tag_description( $tag_id );
-						}
-
-						if ( is_author() ) {
+						if( is_category() || is_tag() ) {
+							the_archive_description();
+						} elseif ( is_author() ) {
 							echo '<p>' . wp_kses_post( get_the_author_meta('description') ) . '</p>';
 						}
 					?>
