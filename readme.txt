@@ -6,7 +6,7 @@ Version: 1.1.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.9.9
-Tested up to: 5.2
+Tested up to: 5.2.1
 Tags: one-column, two-columns, three-columns, grid-layout, right-sidebar, editor-style, featured-images, rtl-language-support, custom-menu, custom-logo, sticky-post, translation-ready, blog, news, food-and-drink, threaded-comments
 
 == Description ==
