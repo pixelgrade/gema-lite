@@ -93,7 +93,7 @@ function gemalite_sanitize_site_title_outline( $outline ) {
  * Assets that will be loaded for the customizer sidebar
  */
 function gemalite_customizer_assets() {
-	wp_enqueue_style( 'gemalite-customizer-style', get_template_directory_uri() . '/inc/admin/css/customizer.css', array(), '1.1.3', false );
+	wp_enqueue_style( 'gemalite-customizer-style', get_template_directory_uri() . '/inc/admin/css/customizer.css', array(), '1.1.4', false );
 }
 add_action( 'customize_controls_enqueue_scripts', 'gemalite_customizer_assets' );
 
@@ -102,7 +102,7 @@ add_action( 'customize_controls_enqueue_scripts', 'gemalite_customizer_assets' )
  * This will be added in the preview part
  */
 function gemalite_customizer_preview_assets() {
-	wp_enqueue_script( 'gemalite_customizer_preview', get_template_directory_uri() . '/assets/js/customizer-preview.js', array( 'customize-preview' ), '1.1.3', true );
+	wp_enqueue_script( 'gemalite_customizer_preview', get_template_directory_uri() . '/assets/js/customizer-preview.js', array( 'customize-preview' ), '1.1.4', true );
 }
 add_action( 'customize_preview_init', 'gemalite_customizer_preview_assets' );
 
