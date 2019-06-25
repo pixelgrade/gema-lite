@@ -13,6 +13,12 @@ Gema Lite is a newspaper-inspired theme focused on presenting your content in wa
 
 ## Changelog
 
+= 1.1.4 =
+* Compatibility with the latest version of WordPress (v5.2.2).
+
+= 1.1.3 =
+* Cleanup and security enhancements.
+
 = 1.1.2 =
 * Minor styling and logic fixes in the Customizer.
 
@@ -56,13 +62,11 @@ Gema Lite is a newspaper-inspired theme focused on presenting your content in wa
 
 Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License.
 
-* hoverintent.js: script by Brian Cherne (https://briancherne.github.io/jquery-hoverIntent/), licensed under the [MIT License](http://opensource.org/licenses/mit-license.html).
+* Butler font (c) 2015, [Fabian De Smet](http://fabiandesmet.com/portfolio/butler-font/), licensed under [Creative Commons Attribution-ShareAlike v4.00](https://www.fontsquirrel.com/license/butler)
+* Montserat font (c) 2011-2012, Julieta Ulanovsky (julieta.ulanovsky@gmail.com) licensed under [SIL Open Font License v1.1](http://scripts.sil.org/OFL)
 
 * Bricklayer - Cascading Grid Layouts: script by Adem İlter (https://github.com/ademilter/bricklayer), licensed under the [MIT License](http://opensource.org/licenses/mit-license.html).
-
 * modernizr: script by Faruk Ates, Paul Irish, Alex Sexton, Ryan Seddon, Patrick Kettner, Stu Cox, Richard Herrera (https://modernizr.com/), licensed under the [MIT License](http://opensource.org/licenses/mit-license.html).
-
 * smartResize.js: script by John Hann (https://gist.github.com/pkdsleeper/3802022), licensed under the [MIT License](http://opensource.org/licenses/mit-license.html).
 
-* Images: screenshot iamges by Pixabay (https://www.pexels.com/@pixabay) - [Source](https://www.pexels.com/photo/abandoned-alley-architecture-blue-208560/), Godisable Jacob (https://www.pexels.com/@godisable-jacob-226636) - [Source](https://www.pexels.com/photo/woman-in-brown-and-gray-t-shirt-sitting-on-brown-wooden-table-949670/), 
-Automnenoble Bogomolov (https://www.pexels.com/@automnenoble) - [Source](https://www.pexels.com/photo/woman-wearing-blue-crew-neck-sweater-and-pants-792192/), Pixabay (https://www.pexels.com/@pixabay) - [Source](https://www.pexels.com/photo/house-terrace-with-green-leaf-plants-during-daytime-161932/), Igor Starkov (https://www.pexels.com/@igor-starkov-233202) - [Source](https://www.pexels.com/photo/two-green-potted-plants-791810/), Pixabay (https://www.pexels.com/@pixabay) - [Source](https://www.pexels.com/photo/arch-architecture-art-blue-277590/), licensed under CC0 Public Domain.
+* Images: screenshot images by Pxhere - [Source](https://pxhere.com/en/photo/775709), Godisable Jacob - [Source](https://www.dreamstime.com/grayscale-photo-two-kids-sitting-dining-table-chairs-public-domain-image-free-115203161), Automnenoble Bogomolov - [Source](https://photo.goldposter.com/woman-wearing-blue-crew-neck-sweater-and-pants/), Pxhere - [Source](https://pxhere.com/en/photo/1418510), Igor Starkov - [Source](https://photo.goldposter.com/two-green-potted-plants/), Pxhere - [Source](https://pxhere.com/en/photo/557904), licensed under CC0 Public Domain.
