@@ -1,4 +1,5 @@
 Theme Name: Gema Lite
+Theme URI: https://github.com/pixelgrade/gema-lite
 Author: Pixelgrade
 Author URI: https://pixelgrade.com
 Description: Gema Lite is a newspaper-inspired theme focused on presenting your content in diverse, daring, and bold ways. Bring forth the stylish traveler, lifestyle connoisseur, the wandering photographer, literary dreamer, or any other passionate persona you keep tucked away.
