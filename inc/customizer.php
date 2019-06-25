@@ -67,7 +67,7 @@ function gemalite_customize_register( $wp_customize ) {
 		'sanitize_callback' => '__return_true',
 	) );
 	$wp_customize->add_control( 'gemalite_style_view_pro_desc', array(
-		'section' => 'gemalite_style_view_pro',
+		'section' => 'pro__section',
 		'type'    => 'hidden',
 	) );
 
