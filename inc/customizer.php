@@ -27,7 +27,7 @@ function gemalite_customize_register( $wp_customize ) {
 	$wp_customize->get_section( 'title_tagline' )->title = '&#x1f465; ' . esc_html__( 'Site Identity', '__theme_txtd' );
 
 	// View Pro
-	$wp_customize->add_section( 'gemalite_style_view_pro', array(
+	$wp_customize->add_section( 'pro__section', array(
 		'title'       => '' . esc_html__( 'View PRO Version', '__theme_txtd' ),
 		'priority'    => 2,
 		'description' => sprintf(
