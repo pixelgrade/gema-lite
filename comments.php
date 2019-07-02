@@ -74,7 +74,7 @@ if ( post_password_required() ) {
 
 			'email' =>
 				'<p class="comment-form-email"><label for="email">' . esc_html__( 'Email', '__theme_txtd' ) . '</label> ' .
-				'<input placeholder="' . esc_html__( 'Email', '__theme_txtd' ) . ( $req ? ' *' : '' ) . '" id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+				'<input placeholder="' . esc_html__( 'Email', '__theme_txtd' ) . ( $req ? ' *' : '' ) . '" id="email" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) .
 				'" size="30"' . $aria_req . ' /></p>',
 
 			'url' =>
