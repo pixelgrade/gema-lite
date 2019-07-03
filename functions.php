@@ -100,10 +100,10 @@ endif; // gemalite_setup
 add_action('after_setup_theme', 'gemalite_setup' );
 
 /*
-	 * Enable support for Post Formats.
-	 * See https://developer.wordpress.org/themes/functionality/post-formats/
-	 */
-add_theme_support( 'post-formats', array( 'quote' ) );
+ * Enable support for Post Formats.
+ * See https://developer.wordpress.org/themes/functionality/post-formats/
+ */
+add_theme_support( 'post-formats', array( 'quote', 'gallery', 'video', 'audio', 'image', 'link' ) );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
