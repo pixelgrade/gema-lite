@@ -7,7 +7,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Gema
+ * @package Gema Lite
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -46,7 +46,7 @@ if ( post_password_required() ) {
 					'style'      	=> 'ol',
 					'short_ping' 	=> true,
 					'avatar_size' 	=> 54,
-					'callback' 		=> 'gemalite_comment_markup'
+					'callback' 		=> 'gema_lite_comment_markup'
 				) );
 			?>
 		</ol><!-- .comment-list -->

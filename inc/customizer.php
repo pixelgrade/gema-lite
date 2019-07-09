@@ -10,7 +10,7 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function gemalite_customize_register( $wp_customize ) {
+function gema_lite_customize_register( $wp_customize ) {
 
 	/*
 	 * Change defaults
@@ -53,21 +53,21 @@ function gemalite_customize_register( $wp_customize ) {
                             
                     </ul> %s </div>', '__theme_txtd' ),
 			/* translators: %1$s: The theme pro URL, %2$s: The theme pro link text.  */
-			sprintf( '<a href="%1$s" target="_blank" class="button button-primary">%2$s</a>', esc_url( gemalite_get_pro_link() ), esc_html__( 'View Gema PRO', '__theme_txtd' ) )
+			sprintf( '<a href="%1$s" target="_blank" class="button button-primary">%2$s</a>', esc_url( gema_lite_get_pro_link() ), esc_html__( 'View Gema PRO', '__theme_txtd' ) )
 		),
 	) );
 
-	$wp_customize->add_setting( 'gemalite_style_view_pro_desc', array(
+	$wp_customize->add_setting( 'gema_lite_style_view_pro_desc', array(
 		'default'           => '',
 		'sanitize_callback' => '__return_true',
 	) );
-	$wp_customize->add_control( 'gemalite_style_view_pro_desc', array(
+	$wp_customize->add_control( 'gema_lite_style_view_pro_desc', array(
 		'section' => 'pro__section',
 		'type'    => 'hidden',
 	) );
 
 }
-add_action( 'customize_register', 'gemalite_customize_register', 15 );
+add_action( 'customize_register', 'gema_lite_customize_register', 15 );
 
 /**
  * Sanitize the Site Title Outline value.
@@ -76,7 +76,7 @@ add_action( 'customize_register', 'gemalite_customize_register', 15 );
  *
  * @return string Filtered outline (0|1|2|3).
  */
-function gemalite_sanitize_site_title_outline( $outline ) {
+function gema_lite_sanitize_site_title_outline( $outline ) {
 	if ( ! in_array( $outline, array( '0', '1.2', '3', '5', '10' ) ) ) {
 		$outline = '3';
 	}
@@ -87,32 +87,32 @@ function gemalite_sanitize_site_title_outline( $outline ) {
 /**
  * Assets that will be loaded for the customizer sidebar
  */
-function gemalite_customizer_assets() {
+function gema_lite_customizer_assets() {
 	wp_enqueue_style( 'gemalite-customizer-style', get_template_directory_uri() . '/inc/admin/css/customizer.css', array(), '1.1.4', false );
 }
-add_action( 'customize_controls_enqueue_scripts', 'gemalite_customizer_assets' );
+add_action( 'customize_controls_enqueue_scripts', 'gema_lite_customizer_assets' );
 
 /**
  * JavaScript that handles the Customizer AJAX logic
  * This will be added in the preview part
  */
-function gemalite_customizer_preview_assets() {
-	wp_enqueue_script( 'gemalite_customizer_preview', get_template_directory_uri() . '/assets/js/customizer-preview.js', array( 'customize-preview' ), '1.1.4', true );
+function gema_lite_customizer_preview_assets() {
+	wp_enqueue_script( 'gema_lite_customizer_preview', get_template_directory_uri() . '/assets/js/customizer-preview.js', array( 'customize-preview' ), '1.1.4', true );
 }
-add_action( 'customize_preview_init', 'gemalite_customizer_preview_assets' );
+add_action( 'customize_preview_init', 'gema_lite_customizer_preview_assets' );
 
 /**
  * Generate a link to the Gema Lite info page.
  */
-function gemalite_get_pro_link() {
+function gema_lite_get_pro_link() {
 	return 'https://pixelgrade.com/themes/blogging/gema-lite?utm_source=gema-lite-clients&utm_medium=customizer&utm_campaign=gema-lite#pro';
 }
 
-function gemalite_add_customify_options( $config ) {
+function gema_lite_add_customify_options( $config ) {
 
 	$config['sections'] = array();
 	$config['panels']   = array();
 
 	return $config;
 }
-add_filter( 'customify_filter_fields', 'gemalite_add_customify_options' );
+add_filter( 'customify_filter_fields', 'gema_lite_add_customify_options' );

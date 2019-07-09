@@ -9,7 +9,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Gema
+ * @package Gema Lite
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -22,7 +22,7 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 
-		<main id="main" <?php gemalite_the_post_thumbnail_class( 'site-main' ); ?> role="main">
+		<main id="main" <?php gema_lite_the_post_thumbnail_class( 'site-main' ); ?> role="main">
 
 			<?php while ( have_posts() ) : the_post();
 

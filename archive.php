@@ -11,7 +11,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Gema
+ * @package Gema Lite
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -50,7 +50,7 @@ if ( have_posts() ) : ?>
 			</div>
 		</main><!-- #main -->
 
-		<?php gemalite_the_posts_navigation(); ?>
+		<?php gema_lite_the_posts_navigation(); ?>
 
 	</div><!-- #primary -->
 <?php else :

@@ -4,14 +4,14 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package Gema
+ * @package Gema Lite
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-if ( ! function_exists( 'gemalite_setup' ) ) :
+if ( ! function_exists( 'gema_lite_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -20,7 +20,7 @@ if ( ! function_exists( 'gemalite_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 
-function gemalite_setup() {
+function gema_lite_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
@@ -93,11 +93,11 @@ function gemalite_setup() {
 	/*
 	 * Add editor styles and fonts
 	 */
-	add_editor_style( array( gemalite_montserrat_font_url() ) );
+	add_editor_style( array( gema_lite_montserrat_font_url() ) );
 	add_editor_style( array( 'editor-style.css' ) );
 }
-endif; // gemalite_setup
-add_action('after_setup_theme', 'gemalite_setup' );
+endif; // gema_lite_setup
+add_action('after_setup_theme', 'gema_lite_setup' );
 
 /*
  * Enable support for Post Formats.
@@ -112,15 +112,15 @@ add_theme_support( 'post-formats', array( 'quote', 'gallery', 'video', 'audio', 
  *
  * @global int $content_width
  */
-function gemalite_content_width() {
+function gema_lite_content_width() {
     $GLOBALS['content_width'] = apply_filters('gema_content_width', 660);
 }
-add_action('after_setup_theme', 'gemalite_content_width', 0);
+add_action('after_setup_theme', 'gema_lite_content_width', 0);
 
 /**
  * Enqueue scripts and styles.
  */
-function gemalite_scripts() {
+function gema_lite_scripts() {
 	$theme = wp_get_theme( get_template() );
 
 	// The main theme stylesheet
@@ -128,8 +128,8 @@ function gemalite_scripts() {
 	wp_style_add_data( 'gema-style', 'rtl', 'replace' );
 
 	/* Default Self-hosted Fonts */
-	wp_enqueue_style( 'gema-fonts-montserrat', gemalite_montserrat_font_url() );
-	wp_enqueue_style( 'gema-fonts-butler', gemalite_butler_font_url() );
+	wp_enqueue_style( 'gema-fonts-montserrat', gema_lite_montserrat_font_url() );
+	wp_enqueue_style( 'gema-fonts-butler', gema_lite_butler_font_url() );
 
 	wp_register_script('bricklayer', get_parent_theme_file_uri( 'js/bricklayer.js' ), array(), '20170421', true);
 	wp_enqueue_script('gema-modernizr', get_parent_theme_file_uri( 'js/modernizr-custom.js' ), array(), '20160322', true);
@@ -141,38 +141,38 @@ function gemalite_scripts() {
         wp_enqueue_script('comment-reply');
     }
 }
-add_action( 'wp_enqueue_scripts', 'gemalite_scripts' );
+add_action( 'wp_enqueue_scripts', 'gema_lite_scripts' );
 
 
 /**
  * Add custom image sizes attribute to enhance responsive image functionality
  * for content images
  *
- * @since Gema 1.0.0
+ * @since Gema Lite 1.0.0
  *
  * @param string $sizes A source size value for use in a 'sizes' attribute.
  * @param array  $size  Image size. Accepts an array of width and height
  *                      values in pixels (in that order).
  * @return string A source size value for use in a content image 'sizes' attribute.
  */
-function gemalite_content_image_sizes_attr( $sizes, $size ) {
+function gema_lite_content_image_sizes_attr( $sizes, $size ) {
 	$sizes = '(max-width: 600px) 91vw, (max-width: 900px) 600px, (max-width: 1060px) 50vw, (max-width: 1200px) 520px, (max-width: 1400px) 43vw, 600px';
 	return $sizes;
 }
-add_filter( 'wp_calculate_image_sizes', 'gemalite_content_image_sizes_attr', 10 , 2 );
+add_filter( 'wp_calculate_image_sizes', 'gema_lite_content_image_sizes_attr', 10 , 2 );
 
 /**
  * Add custom image sizes attribute to enhance responsive image functionality
  * for post thumbnails
  *
- * @since Gema 1.0.0
+ * @since Gema Lite 1.0.0
  *
  * @param array $attr Attributes for the image markup.
  * @param int   $attachment Image attachment ID.
  * @param array $size Registered image size or flat array of height and width dimensions.
  * @return array A source size value for use in a post thumbnail 'sizes' attribute.
  */
-function gemalite_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
+function gema_lite_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
 	switch ($size) {
 		case 'gema-single-landscape':
 		case 'gema-single-portrait':
@@ -189,7 +189,7 @@ function gemalite_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
 	}
 	return $attr;
 }
-add_filter( 'wp_get_attachment_image_attributes', 'gemalite_post_thumbnail_sizes_attr', 10 , 3 );
+add_filter( 'wp_get_attachment_image_attributes', 'gema_lite_post_thumbnail_sizes_attr', 10 , 3 );
 
 /**
  * Custom template tags for this theme.
@@ -205,3 +205,8 @@ require get_template_directory() . '/inc/extras.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Load the Hybrid Media Grabber class
+ */
+require get_template_directory() . '/inc/hybrid-media-grabber.php';

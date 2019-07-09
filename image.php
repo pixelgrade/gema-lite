@@ -2,7 +2,7 @@
 /**
  * The template for displaying image attachments
  *
- * @package Gema
+ * @package Gema Lite
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -26,7 +26,7 @@ get_header(); ?>
 
 				<?php get_template_part( 'template-parts/content', 'attachment' ); ?>
 
-				<?php gemalite_the_image_navigation(); ?>
+				<?php gema_lite_the_image_navigation(); ?>
 
 				<?php
 				// If comments are open or we have at least one comment, load up the comment template

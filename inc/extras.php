@@ -4,19 +4,19 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package Gema
+ * @package Gema Lite
  */
 
 /**
  * Adds custom classes to the array of body classes.
  *
- * @since Gema 1.0
+ * @since Gema Lite 1.0
  *
  * @param array $classes Classes for the body element.
  *
  * @return array
  */
-function gemalite_body_classes( $classes ) {
+function gema_lite_body_classes( $classes ) {
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -48,47 +48,74 @@ function gemalite_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'gemalite_body_classes' );
+add_filter( 'body_class', 'gema_lite_body_classes' );
 
 /**
  * Add custom classes for individual posts
  *
- * @since Gema 1.0
+ * @since Gema Lite 1.0
  *
  * @param array $classes
  *
  * @return array
  */
-function gemalite_post_classes( $classes ) {
+function gema_lite_post_classes( $classes ) {
 
 	if ( is_archive() || is_home() || is_search() ) {
 		$classes[] = 'grid__item  card';
 
 		// add a dedicated class for the presence of a featured image - when no featured image we treat it as text
-		if ( has_post_thumbnail() && get_post_format() !== "quote") {
-			$classes[] = 'card--image card--' . gemalite_get_post_thumbnail_aspect_ratio_class();
+		$post_format = get_post_format();
+
+		if ( has_post_thumbnail() || ( $post_format === 'gallery' && get_post_gallery() ) || $post_format === 'video' ) {
+			$classes[] = 'card--image card--' . gema_lite_get_post_thumbnail_aspect_ratio_class();
+		} elseif ( 'image' == $post_format ) {
+			// Search for the content image
+			$first_image = gema_lite_get_post_format_first_image();
+			if ( ! empty( $first_image ) ) {
+				$classes[] = 'card--image card--portrait';
+			} else {
+				$classes[] = 'card--text card--portrait';
+			}
+		} elseif ( 'audio' == $post_format ) {
+			// We need to treat the audio post format a little differently due to the fact that it can sit in the title also (without a visual representation)
+			// Grab the audio media details from the content, if it exists
+			$media_details = gema_lite_audio_attachment( true );
+			// Determine if this doesn't have a visual representation and should sit in the title not in the "image"
+			$visual_media = gema_lite_is_visual_media( 'audio', $media_details );
+			if ( ! $visual_media ) {
+				$classes[] = 'card--text';
+			} else {
+				$classes[] = 'card--image card--' . gema_lite_get_post_thumbnail_aspect_ratio_class();
+			}
+
+			// Send a "signal" that this is an embed and should not cover it's controls
+			if ( in_array( 'embed', $media_details['format'] ) ) {
+				$classes[] = 'card--audio-embed';
+			}
 		} else {
 			$classes[] = 'card--text card--portrait';
 		}
+
 	} else {
-		$classes[] = 'entry-image--' . gemalite_get_post_thumbnail_aspect_ratio_class();
+		$classes[] = 'entry-image--' . gema_lite_get_post_thumbnail_aspect_ratio_class();
 	}
 
 	return $classes;
 }
-add_filter( 'post_class', 'gemalite_post_classes' );
+add_filter( 'post_class', 'gema_lite_post_classes' );
 
 /**
  * Wrap the current page number for single post/page navigation
  *
- * @since Gema 1.0
+ * @since Gema Lite 1.0
  *
  * @param string $link
  * @param int $i
  *
  * @return string
  */
-function gemalite_wrap_current_pages_link( $link, $i ) {
+function gema_lite_wrap_current_pages_link( $link, $i ) {
 	global $page;
 
 	if ( $i == $page ) {
@@ -97,18 +124,18 @@ function gemalite_wrap_current_pages_link( $link, $i ) {
 
 	return $link;
 }
-add_filter( 'wp_link_pages_link', 'gemalite_wrap_current_pages_link', 10, 2 );
+add_filter( 'wp_link_pages_link', 'gema_lite_wrap_current_pages_link', 10, 2 );
 
 /**
  * Use a template for individual comment output
  *
- * @since Gema 1.0
+ * @since Gema Lite 1.0
  *
  * @param object $comment Comment to display.
  * @param int    $depth   Depth of comment.
  * @param array  $args    An array of arguments.
  */
-function gemalite_comment_markup( $comment, $args, $depth ) {
+function gema_lite_comment_markup( $comment, $args, $depth ) {
 	switch ( $comment->comment_type ) {
 		case 'pingback' :
 		case 'trackback' :
@@ -188,11 +215,11 @@ function gemalite_comment_markup( $comment, $args, $depth ) {
 /**
  * Generate the Montserrat font URL
  *
- * @since Gema 1.0
+ * @since Gema Lite 1.0
  *
  * @return string
  */
-function gemalite_montserrat_font_url() {
+function gema_lite_montserrat_font_url() {
 
 	/* Translators: If there are characters in your language that are not
 	* supported by Montserrat, translate this to 'off'. Do not translate
@@ -209,11 +236,11 @@ function gemalite_montserrat_font_url() {
 /**
  * Generate the Butler font URL
  *
- * @since Gema 1.0
+ * @since Gema Lite 1.0
  *
  * @return string
  */
-function gemalite_butler_font_url() {
+function gema_lite_butler_font_url() {
 
 	/* Translators: If there are characters in your language that are not
 	* supported by Butler, translate this to 'off'. Do not translate
@@ -230,13 +257,13 @@ function gemalite_butler_font_url() {
 /**
  * Remove 'Category', 'Tag' etc. from archive titles
  *
- * @since Gema 1.0
+ * @since Gema Lite 1.0
  *
  * @param string $title The archive title
  *
  * @return string
  */
-function gemalite_cleanup_archive_title( $title ) {
+function gema_lite_cleanup_archive_title( $title ) {
 
 	if ( is_category() ) {
 
@@ -254,7 +281,7 @@ function gemalite_cleanup_archive_title( $title ) {
 
 	return $title;
 }
-add_filter( 'get_the_archive_title', 'gemalite_cleanup_archive_title', 10, 1 );
+add_filter( 'get_the_archive_title', 'gema_lite_cleanup_archive_title', 10, 1 );
 
 /**
  * Fix skip link focus in IE11.
@@ -264,7 +291,7 @@ add_filter( 'get_the_archive_title', 'gemalite_cleanup_archive_title', 10, 1 );
  *
  * @link https://git.io/vWdr2
  */
-function gemalite_skip_link_focus_fix() {
+function gema_lite_skip_link_focus_fix() {
 	// The following is minified via `terser --compress --mangle -- js/skip-link-focus-fix.js`.
 	?>
 	<script>
@@ -273,4 +300,4 @@ function gemalite_skip_link_focus_fix() {
 	<?php
 }
 // We will put this script inline since it is so small.
-add_action( 'wp_print_footer_scripts', 'gemalite_skip_link_focus_fix' );
+add_action( 'wp_print_footer_scripts', 'gema_lite_skip_link_focus_fix' );

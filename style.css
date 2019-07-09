@@ -1374,6 +1374,9 @@ figure {
 .card.format-audio .mejs-horizontal-volume-slider {
   display: none !important; }
 
+.card.format-audio .mejs-controls {
+  padding: 0 !important; }
+
 .card__wrap {
   position: relative;
   display: block; }

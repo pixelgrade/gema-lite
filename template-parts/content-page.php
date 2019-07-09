@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Gema
+ * @package Gema Lite
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php if ( has_post_thumbnail() ) : ?>
 
 		<div class="entry-featured  entry-thumbnail">
-			<?php the_post_thumbnail( 'gema-single-' . gemalite_get_post_thumbnail_aspect_ratio_class() ); ?>
+			<?php the_post_thumbnail( 'gema-single-' . gema_lite_get_post_thumbnail_aspect_ratio_class() ); ?>
 		</div>
 
 	<?php endif; ?>
@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php the_title('<h1 class="entry-title"><span>', '</span></h1>'); ?>
 
 		<div class="entry-meta">
-			<?php gemalite_posted_on(); ?>
+			<?php gema_lite_posted_on(); ?>
 			<span class="edit-link-separator"></span>
 			<?php
 			edit_post_link(
@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		</div><!-- .entry-content -->
 		<footer class="entry-footer">
-			<?php gemalite_entry_footer(); ?>
+			<?php gema_lite_entry_footer(); ?>
 		</footer><!-- .entry-footer -->
 	</div>
 
