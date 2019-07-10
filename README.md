@@ -1,5 +1,5 @@
 # Gema Lite: A Free WordPress Blogging Theme from Pixelgrade
-### Patch is a newspaper-inspired WordPress theme that seamlessly generates the right layout for your posts, enhancing their unique character while keeping them in harmony with the rest of your homepage.
+### Gema Lite is a newspaper-inspired theme focused on presenting your content in ways that grab attention and interest. No matter if you are a stylish traveler, lifestyle connoisseur, a wandering photographer or literary dreamer, this theme helps you create an outstanding digital presence. Be brave and put your blogging stories out there with Gema Lite!
 
 [Download for Free](https://downloads.wordpress.org/theme/gema-lite.latest-stable.zip) &nbsp;·&nbsp; [Demo Preview](https://demos.pixelgrade.com/gema-lite/) &nbsp;·&nbsp; [ Gema Pro](https://pixelgrade.com/themes/gema-pro/)
 
@@ -28,6 +28,6 @@ A manually curated list that include all the valuable people that have contribut
 - If you use the theme in any other way, please make a purchase from [Pixelgrade](https://pixelgrade.com/ "Pixelgrade") site.
 
 ## License
-Rosa source code is released under the [GNU GPL v3 license](https://www.gnu.org/licenses/gpl-3.0.html).
+Gema Lite source code is released under the [GNU GPL v3 license](https://www.gnu.org/licenses/gpl-3.0.html).
 
 2019 © Pixelgrade.
