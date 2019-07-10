@@ -1,72 +1,33 @@
-# Gema Lite
-Gema Lite is a newspaper-inspired theme focused on presenting your content in diverse, daring, and bold ways. Bring forth the stylish traveler, lifestyle connoisseur, the wandering photographer, literary dreamer, or any other passionate persona you keep tucked away.
+# Gema Lite: A Free WordPress Blogging Theme from Pixelgrade
+### Patch is a newspaper-inspired WordPress theme that seamlessly generates the right layout for your posts, enhancing their unique character while keeping them in harmony with the rest of your homepage.
 
-## Description
+[Download for Free](https://downloads.wordpress.org/theme/gema-lite.latest-stable.zip) &nbsp;·&nbsp; [Demo Preview](https://demos.pixelgrade.com/gema-lite/) &nbsp;·&nbsp; [ Gema Pro](https://pixelgrade.com/themes/gema-pro/)
 
-Gema Lite is a newspaper-inspired theme focused on presenting your content in ways that grab attention and interest. No matter if you are a stylish traveler, lifestyle connoisseur, a wandering photographer or literary dreamer, this theme helps you create an outstanding digital presence. Be brave and put your blogging stories out there with Gema Lite!
+[![](https://img.shields.io/github/issues-closed/pixelgrade/gema-lite.svg?color=6cc644&label=Issues)](https://github.com/pixelgrade/gema-lite/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aclosed+) [![](https://img.shields.io/github/issues/pixelgrade/gema-lite.svg?color=4078c0&label=%20)](https://github.com/pixelgrade/gema-lite/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen)
 
-## Installation
+[![](https://user-images.githubusercontent.com/1632775/60983827-570b3780-a343-11e9-9e76-2716b81a366c.jpg)](https://pixelgrade.com/themes/gema-lite/)
 
-1. In your admin panel, go to Appearance -> Themes and click the Add New button.
-2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
-3. Click Activate to use your new theme right away.
+## Contributing
+The essence of **open source** is that by freely sharing the code, you have the freedom to use it for any purpose, study how it works and adapt it to your needs, improve the program and **share your improvements** with the community so that we all benefit. 🙏
 
-## Changelog
+It's great if you're willing to use your skills, knowledge, and experience to help further refine this project with your own improvements. We really appreciate it and you're 💯 welcome to submit an issue or pull request on any topic.
 
-= 1.1.4 =
-* Compatibility with the latest version of WordPress (v5.2.2).
+### How can you help?
+-  🕵️‍♀️ **Discovered an issue?** Please report it [here](https://github.com/pixelgrade/gema-lite/issues/new "here") and help us fix it.
+- 🛠 **Fixed a bug?** That’s fantastic! Send a [pull request](https://github.com/pixelgrade/gema-lite/pulls "pull request") and we will look over it.
+- 🔮 **Need a feature?** Please take a moment to find out whether your idea fit the wider scope of this theme and provide as much detail and context as possible. Then propose it [here](https://github.com/pixelgrade/gema-lite/issues/new).
+- 💎 **Have you made something great?** [Share](https://github.com/pixelgrade/gema-lite/issues/new "Share") it with us.
 
-= 1.1.3 =
-* Cleanup and security enhancements.
+### Contributors
+A manually curated list that include all the valuable people that have contributed to this project with code, user testing, feedback, or mockups. Thank you!
 
-= 1.1.2 =
-* Minor styling and logic fixes in the Customizer.
+[![](https://github.com/raduconst.png?size=64)](https://github.com/raduconst) [![](https://github.com/georgeolaru.png?size=64)](https://github.com/georgeolaru) [![](https://github.com/vladolaru.png?size=64)](https://github.com/vladolaru) [![](https://github.com/razwan.png?size=64)](https://github.com/razwan)  [![](https://github.com/alinclamba.png?size=64)](https://github.com/alinclamba) [![](https://github.com/oanafilip.png?size=64)](https://github.com/oanafilip)  [![](https://github.com/andreilupu.png?size=64)](https://github.com/andreilupu)  [![](https://github.com/cristian-frumusanu.png?size=64)](https://github.com/cristian-frumusanu) [![](https://github.com/madalingorbanescu.png?size=64)](https://github.com/madalingorbanescu) [![](https://github.com/BurloiuCosmin.png?size=64)](https://github.com/BurloiuCosmin) [![](https://github.com/ilincaroman.png?size=64)](https://github.com/ilincaroman)
 
-= 1.1.1 =
-* Minor styling fixes in the admin area.
+## Usage
+- For development and commercial evaluation usage, just download and use it.
+- If you use the theme in any other way, please make a purchase from [Pixelgrade](https://pixelgrade.com/ "Pixelgrade") site.
 
-= 1.1.0 =
-* Improved the overall onboarding experience with the theme and introduced a dedicated help tool.
+## License
+Rosa source code is released under the [GNU GPL v3 license](https://www.gnu.org/licenses/gpl-3.0.html).
 
-= 1.0.9 =
-* Fixed a security issue
-
-= 1.0.8 =
-* Added WPForms recommended plugin
-
-= 1.0.7 =
-* Updated the theme description
-
-= 1.0.6 =
-* Updated the local Montserrat font
-
-= 1.0.5 =
-* Fixed the comments section issue
-
-= 1.0.4 =
-* Added Freemius
-
-= 1.0.3 =
-* Refactoring theme functions
-
-= 1.0.2 =
-* Fixed functions name based on the review
-
-= 1.0.1 =
-* Fixed the screenshot images credits
-
-= 1.0.0 =
-* Initial release
-
-## Credits
-
-Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License.
-
-* Butler font (c) 2015, [Fabian De Smet](http://fabiandesmet.com/portfolio/butler-font/), licensed under [Creative Commons Attribution-ShareAlike v4.00](https://www.fontsquirrel.com/license/butler)
-* Montserat font (c) 2011-2012, Julieta Ulanovsky (julieta.ulanovsky@gmail.com) licensed under [SIL Open Font License v1.1](http://scripts.sil.org/OFL)
-
-* Bricklayer - Cascading Grid Layouts: script by Adem İlter (https://github.com/ademilter/bricklayer), licensed under the [MIT License](http://opensource.org/licenses/mit-license.html).
-* modernizr: script by Faruk Ates, Paul Irish, Alex Sexton, Ryan Seddon, Patrick Kettner, Stu Cox, Richard Herrera (https://modernizr.com/), licensed under the [MIT License](http://opensource.org/licenses/mit-license.html).
-* smartResize.js: script by John Hann (https://gist.github.com/pkdsleeper/3802022), licensed under the [MIT License](http://opensource.org/licenses/mit-license.html).
-
-* Images: screenshot images by Pxhere - [Source](https://pxhere.com/en/photo/775709), Godisable Jacob - [Source](https://www.dreamstime.com/grayscale-photo-two-kids-sitting-dining-table-chairs-public-domain-image-free-115203161), Automnenoble Bogomolov - [Source](https://photo.goldposter.com/woman-wearing-blue-crew-neck-sweater-and-pants/), Pxhere - [Source](https://pxhere.com/en/photo/1418510), Igor Starkov - [Source](https://photo.goldposter.com/two-green-potted-plants/), Pxhere - [Source](https://pxhere.com/en/photo/557904), licensed under CC0 Public Domain.
+2019 © Pixelgrade.
