@@ -24,10 +24,6 @@
 		margin-right: 6px;
 	}
 
-	label {
-		display: none;
-	}
-
 	input[type="text"],
 	input[type="email"],
 	input[type="url"],
@@ -65,20 +61,28 @@
 			font-size: 15px;
 		}
 	}
+
+	input[type="checkbox"] {
+		margin-right: 1em;
+	}
 }
 
 .comment-form-author,
 .comment-form-email,
 .comment-form-url {
-	order: 2;
+	order: -2;
 	flex-basis: 150px;
 	flex-shrink: 0;
 	flex-grow: 1;
+
+	label {
+		display: none;
+	}
 }
 
 .comment-form-comment,
 .form-allowed-tags {
-	order: 3;
+	order: -1;
 	flex-basis: 100%;
 }
 
