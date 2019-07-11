@@ -37,7 +37,7 @@ get_header(); ?>
 				// The parent post link.
 				the_post_navigation( array(
 					/* translators: %s: The post title. */
-					'prev_text' => sprintf( esc_html__( 'Published in %s', '__theme_txtd' ), '<span class="post-title">%title</span>' ),
+					'prev_text' => sprintf( esc_html__( 'Published in %s', 'gema-lite' ), '<span class="post-title">%title</span>' ),
 					)
 				); ?>
 

@@ -31,7 +31,7 @@ if ( have_posts() ) : ?>
 					<div class="grid__item">
 						<div class="card  card--text"><h1 class="archive-title  archive-title--search"><?php
 							/* translators: %s: The search query. */
-							printf( esc_html__( 'Search Results for: %s', '__theme_txtd' ), '<span class="search-query">' . esc_html( get_search_query() ) . '</span>' );
+							printf( esc_html__( 'Search Results for: %s', 'gema-lite' ), '<span class="search-query">' . esc_html( get_search_query() ) . '</span>' );
 						?></h1></div>
 					</div>
 				<?php endif; ?>

@@ -21,14 +21,14 @@ function gema_lite_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
 	// Rename the label to "Display Site Title & Tagline" in order to make this option clearer.
-	$wp_customize->get_control( 'display_header_text' )->label = esc_html__( 'Display Site Title &amp; Tagline', '__theme_txtd' );
+	$wp_customize->get_control( 'display_header_text' )->label = esc_html__( 'Display Site Title &amp; Tagline', 'gema-lite' );
 
 	// Add a pretty icon to Site Identity
-	$wp_customize->get_section( 'title_tagline' )->title = '&#x1f465; ' . esc_html__( 'Site Identity', '__theme_txtd' );
+	$wp_customize->get_section( 'title_tagline' )->title = '&#x1f465; ' . esc_html__( 'Site Identity', 'gema-lite' );
 
 	// View Pro
 	$wp_customize->add_section( 'pro__section', array(
-		'title'       => '' . esc_html__( 'View PRO Version', '__theme_txtd' ),
+		'title'       => '' . esc_html__( 'View PRO Version', 'gema-lite' ),
 		'priority'    => 2,
 		'description' => sprintf(
 			/* translators: %s: The theme pro link. */
@@ -51,9 +51,9 @@ function gema_lite_customize_register( $wp_customize ) {
                             	<div class="description">You will benefit by priority support from a caring and devoted team, eager to help and to spread happiness. We work hard to provide a flawless experience for those who vote us with trust and choose to be our special clients.</div>
                             </li>
                             
-                    </ul> %s </div>', '__theme_txtd' ),
+                    </ul> %s </div>', 'gema-lite' ),
 			/* translators: %1$s: The theme pro URL, %2$s: The theme pro link text.  */
-			sprintf( '<a href="%1$s" target="_blank" class="button button-primary">%2$s</a>', esc_url( gema_lite_get_pro_link() ), esc_html__( 'View Gema PRO', '__theme_txtd' ) )
+			sprintf( '<a href="%1$s" target="_blank" class="button button-primary">%2$s</a>', esc_url( gema_lite_get_pro_link() ), esc_html__( 'View Gema PRO', 'gema-lite' ) )
 		),
 	) );
 

@@ -38,7 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<nav id="site-navigation" class="main-navigation" role="navigation">
 		<button class="overlay-toggle  menu-toggle  menu-close" aria-expanded="false">
-			<span class="screen-reader-text"><?php esc_html_e( 'Close Primary Menu', '__theme_txtd' ); ?></span>
+			<span class="screen-reader-text"><?php esc_html_e( 'Close Primary Menu', 'gema-lite' ); ?></span>
 		</button>
 
 		<?php wp_nav_menu( array(

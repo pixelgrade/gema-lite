@@ -22,10 +22,10 @@ get_header(); ?>
 				<div class="entry__content">
 					<section class="error-404 not-found">
 						<header class="page-header">
-							<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', '__theme_txtd' ); ?></h1>
+							<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'gema-lite' ); ?></h1>
 						</header><!-- .page-header -->
 
-						<p><?php esc_html_e( 'It looks like something is amiss. A quick search might help.', '__theme_txtd' ); ?></p>
+						<p><?php esc_html_e( 'It looks like something is amiss. A quick search might help.', 'gema-lite' ); ?></p>
 
 						<?php get_search_form(); ?>
 					</section><!-- .error-404 -->

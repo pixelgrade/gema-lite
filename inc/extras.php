@@ -144,11 +144,11 @@ function gema_lite_comment_markup( $comment, $args, $depth ) {
 			<article>
 				<div class="media__body">
 					<header class="comment__meta">
-						<span class="comment__author"><?php esc_html_e( 'Pingback:', '__theme_txtd' ); ?></span>
+						<span class="comment__author"><?php esc_html_e( 'Pingback:', 'gema-lite' ); ?></span>
 						<div class="comment__links">
 							<?php
 							//we need some space before Edit
-							edit_comment_link( esc_html__( 'Edit', '__theme_txtd' ), '  ' );
+							edit_comment_link( esc_html__( 'Edit', 'gema-lite' ), '  ' );
 							?>
 						</div>
 					</header>
@@ -181,12 +181,12 @@ function gema_lite_comment_markup( $comment, $args, $depth ) {
 							   class="comment__timestamp"><?php
 								printf(
 								/* translators: %1$s: The comment date, %2$s: The comment time. */
-									esc_html__( 'on %1$s at %2$s', '__theme_txtd' ), esc_html( get_comment_date() ), esc_html( get_comment_time() ) ); ?> </a>
+									esc_html__( 'on %1$s at %2$s', 'gema-lite' ), esc_html( get_comment_date() ), esc_html( get_comment_time() ) ); ?> </a>
 						</time>
 						<div class="comment__links">
 							<?php
 							//we need some space before Edit
-							edit_comment_link( esc_html__( 'Edit', '__theme_txtd' ), '  ' );
+							edit_comment_link( esc_html__( 'Edit', 'gema-lite' ), '  ' );
 
 							comment_reply_link( array_merge( $args, array(
 								'depth'     => $depth,
@@ -201,7 +201,7 @@ function gema_lite_comment_markup( $comment, $args, $depth ) {
 					</section>
 					<?php if ( '0' == $comment->comment_approved ) : ?>
 						<div class="comment__alert">
-							<p><?php esc_html_e( 'Your comment is awaiting moderation.', '__theme_txtd' ) ?></p>
+							<p><?php esc_html_e( 'Your comment is awaiting moderation.', 'gema-lite' ) ?></p>
 						</div>
 					<?php endif; ?>
 				</div>
@@ -225,7 +225,7 @@ function gema_lite_montserrat_font_url() {
 	* supported by Montserrat, translate this to 'off'. Do not translate
 	* into your own language.
 	*/
-	$montserrat = esc_html_x( 'on', 'Montserrat font: on or off', '__theme_txtd' );
+	$montserrat = esc_html_x( 'on', 'Montserrat font: on or off', 'gema-lite' );
 	if ( 'off' !== $montserrat ) {
 		return get_parent_theme_file_uri( '/assets/fonts/montserrat/stylesheet.css' );
 	}
@@ -246,7 +246,7 @@ function gema_lite_butler_font_url() {
 	* supported by Butler, translate this to 'off'. Do not translate
 	* into your own language.
 	*/
-	$butler = esc_html_x( 'on', 'Butler font: on or off', '__theme_txtd' );
+	$butler = esc_html_x( 'on', 'Butler font: on or off', 'gema-lite' );
 	if ( 'off' !== $butler ) {
 		return get_parent_theme_file_uri( '/assets/fonts/butler/stylesheet.css' );
 	}

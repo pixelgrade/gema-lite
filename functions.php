@@ -27,7 +27,7 @@ function gema_lite_setup() {
 	 * If you're building a theme based on Gema, use a find and replace
 	 * to change 'gema' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( '__theme_txtd', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'gema-lite', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -58,8 +58,8 @@ function gema_lite_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', '__theme_txtd' ),
-		'footer'  => esc_html__( 'Footer Menu', '__theme_txtd' ),
+		'primary' => esc_html__( 'Primary Menu', 'gema-lite' ),
+		'footer'  => esc_html__( 'Footer Menu', 'gema-lite' ),
 	) );
 
 	/*
