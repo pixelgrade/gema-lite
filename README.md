@@ -23,10 +23,6 @@ A manually curated list that include all the valuable people that have contribut
 
 [![](https://github.com/raduconst.png?size=64)](https://github.com/raduconst) [![](https://github.com/georgeolaru.png?size=64)](https://github.com/georgeolaru) [![](https://github.com/vladolaru.png?size=64)](https://github.com/vladolaru) [![](https://github.com/razwan.png?size=64)](https://github.com/razwan)  [![](https://github.com/alinclamba.png?size=64)](https://github.com/alinclamba) [![](https://github.com/oanafilip.png?size=64)](https://github.com/oanafilip)  [![](https://github.com/andreilupu.png?size=64)](https://github.com/andreilupu)  [![](https://github.com/cristian-frumusanu.png?size=64)](https://github.com/cristian-frumusanu) [![](https://github.com/madalingorbanescu.png?size=64)](https://github.com/madalingorbanescu) [![](https://github.com/BurloiuCosmin.png?size=64)](https://github.com/BurloiuCosmin) [![](https://github.com/ilincaroman.png?size=64)](https://github.com/ilincaroman)
 
-## Usage
-- For development and commercial evaluation usage, just download and use it.
-- If you use the theme in any other way, please make a purchase from [Pixelgrade](https://pixelgrade.com/ "Pixelgrade") site.
-
 ## License
 Gema Lite source code is released under the [GNU GPL v3 license](https://www.gnu.org/licenses/gpl-3.0.html).
 
