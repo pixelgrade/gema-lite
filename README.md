@@ -1,7 +1,7 @@
 # Gema Lite: A Free WordPress Blogging Theme
 ### Gema Lite is a newspaper-inspired theme focused on presenting your content in ways that grab attention and interest. No matter if you are a stylish traveler, lifestyle connoisseur, a wandering photographer or literary dreamer, this theme helps you create an outstanding digital presence. Be brave and put your blogging stories out there with Gema Lite!
 
-[Download for Free](https://downloads.wordpress.org/theme/gema-lite.latest-stable.zip) &nbsp;·&nbsp; [Demo Preview](https://demos.pixelgrade.com/gema-lite/) &nbsp;·&nbsp; [ Gema Pro](https://pixelgrade.com/themes/gema-pro/)
+[View Demo](https://demos.pixelgrade.com/gema-lite/) &nbsp;·&nbsp; [Documentation](https://pixelgrade.com/gema-lite-documentation/) &nbsp;·&nbsp; [Download for Free](https://downloads.wordpress.org/theme/gema-lite.latest-stable.zip) &nbsp;·&nbsp; [View Pro Version](https://pixelgrade.com/themes/gema-pro/)
 
 [![](https://img.shields.io/github/issues-closed/pixelgrade/gema-lite.svg?color=6cc644&label=Issues)](https://github.com/pixelgrade/gema-lite/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aclosed+) [![](https://img.shields.io/github/issues/pixelgrade/gema-lite.svg?color=4078c0&label=%20)](https://github.com/pixelgrade/gema-lite/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen)
 
