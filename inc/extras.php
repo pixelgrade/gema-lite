@@ -213,27 +213,6 @@ function gema_lite_comment_markup( $comment, $args, $depth ) {
 }
 
 /**
- * Generate the Montserrat font URL
- *
- * @since Gema Lite 1.0
- *
- * @return string
- */
-function gema_lite_montserrat_font_url() {
-
-	/* Translators: If there are characters in your language that are not
-	* supported by Montserrat, translate this to 'off'. Do not translate
-	* into your own language.
-	*/
-	$montserrat = esc_html_x( 'on', 'Montserrat font: on or off', 'gema-lite' );
-	if ( 'off' !== $montserrat ) {
-		return get_parent_theme_file_uri( '/assets/fonts/montserrat/stylesheet.css' );
-	}
-
-	return '';
-}
-
-/**
  * Generate the Butler font URL
  *
  * @since Gema Lite 1.0
@@ -301,3 +280,48 @@ function gema_lite_skip_link_focus_fix() {
 }
 // We will put this script inline since it is so small.
 add_action( 'wp_print_footer_scripts', 'gema_lite_skip_link_focus_fix' );
+
+if ( ! function_exists( 'gema_lite_google_fonts_url' ) ) :
+	/**
+	 * Register Google fonts for Gema Lite.
+	 *
+	 * @since Gema Lite 1.2.1
+	 *
+	 * @return string Google fonts URL for the theme.
+	 */
+	function gema_lite_google_fonts_url() {
+		$fonts_url = '';
+		$fonts     = array();
+		$subsets   = 'latin,latin-ext';
+
+		/* Translators: If there are characters in your language that are not
+		* supported by Montserrat, translate this to 'off'. Do not translate
+		* into your own language.
+		*/
+		if ( 'off' !== esc_html_x( 'on', 'Montserrat font: on or off', '__theme_txtd' ) ) {
+			$fonts[] = 'Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i, 600,600i,700,700i,800,800i,900,900i';
+		}
+
+		/* translators: To add an additional character subset specific to your language, translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language. */
+		$subset = esc_html_x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', '__theme_txtd' );
+
+		if ( 'cyrillic' == $subset ) {
+			$subsets .= ',cyrillic,cyrillic-ext';
+		} elseif ( 'greek' == $subset ) {
+			$subsets .= ',greek,greek-ext';
+		} elseif ( 'devanagari' == $subset ) {
+			$subsets .= ',devanagari';
+		} elseif ( 'vietnamese' == $subset ) {
+			$subsets .= ',vietnamese';
+		}
+
+		if ( $fonts ) {
+			$fonts_url = add_query_arg( array(
+				'family' => rawurlencode( implode( '|', $fonts ) ),
+				'subset' => rawurlencode( $subsets ),
+			), '//fonts.googleapis.com/css' );
+		}
+
+		return $fonts_url;
+	} #function
+endif;
