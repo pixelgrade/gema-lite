@@ -24,6 +24,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <body <?php body_class(); ?>>
 
+<?php wp_body_open(); ?>
+
 	<div class="mobile-header-wrapper">
 
 		<div class="mobile-logo"></div>
