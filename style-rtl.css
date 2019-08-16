@@ -4,7 +4,7 @@ Theme URI: https://github.com/pixelgrade/gema-lite
 Author: Pixelgrade
 Author URI: https://pixelgrade.com/
 Description: Gema Lite is a newspaper-inspired theme focused on presenting your content in ways that grab attention and interest. No matter if you are a stylish traveler, lifestyle connoisseur, a wandering photographer or literary dreamer, this theme helps you create an outstanding digital presence. Be brave and put your blogging stories out there with Gema Lite!
-Version: 1.2.1
+Version: 1.2.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.9.9
@@ -1374,6 +1374,9 @@ figure {
 .card.format-audio .mejs-horizontal-volume-slider {
   display: none !important; }
 
+.card.format-audio .mejs-controls {
+  padding: 0 !important; }
+
 .card__wrap {
   position: relative;
   display: block; }
@@ -1920,8 +1923,6 @@ input[type=submit].search-submit {
   .comment-respond:not(.js) .comment-form > * {
     margin-right: 6px;
     margin-left: 6px; }
-  .comment-respond:not(.js) .comment-form label {
-    display: none; }
   .comment-respond:not(.js) .comment-form input[type="text"],
   .comment-respond:not(.js) .comment-form input[type="email"],
   .comment-respond:not(.js) .comment-form input[type="url"],
@@ -1947,13 +1948,15 @@ input[type=submit].search-submit {
   .comment-respond:not(.js) .comment-form .comment-subscription-form p {
     margin-bottom: 15px;
     font-size: 15px; }
+  .comment-respond:not(.js) .comment-form input[type="checkbox"] {
+    margin-left: 1em; }
 
 .comment-form-author,
 .comment-form-email,
 .comment-form-url {
-  -webkit-box-ordinal-group: 3;
-      -ms-flex-order: 2;
-          order: 2;
+  -webkit-box-ordinal-group: -1;
+      -ms-flex-order: -2;
+          order: -2;
   -ms-flex-preferred-size: 150px;
       flex-basis: 150px;
   -ms-flex-negative: 0;
@@ -1961,12 +1964,16 @@ input[type=submit].search-submit {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1; }
+  .comment-form-author label,
+  .comment-form-email label,
+  .comment-form-url label {
+    display: none; }
 
 .comment-form-comment,
 .form-allowed-tags {
-  -webkit-box-ordinal-group: 4;
-      -ms-flex-order: 3;
-          order: 3;
+  -webkit-box-ordinal-group: 0;
+      -ms-flex-order: -1;
+          order: -1;
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%; }
 
@@ -3439,8 +3446,40 @@ div#jp-relatedposts div.jp-relatedposts-items .jp-relatedposts-post .jp-relatedp
 .show {
   display: initial; }
 
+/* Text meant only for screen readers. */
 .screen-reader-text {
-  display: none; }
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  /* Many screen reader and browser combinations announce broken words as they would appear visually. */ }
+  .screen-reader-text:focus {
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    -webkit-clip-path: none;
+            clip-path: none;
+    color: #000000;
+    display: block;
+    font-weight: bold;
+    height: auto;
+    right: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+    /* Above WP toolbar. */ }
 
 .content-area {
   margin: auto;

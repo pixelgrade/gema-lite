@@ -24,6 +24,7 @@ Gema Lite is a newspaper-inspired theme focused on presenting your content in wa
 
 = 1.2.2 =
 * Added new wp_body_open hook.
+* Added Pixelgrade Assistant recommended plugin.
 
 = 1.2.1 =
 * Fixed skip link focus.
