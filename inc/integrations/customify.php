@@ -163,7 +163,7 @@ function gema_lite_fill_customify_options( $options ) {
 			'options' => array(
 				'blog_item_title_color'          => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Item Title Color', 'gema' ),
+					'label'   => esc_html__( 'Item Title Color', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_DARK_PRIMARY,
 					'css'     => array(
@@ -175,7 +175,7 @@ function gema_lite_fill_customify_options( $options ) {
 				),
 				'blog_item_meta_primary_color'   => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Meta Primary', 'gema' ),
+					'label'   => esc_html__( 'Meta Primary', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_DARK_TERTIARY,
 					'css'     => array(
@@ -187,7 +187,7 @@ function gema_lite_fill_customify_options( $options ) {
 				),
 				'blog_item_meta_secondary_color' => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Meta Secondary', 'gema' ),
+					'label'   => esc_html__( 'Meta Secondary', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_DARK_TERTIARY,
 					'css'     => array(
@@ -199,7 +199,7 @@ function gema_lite_fill_customify_options( $options ) {
 				),
 				'blog_item_background_color'     => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Card Background Color', 'gema' ),
+					'label'   => esc_html__( 'Card Background Color', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_LIGHT_PRIMARY,
 					'css'     => array(
@@ -251,7 +251,7 @@ function gema_lite_fill_customify_options( $options ) {
 			'options' => array(
 				'header_navigation_links_color' => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Navigation Links Color', 'gema' ),
+					'label'   => esc_html__( 'Navigation Links Color', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_DARK_PRIMARY,
 					'css'     => array(
@@ -274,7 +274,7 @@ function gema_lite_fill_customify_options( $options ) {
 				),
 				'header_links_active_color'     => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Links Active Color', 'gema' ),
+					'label'   => esc_html__( 'Links Active Color', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_DARK_PRIMARY,
 					'css'     => array(
@@ -303,7 +303,7 @@ function gema_lite_fill_customify_options( $options ) {
 			'options' => array(
 				'main_content_border_color'           => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Site Border Color', 'gema' ),
+					'label'   => esc_html__( 'Site Border Color', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_LIGHT_SECONDARY,
 					'css'     => array(
@@ -315,7 +315,7 @@ function gema_lite_fill_customify_options( $options ) {
 				),
 				'main_content_page_title_color'       => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Page Title Color', 'gema' ),
+					'label'   => esc_html__( 'Page Title Color', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_DARK_PRIMARY,
 					'css'     => array(
@@ -327,7 +327,7 @@ function gema_lite_fill_customify_options( $options ) {
 				),
 				'main_content_body_text_color'        => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Body Text Color', 'gema' ),
+					'label'   => esc_html__( 'Body Text Color', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_DARK_SECONDARY,
 					'css'     => array(
@@ -375,7 +375,7 @@ function gema_lite_fill_customify_options( $options ) {
 				),
 				'main_content_body_link_color'        => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Body Link Color', 'gema' ),
+					'label'   => esc_html__( 'Body Link Color', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_DARK_TERTIARY,
 					'css'     => array(
@@ -389,7 +389,7 @@ function gema_lite_fill_customify_options( $options ) {
 				),
 				'main_content_body_link_active_color' => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Body Link Active Color', 'gema' ),
+					'label'   => esc_html__( 'Body Link Active Color', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_DARK_TERTIARY,
 					'css'     => array(
@@ -405,7 +405,7 @@ function gema_lite_fill_customify_options( $options ) {
 				),
 				'main_content_heading_1_color'        => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Heading 1', 'gema' ),
+					'label'   => esc_html__( 'Heading 1', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_DARK_SECONDARY,
 					'css'     => array(
@@ -417,7 +417,7 @@ function gema_lite_fill_customify_options( $options ) {
 				),
 				'main_content_heading_2_color'        => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Heading 2', 'gema' ),
+					'label'   => esc_html__( 'Heading 2', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_DARK_SECONDARY,
 					'css'     => array(
@@ -429,7 +429,7 @@ function gema_lite_fill_customify_options( $options ) {
 				),
 				'main_content_heading_3_color'        => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Heading 3', 'gema' ),
+					'label'   => esc_html__( 'Heading 3', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_DARK_SECONDARY,
 					'css'     => array(
@@ -441,7 +441,7 @@ function gema_lite_fill_customify_options( $options ) {
 				),
 				'main_content_heading_4_color'        => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Heading 4', 'gema' ),
+					'label'   => esc_html__( 'Heading 4', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_DARK_SECONDARY,
 					'css'     => array(
@@ -453,7 +453,7 @@ function gema_lite_fill_customify_options( $options ) {
 				),
 				'main_content_heading_5_color'        => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Heading 5', 'gema' ),
+					'label'   => esc_html__( 'Heading 5', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_DARK_SECONDARY,
 					'css'     => array(
@@ -465,7 +465,7 @@ function gema_lite_fill_customify_options( $options ) {
 				),
 				'main_content_heading_6_color'        => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Heading 6', 'gema' ),
+					'label'   => esc_html__( 'Heading 6', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_DARK_SECONDARY,
 					'css'     => array(
@@ -477,7 +477,7 @@ function gema_lite_fill_customify_options( $options ) {
 				),
 				'main_content_background_color'       => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Content Background Color', 'gema' ),
+					'label'   => esc_html__( 'Content Background Color', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_LIGHT_PRIMARY,
 					'css'     => array(
@@ -570,7 +570,7 @@ function gema_lite_fill_customify_options( $options ) {
 			'options' => array(
 				'footer_body_text_color' => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Body Text Color', 'gema' ),
+					'label'   => esc_html__( 'Body Text Color', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_DARK_SECONDARY,
 					'css'     => array(
@@ -582,7 +582,7 @@ function gema_lite_fill_customify_options( $options ) {
 				),
 				'footer_links_color'     => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Links Color', 'gema' ),
+					'label'   => esc_html__( 'Links Color', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_DARK_TERTIARY,
 					'css'     => array(
@@ -594,7 +594,7 @@ function gema_lite_fill_customify_options( $options ) {
 				),
 				'footer_background'      => array(
 					'type'    => 'hidden_control',
-					'label'   => esc_html__( 'Footer Background', 'gema' ),
+					'label'   => esc_html__( 'Footer Background', 'gema-lite' ),
 					'live'    => true,
 					'default' => GEMALITE_SM_LIGHT_PRIMARY,
 					'css'     => array(
