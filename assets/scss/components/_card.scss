@@ -206,7 +206,7 @@
 			right: -8px;
 			bottom: -8px;
 			left: 8px;
-			background: black;
+			background: currentColor;
 			display: block;
 			z-index: -1;
 
@@ -256,7 +256,7 @@
 			height: 100%;
 			width: calc(100% - 8px);
 			height: calc(100% - 8px);
-			border: 1px solid $color-dark;
+			border: 1px solid currentColor;
 			pointer-events: none;
 		}
 

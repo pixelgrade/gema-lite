@@ -122,7 +122,7 @@
 
 	    padding: 65px 45px 55px 55px;
 		background: white;
-		border: 1px solid $color-dark;
+		border: 1px solid currentColor;
 		text-align: center;
 
 		@include query-below($lap) {
@@ -150,7 +150,7 @@
 			left: 8px;
 			top: 8px;
 			pointer-events: none;
-			border: 1px solid $color-dark;
+			border: 1px solid currentColor;
 		}
 	}
 
@@ -373,7 +373,7 @@
 
 	.cat-links, .byline .author {
 		text-transform: uppercase;
-		color: $color-dark;
+		color: currentColor;
 	}
 }
 

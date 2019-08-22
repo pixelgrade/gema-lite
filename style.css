@@ -1402,7 +1402,7 @@ figure {
       right: -8px;
       bottom: -8px;
       left: 8px;
-      background: black;
+      background: currentColor;
       display: block;
       z-index: -1; }
       .card--text .card__shadow:after {
@@ -1439,7 +1439,7 @@ figure {
       height: 100%;
       width: calc(100% - 8px);
       height: calc(100% - 8px);
-      border: 1px solid #000000;
+      border: 1px solid currentColor;
       pointer-events: none; }
     .card--text .card__wrap:after {
       top: 0px;
@@ -3113,7 +3113,7 @@ body div.sharedaddy div.sd-social-icon div.sd-content ul li a.sd-button.share-mo
   max-width: 560px;
   padding: 65px 45px 55px 55px;
   background: white;
-  border: 1px solid #000000;
+  border: 1px solid currentColor;
   text-align: center; }
   @media not screen and (min-width: 900px) {
     .singular .entry-header,
@@ -3142,7 +3142,7 @@ body div.sharedaddy div.sd-social-icon div.sd-content ul li a.sd-button.share-mo
     left: 8px;
     top: 8px;
     pointer-events: none;
-    border: 1px solid #000000; }
+    border: 1px solid currentColor; }
 
 @media not screen and (min-width: 900px) {
   .singular .entry-image--text .entry-header,
@@ -3313,7 +3313,7 @@ body div.sharedaddy div.sd-social-icon div.sd-content ul li a.sd-button.share-mo
     display: none; }
   .entry-meta .cat-links, .entry-meta .byline .author {
     text-transform: uppercase;
-    color: #000000; }
+    color: currentColor; }
 
 .edit-link-separator {
   margin: 0 2px; }
