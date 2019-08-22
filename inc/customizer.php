@@ -107,12 +107,3 @@ add_action( 'customize_preview_init', 'gema_lite_customizer_preview_assets' );
 function gema_lite_get_pro_link() {
 	return 'https://pixelgrade.com/themes/blogging/gema-lite?utm_source=gema-lite-clients&utm_medium=customizer&utm_campaign=gema-lite#pro';
 }
-
-function gema_lite_add_customify_options( $config ) {
-
-	$config['sections'] = array();
-	$config['panels']   = array();
-
-	return $config;
-}
-add_filter( 'customify_filter_fields', 'gema_lite_add_customify_options' );

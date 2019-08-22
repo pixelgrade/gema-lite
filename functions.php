@@ -88,6 +88,11 @@ function gema_lite_setup() {
 		)
 	) );
 
+	/**
+	 * Enable support for the Style Manager Customizer section (via Customify).
+	 */
+	add_theme_support( 'customizer_style_manager' );
+
 	add_image_size( 'gema-site-logo', 710, 220, false );
 
 	/*
@@ -218,3 +223,9 @@ require get_template_directory() . '/inc/hybrid-media-grabber.php';
  * Admin dashboard related logic.
  */
 require_once trailingslashit( get_template_directory() ) . 'inc/admin.php';
+
+/**
+ * Various plugins integrations.
+ */
+require get_template_directory() . '/inc/integrations.php';
+
