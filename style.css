@@ -1519,7 +1519,7 @@ figure {
   @media only screen and (min-width: 480px) {
     .card__image {
       padding: 8px;
-      border: 1px solid #000000;
+      border: 1px solid currentColor;
       background: white; } }
   .card__image img {
     width: 100%;

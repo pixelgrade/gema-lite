@@ -382,7 +382,7 @@
 
 	@include query-above($xsmall) {
 		padding: 8px;
-		border: 1px solid $color-dark;
+		border: 1px solid currentColor;
 		background: white;
 	}
 
