@@ -105,7 +105,7 @@
 	}
 
 	.current {
-		border: 1px solid $color-dark;
+		border: 1px solid currentColor;
 
 		font-size: 20px;
 
@@ -117,7 +117,7 @@
 	}
 
 	span.page-numbers.current, a:hover {
-		color: $color-dark;
+		color: currentColor;
 	}
 
 	.page-numbers.next, .page-numbers.prev {
@@ -143,13 +143,13 @@
 
 	.page-numbers.prev {
 		&:before {
-			border-right: 10px solid $color-dark;
+			border-right: 10px solid currentColor;
 		}
 	}
 
 	.page-numbers.next {
 		&:after {
-			border-left: 10px solid $color-dark;
+			border-left: 10px solid currentColor;
 		}
 	}
 }

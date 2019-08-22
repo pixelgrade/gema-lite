@@ -2317,7 +2317,7 @@ input[type=submit].search-submit {
       .archive-navigation a, .archive-navigation span {
         margin: 5px 2px; } }
   .archive-navigation .current {
-    border: 1px solid #000000;
+    border: 1px solid currentColor;
     font-size: 20px; }
     @media not screen and (min-width: 900px) {
       .archive-navigation .current {
@@ -2325,7 +2325,7 @@ input[type=submit].search-submit {
         margin-right: 15px;
         font-size: 17px; } }
   .archive-navigation span.page-numbers.current, .archive-navigation a:hover {
-    color: #000000; }
+    color: currentColor; }
   .archive-navigation .page-numbers.next:before, .archive-navigation .page-numbers.next:after, .archive-navigation .page-numbers.prev:before, .archive-navigation .page-numbers.prev:after {
     content: "";
     position: relative;
@@ -2339,9 +2339,9 @@ input[type=submit].search-submit {
   .archive-navigation .page-numbers.next:hover, .archive-navigation .page-numbers.prev:hover {
     font-size: 16px; }
   .archive-navigation .page-numbers.prev:before {
-    border-right: 10px solid #000000; }
+    border-right: 10px solid currentColor; }
   .archive-navigation .page-numbers.next:after {
-    border-left: 10px solid #000000; }
+    border-left: 10px solid currentColor; }
 
 /**
  *   4.13 - Widgets
