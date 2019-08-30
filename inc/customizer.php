@@ -23,9 +23,6 @@ function gema_lite_customize_register( $wp_customize ) {
 	// Rename the label to "Display Site Title & Tagline" in order to make this option clearer.
 	$wp_customize->get_control( 'display_header_text' )->label = esc_html__( 'Display Site Title &amp; Tagline', 'gema-lite' );
 
-	// Add a pretty icon to Site Identity
-	$wp_customize->get_section( 'title_tagline' )->title = '&#x1f465; ' . esc_html__( 'Site Identity', 'gema-lite' );
-
 	// View Pro
 	$wp_customize->add_section( 'pro__section', array(
 		'title'       => '' . esc_html__( 'View PRO Version', 'gema-lite' ),
@@ -68,21 +65,6 @@ function gema_lite_customize_register( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'gema_lite_customize_register', 15 );
-
-/**
- * Sanitize the Site Title Outline value.
- *
- * @param string $outline Outline thickness.
- *
- * @return string Filtered outline (0|1|2|3).
- */
-function gema_lite_sanitize_site_title_outline( $outline ) {
-	if ( ! in_array( $outline, array( '0', '1.2', '3', '5', '10' ) ) ) {
-		$outline = '3';
-	}
-
-	return $outline;
-}
 
 /**
  * Assets that will be loaded for the customizer sidebar

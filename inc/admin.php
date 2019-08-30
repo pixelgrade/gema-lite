@@ -10,7 +10,6 @@
  */
 require_once trailingslashit( get_template_directory() ) . 'inc/admin/required-plugins.php';
 
-
 function gema_lite_admin_setup() {
 
 	/**

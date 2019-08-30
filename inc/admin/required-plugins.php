@@ -16,12 +16,6 @@ function gema_lite_register_required_plugins() {
 			'is_callable'        => 'PixelgradeAssistant',
 			'required'           => false,
 		),
-		array(
-			'name'               => 'Customify',
-			'slug'               => 'customify',
-			'is_callable'        => 'PixCustomifyPlugin',
-			'required'           => false,
-		),
 	);
 
 	$config = array(

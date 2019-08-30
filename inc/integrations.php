@@ -5,8 +5,7 @@
  * @package Gema Lite
  */
 
-
 /**
- * Load theme's configuration file (via Customify plugin)
+ * Load Customify plugin configuration
  */
-require get_template_directory() . '/inc/integrations/customify.php';
+require_once get_parent_theme_file_path( '/inc/integrations/customify.php' );

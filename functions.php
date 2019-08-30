@@ -75,8 +75,6 @@ function gema_lite_setup() {
 
 	/*
 	 * Enable support for custom logo.
-	 *
-	 *  @since Gema 1.0
 	 */
 	add_theme_support( 'custom-logo', array(
 		'height'      => 220,
@@ -88,12 +86,12 @@ function gema_lite_setup() {
 		)
 	) );
 
+	add_image_size( 'gema-site-logo', 710, 220, false );
+
 	/**
 	 * Enable support for the Style Manager Customizer section (via Customify).
 	 */
 	add_theme_support( 'customizer_style_manager' );
-
-	add_image_size( 'gema-site-logo', 710, 220, false );
 
 	/*
 	 * Add editor styles and fonts
@@ -140,8 +138,6 @@ function gema_lite_scripts() {
 
 	/* Enqueue the main theme script file */
 	wp_enqueue_script( 'gema-scripts', get_parent_theme_file_uri( 'assets/js/main.js' ), array( 'jquery', 'bricklayer', 'imagesloaded', 'hoverIntent' ), $theme->get( 'Version' ), true );
-
-	wp_enqueue_script( 'skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	wp_enqueue_style( 'gema-lite-google-fonts', gema_lite_google_fonts_url() );
 
@@ -202,22 +198,22 @@ add_filter( 'wp_get_attachment_image_attributes', 'gema_lite_post_thumbnail_size
 /**
  * Custom template tags for this theme.
  */
-require get_template_directory() . '/inc/template-tags.php';
+require_once trailingslashit( get_template_directory() ) . 'inc/template-tags.php';
 
 /**
  * Custom functions that act independently of the theme templates.
  */
-require get_template_directory() . '/inc/extras.php';
+require_once trailingslashit( get_template_directory() ) . 'inc/extras.php';
 
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+require_once trailingslashit( get_template_directory() ) . 'inc/customizer.php';
 
 /**
  * Load the Hybrid Media Grabber class
  */
-require get_template_directory() . '/inc/hybrid-media-grabber.php';
+require_once trailingslashit( get_template_directory() ) . 'inc/hybrid-media-grabber.php';
 
 /**
  * Admin dashboard related logic.
@@ -227,5 +223,5 @@ require_once trailingslashit( get_template_directory() ) . 'inc/admin.php';
 /**
  * Various plugins integrations.
  */
-require get_template_directory() . '/inc/integrations.php';
+require_once trailingslashit( get_template_directory() ) . 'inc/integrations.php';
 
