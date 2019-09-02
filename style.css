@@ -90,9 +90,6 @@ body {
 img {
   border: 0; }
 
-:focus {
-  outline: 0; }
-
 button {
   background: none; }
 
@@ -1248,6 +1245,14 @@ figure {
   .card__hover:hover .card__shadow:after {
     -webkit-transform: none;
             transform: none; }
+  .card__hover .card-title-wrap {
+    -webkit-transform: translate(0, calc(-50% - 12px));
+            transform: translate(0, calc(-50% - 12px)); }
+  .card--text .card__hover .card__meta {
+    -webkit-transform: translateY(-20%);
+            transform: translateY(-20%); }
+  .card__hover .card__meta {
+    margin-top: 0 !important; }
   .card__wrap,
   .card__shadow:after {
     -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
@@ -1255,7 +1260,7 @@ figure {
     transition: transform 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     transition: transform 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86), -webkit-transform 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86); }
   .card__meta {
-    opacity: 0;
+    opacity: 1;
     -webkit-transition: all 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     transition: all 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86); }
   .card--image .card__meta {
@@ -3321,7 +3326,6 @@ body div.sharedaddy div.sd-social-icon div.sd-content ul li a.sd-button.share-mo
     content: '-'; }
 
 .post-edit-link {
-  color: black;
   text-transform: uppercase; }
 
 .more-link {

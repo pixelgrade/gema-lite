@@ -240,11 +240,6 @@ function gema_lite_fill_customify_options( $options ) {
 							select,
 							textarea',
 						),
-						array(
-							'property'        => 'box-shadow',
-							'selector'        => '.sticky .card__title',
-							'callback_filter' => 'gema_sticky_boxshadow'
-						),
 					),
 				),
 			)
@@ -520,8 +515,7 @@ function gema_lite_fill_customify_options( $options ) {
 	                            div#infinite-handle span button, 
 	                            div#infinite-handle span button:hover, 
 	                            .more-link, 
-	                            .comment__content a, 
-	                            .nav-menu ul li.hover > a, 
+	                            .comment__content a,
 	                            .nav-menu ul li.hover:after,
 	                            div#subscribe-text p,
 	                            .jetpack_subscription_widget .widget__title, 

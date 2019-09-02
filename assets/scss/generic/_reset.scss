@@ -121,10 +121,6 @@ button {
     padding: 0;
     border: 0;
 }
-// remember to set :focus styles
-:focus {
-    @extend %outline--0;
-}
 
 // make images fit their container
 img {

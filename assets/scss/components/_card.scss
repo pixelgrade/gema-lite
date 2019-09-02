@@ -9,18 +9,19 @@
 		.card__shadow:after {
 			transform: none;
 		}
+	}
 
+	.card__hover {
 		.card-title-wrap {
-			// transform: translate(0, calc(-50% - 12px));
-		}
-
-		.card__meta {
-			// opacity: 1;
-			// margin-top: 0 !important;
+			 transform: translate(0, calc(-50% - 12px));
 		}
 
 		.card--text & .card__meta {
-			// transform: translateY(-20%);
+			 transform: translateY(-20%);
+		}
+
+		.card__meta {
+			margin-top: 0 !important;
 		}
 	}
 
@@ -30,7 +31,7 @@
 	}
 
 	.card__meta {
-	    opacity: 0;
+	    opacity: 1;
 	    transition: all $transitionDuration $easeInOutCirc;
 	}
 
