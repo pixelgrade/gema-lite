@@ -2,7 +2,8 @@ var gulp = require('gulp'),
 	plugins = require('gulp-load-plugins')(),
 	del = require('del'),
 	fs = require('fs'),
-	cp = require('child_process');
+	cp = require('child_process'),
+	bs = require( 'browser-sync' );
 
 var u = plugins.util,
 	c = plugins.util.colors,
@@ -12,6 +13,10 @@ function logError (err, res) {
 	log(c.red('Sass failed to compile'))
 	log(c.red('> ') + err.file.split('/')[err.file.split('/').length - 1] + ' ' + c.underline('line ' + err.line) + ': ' + err.message)
 }
+
+var config = {
+	"baseurl": "gema.work"
+};
 
 jsFiles = [
 	'./assets/js/vendor/*.js',
@@ -320,6 +325,42 @@ function updateDemoInstall() {
 		}));
 }
 gulp.task('update-demo', updateDemoInstall);
+
+// -----------------------------------------------------------------------------
+// Browser Sync using Proxy server
+//
+// Makes web development better by eliminating the need to refresh. Essential
+// for CSS development and multi-device testing.
+//
+// This is how you'd connect to a local server that runs itself.
+// Examples would be a PHP site such as Wordpress or a
+// Drupal site, or a node.js site like Express.
+//
+// Usage: gulp browser-sync-proxy --port 8080
+// -----------------------------------------------------------------------------
+gulp.task( 'browser-sync', false, function() {
+	bs( {
+		// Point this to your pre-existing server.
+		proxy: config.baseurl + (
+			u.env.port ? ':' + u.env.port : ''
+		),
+		files: ['*.php', '*.css', 'assets/js/*.js'],
+		// This tells BrowserSync to auto-open a tab once it boots.
+		open: true
+	}, function( err, bs ) {
+		if ( err ) {
+			console.log( bs.options );
+		}
+	} );
+} );
+
+// -----------------------------------------------------------------------------
+// Convenience task for development.
+//
+// This is the command you run to warm the site up for development. It will do
+// a full build, open BrowserSync, and start listening for changes.
+// -----------------------------------------------------------------------------
+gulp.task( 'bs', ['browser-sync', 'watch'] );
 
 
 /**
