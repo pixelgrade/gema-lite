@@ -1,4 +1,4 @@
-# Copyright (C) 2018 PixelGrade
+# Copyright (C) 2018 Pixelgrade
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
@@ -552,7 +552,7 @@ msgid ""
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "PixelGrade"
+msgid "Pixelgrade"
 msgstr ""
 
 #. Author URI of the plugin/theme
