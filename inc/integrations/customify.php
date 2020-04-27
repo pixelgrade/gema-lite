@@ -730,18 +730,25 @@ if ( ! function_exists( 'gema_important_rule_customizer_preview' ) ) {
 add_action( 'customize_preview_init', 'gema_important_rule_customizer_preview', 20 );
 
 if ( ! function_exists( 'gema_color_opacity_adjust_cb' ) ) {
-	function gema_color_opacity_adjust_cb( $value, $selector, $property, $unit ) {
+	function gema_color_opacity_adjust_cb( $hex, $selector, $property, $unit ) {
 
 		// Get our color
-		if ( empty( $value ) || ! preg_match( '/^#[a-f0-9]{6}$/i', $value ) ) {
+		if ( empty( $hex ) || ! preg_match( '/^#[a-f0-9]{6}$/i', $hex ) ) {
 			return '';
 		}
 
-		$r = hexdec( $value[1] . $value[2] );
-		$g = hexdec( $value[3] . $value[4] );
-		$b = hexdec( $value[5] . $value[6] );
+		// Format the hex color string.
+		$hex = str_replace( '#', '', $hex );
 
-		// if it is not a dark color, just go for the default way
+		if ( 3 == strlen( $hex ) ) {
+			$hex = str_repeat( substr( $hex, 0, 1 ), 2 ) . str_repeat( substr( $hex, 1, 1 ), 2 ) . str_repeat( substr( $hex, 2, 1 ), 2 );
+		}
+
+		// Get decimal values.
+		$r = hexdec( substr( $hex, 0, 2 ) );
+		$g = hexdec( substr( $hex, 2, 2 ) );
+		$b = hexdec( substr( $hex, 4, 2 ) );
+
 		$output = $selector . ' {' .
 		          $property . ': rgba(' . $r . ',' . $g . ',' . $b . ', 0.25);
 		}';
