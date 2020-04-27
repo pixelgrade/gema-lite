@@ -338,7 +338,7 @@ gulp.task('update-demo', updateDemoInstall);
 //
 // Usage: gulp browser-sync-proxy --port 8080
 // -----------------------------------------------------------------------------
-gulp.task( 'browser-sync', false, function() {
+gulp.task( 'browser-sync', function() {
 	bs( {
 		// Point this to your pre-existing server.
 		proxy: config.baseurl + (
@@ -360,7 +360,12 @@ gulp.task( 'browser-sync', false, function() {
 // This is the command you run to warm the site up for development. It will do
 // a full build, open BrowserSync, and start listening for changes.
 // -----------------------------------------------------------------------------
-gulp.task( 'bs', ['browser-sync', 'watch'] );
+
+function devSequence( cb ) {
+	return gulp.series( 'styles', 'scripts', 'watch', 'browser-sync' )(cb);
+}
+devSequence.description = 'Main development task:';
+gulp.task( 'bs', devSequence );
 
 
 /**
