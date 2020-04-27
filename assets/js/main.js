@@ -720,7 +720,7 @@
 
     /*!
      * pixelgradeTheme v1.0.1
-     * Copyright (c) 2017 PixelGrade http://www.pixelgrade.com
+     * Copyright (c) 2017 Pixelgrade http://www.pixelgrade.com
      * Licensed under MIT http://www.opensource.org/licenses/mit-license.php/
      */
     var pixelgradeTheme = function() {
