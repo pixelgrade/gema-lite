@@ -3,7 +3,7 @@ Theme URI: https://github.com/pixelgrade/gema-lite
 Author: Pixelgrade
 Author URI: https://pixelgrade.com
 Description: Gema Lite is a newspaper-inspired theme focused on presenting your content in diverse, daring, and bold ways. Bring forth the stylish traveler, lifestyle connoisseur, the wandering photographer, literary dreamer, or any other passionate persona you keep tucked away.
-Version: 1.3.0
+Version: 1.3.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.9.9
@@ -21,6 +21,10 @@ Gema Lite is a newspaper-inspired theme focused on presenting your content in wa
 3. Click Activate to use your new theme right away.
 
 == Changelog ==
+
+= 1.3.1 =
+* Added compatibility with WordPress 5.4.
+* Improved color opacity callback.
 
 = 1.3.0 =
 * Added new color customization features via our Customify plugin (Style Manager).
