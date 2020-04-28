@@ -147,6 +147,13 @@ function gema_lite_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'gema_lite_scripts' );
 
+function gema_lite_gutenberg_styles() {
+	wp_enqueue_style( 'gema-lite-gutenberg', get_theme_file_uri( '/editor.css' ), false );
+	wp_enqueue_style( 'gema-google-fonts', gema_lite_montserrat_font_url() );
+}
+
+add_action( 'enqueue_block_editor_assets', 'gema_lite_gutenberg_styles' );
+
 
 /**
  * Add custom image sizes attribute to enhance responsive image functionality
